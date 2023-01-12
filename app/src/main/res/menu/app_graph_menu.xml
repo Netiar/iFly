@@ -2,12 +2,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item android:title="Home"
-            android:icon="@drawable/ic_menu"
+            android:icon="@drawable/ic_home"
             android:id="@+id/chatFragment"/>
 
         <item android:title="Scholars"
-            android:icon="@drawable/ic_person"
+            android:icon="@drawable/ic_group"
             android:id="@+id/scholarsFragment"/>
 
+        <item android:title="Chats"
+            android:icon="@drawable/chat"
+            android:id="@+id/scholars"/>
+
+        <item android:title="Events"
+            android:icon="@drawable/ic_event"
+            android:id="@+id/eventFragment"/>
+
+        <item android:title="Learn"
+            android:icon="@drawable/ic_book"
+            android:id="@+id/learnFragment"/>
+
     </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="logout"
+                    android:icon="@drawable/ic_reply"
+                    android:id="@+id/logout"/>
+
+                <item android:title="Share"
+                    android:icon="@drawable/ic_share"
+                    android:id="@+id/share"/>
+            </group>
+        </menu>
+    </item>
 </menu>
