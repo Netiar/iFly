@@ -27,6 +27,7 @@ class MainFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         bind = FragmentMainBinding.inflate(layoutInflater)
+        bind.image.setOnClickListener(this::onClick)
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         bind.navView.bringToFront()
         bind.navView.setupWithNavController(navHostFragment.navController)
