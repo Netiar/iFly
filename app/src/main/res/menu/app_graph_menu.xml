@@ -3,11 +3,11 @@
     <group android:checkableBehavior="single">
         <item android:title="Home"
             android:icon="@drawable/ic_home"
-            android:id="@+id/chatFragment"/>
+            android:id="@+id/chatFragment2"/>
 
         <item android:title="Scholars"
             android:icon="@drawable/ic_group"
-            android:id="@+id/scholarsFragment"/>
+            android:id="@+id/scholarFragment2"/>
 
         <item android:title="Chats"
             android:icon="@drawable/chat"
@@ -17,11 +17,21 @@
             android:icon="@drawable/ic_event"
             android:id="@+id/eventFragment"/>
 
-        <item android:title="Learn"
-            android:icon="@drawable/ic_book"
-            android:id="@+id/learnFragment"/>
+
 
     </group>
+    <item android:title="Growth">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="Learn"
+                    android:icon="@drawable/ic_book"
+                    android:id="@+id/learnFragment2"/>
+                <item android:title="Job Opportunities"
+                    android:icon="@drawable/ic_work"
+                    android:id="@+id/jobsFragments"/>
+            </group>
+        </menu>
+    </item>
 
     <item android:title="Profile">
         <menu>
