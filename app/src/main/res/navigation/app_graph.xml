@@ -3,16 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_graph"
-    app:startDestination="@id/chatFragment">
+    app:startDestination="@id/chatFragment2">
+
 
     <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.example.wingstofly.ChatFragment"
+        android:id="@+id/scholarFragment2"
+        android:name="com.example.wingstofly.fragments.ScholarFragment"
+        android:label="fragment_scholar"
+        tools:layout="@layout/fragment_scholar" >
+        <action
+            android:id="@+id/action_scholarFragment2_to_singleScholarFragment"
+            app:destination="@id/singleScholarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment2"
+        android:name="com.example.wingstofly.fragments.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
-        android:id="@+id/scholarsFragment"
-        android:name="com.example.wingstofly.ScholarsFragment"
-        android:label="fragment_scholars"
-        tools:layout="@layout/fragment_scholars" />
+        android:id="@+id/singleScholarFragment"
+        android:name="com.example.wingstofly.fragments.SingleScholarFragment"
+        android:label="fragment_single_scholar"
+        tools:layout="@layout/fragment_single_scholar" />
+    <fragment
+        android:id="@+id/learnFragment2"
+        android:name="com.example.wingstofly.fragments.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" />
 </navigation>
