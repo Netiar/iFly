@@ -21,22 +21,22 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
-        android:id="@+id/vendor_name"
+        android:id="@+id/scholar_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Brad Pitt"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/vendor_status"
+        app:layout_constraintBottom_toTopOf="@id/scholar_status"
         app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintTop_toTopOf="@id/image" />
     <TextView
-        android:id="@+id/vendor_status"
+        android:id="@+id/scholar_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="available"
-        app:layout_constraintTop_toBottomOf="@id/vendor_name"
-        app:layout_constraintStart_toStartOf="@id/vendor_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/scholar_name"
+        app:layout_constraintStart_toStartOf="@+id/scholar_name"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
