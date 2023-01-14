@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.LearnFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/layout_design"
+        android:id="@+id/recView2"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/material_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_marginTop="14dp"
+            android:id="@+id/activity_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Activity Name"
+            android:textColor="@color/maroon"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/animation_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/animation_view"
+            app:layout_constraintBottom_toTopOf="@id/activity"/>
+
+        <TextView
+            android:id="@+id/activity"
+            android:layout_marginEnd="16dp"
+            android:textStyle="italic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Activity Name"
+            app:layout_constraintLeft_toRightOf="@id/animation_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_name"
+            app:layout_constraintBottom_toTopOf="@id/activity_part"/>
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="198dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_part"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/learn" />
+
+        <TextView
+            android:layout_marginBottom="14dp"
+            android:id="@+id/activity_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Activity Name"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/animation_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/animation_view"
+            app:layout_constraintTop_toBottomOf="@id/activity"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <TextView
+        android:id="@+id/material_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="Quiz Topics"
+        app:layout_constraintBottom_toTopOf="@+id/recView1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recView2"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recView1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/material_button"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
