@@ -34,6 +34,29 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
+        <TextView
+            android:id="@+id/trvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Charles"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintEnd_toStartOf="@id/image1"
+            app:layout_constraintTop_toTopOf="@id/image"/>
+        <TextView
+            android:id="@+id/tvSlogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="find joy in the journey"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:textColor="@color/brown1"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/trvWelcome"
+            app:layout_constraintStart_toStartOf="@id/trvWelcome"/>
+
         <ImageView
             android:id="@+id/image1"
             android:layout_width="100dp"
