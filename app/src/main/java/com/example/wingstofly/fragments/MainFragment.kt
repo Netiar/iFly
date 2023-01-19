@@ -8,18 +8,16 @@ import android.view.ViewGroup
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentMainBinding
+import com.example.wingstofly.viewmodel.QuizViewModel
 
 
 class MainFragment : Fragment(), View.OnClickListener {
-    private lateinit var bind:FragmentMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private lateinit var bind:FragmentMainBinding
+    lateinit var viewModel: QuizViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,20 +25,15 @@ class MainFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         bind = FragmentMainBinding.inflate(layoutInflater)
+
+        viewModel = (activity as MainActivity).questViewModel
+
         bind.image.setOnClickListener(this::onClick)
+
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         bind.navView.bringToFront()
         bind.navView.setupWithNavController(navHostFragment.navController)
         return bind.root
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
     }
 
     override fun onClick(p0: View?) {
