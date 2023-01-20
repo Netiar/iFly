@@ -1,38 +1,33 @@
 package com.example.wingstofly.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.findFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
 import com.example.wingstofly.R
-import com.example.wingstofly.databinding.ChatBinding
+import com.example.wingstofly.databinding.FragmentChatBinding
 import com.example.wingstofly.databinding.FragmentScholarBinding
-import com.example.wingstofly.databinding.ScholarBinding
-import com.example.wingstofly.databinding.ScholarSuggestionBinding
-import com.example.wingstofly.fragments.ScholarFragment
+import kotlinx.android.synthetic.main.fragment_chat.view.top_rec_view
+import kotlinx.android.synthetic.main.fragment_scholar.view.*
 
-class ScholarsRecAdapter(private var recBind: ViewBinding?, private var mainBind:FragmentScholarBinding): RecyclerView.Adapter<ScholarsRecAdapter.MyHolder>() {
-    inner class MyHolder(bind: ViewBinding): RecyclerView.ViewHolder(bind.root) {
-        init {
-            bind.root.setOnClickListener{
-                it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleScholarFragment)
-            }
-        }
+class ScholarsRecAdapter(): RecyclerView.Adapter<ScholarsRecAdapter.MyHolder>() {
+    inner class MyHolder(view: View): RecyclerView.ViewHolder(view) {
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        recBind = if (parent == mainBind.myRecView){
-            Toast.makeText(parent.context, "${parent.toString()}", Toast.LENGTH_LONG).show()
-            ScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        var view: View? = null
+        if (parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.myRecView.id){
+            view = LayoutInflater.from(parent.context).inflate(R.layout.scholar, parent,false)
+        }else if(parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.top_rec_view.id){
+            view = LayoutInflater.from(parent.context).inflate(R.layout.scholar_suggestion, parent,false)
+        }else if(parent.id == FragmentChatBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.top_rec_view.id){
+            view = LayoutInflater.from(parent.context).inflate(R.layout.scholar_suggestion, parent,false)
         }else{
-            Toast.makeText(parent.context,
-                parent.toString(), Toast.LENGTH_LONG).show()
-            ScholarSuggestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            view = LayoutInflater.from(parent.context).inflate(R.layout.scholar, parent,false)
+
         }
-        return MyHolder(recBind!!)
+        return MyHolder(view!!)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
