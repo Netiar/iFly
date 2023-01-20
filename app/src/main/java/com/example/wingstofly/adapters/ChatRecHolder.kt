@@ -16,9 +16,7 @@ class ChatRecHolder: RecyclerView.Adapter<ChatRecHolder.MyHolder>() {
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = 10
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MyHolder(
         LayoutInflater.from(parent.context).inflate(
