@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_graph"
-    app:startDestination="@id/chatFragment2">
+    app:startDestination="@id/newsFragment">
 
 
     <fragment
@@ -30,4 +30,16 @@
         android:name="com.example.wingstofly.fragments.LearnFragment"
         android:label="fragment_learn"
         tools:layout="@layout/fragment_learn" />
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="com.example.wingstofly.fragments.JobsFragment"
+        android:label="JobsFragment" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.wingstofly.fragments.NewsFragment"
+        android:label="NewsFragment" />
+    <fragment
+        android:id="@+id/fragmentEvents"
+        android:name="com.example.wingstofly.fragments.FragmentEvents"
+        android:label="FragmentEvents" />
 </navigation>
