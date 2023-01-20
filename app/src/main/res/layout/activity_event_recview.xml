@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="8dp">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@drawable/wings"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/newsId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event Title"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/newsDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event Description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toBottomOf="@id/newsId"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
