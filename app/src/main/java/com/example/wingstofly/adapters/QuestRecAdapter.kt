@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
-import com.example.wingstofly.databinding.LearnBinding
-import com.example.wingstofly.models.ResultX
+import com.example.wingstofly.models.TriviaCategory
 import kotlinx.android.synthetic.main.learn.view.*
 
 class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
@@ -16,12 +15,12 @@ class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
 
     }
 
-    private val diffUtil = object : DiffUtil.ItemCallback<ResultX>(){
-        override fun areItemsTheSame(oldItem: ResultX, newItem: ResultX): Boolean {
-            return oldItem.question == newItem.question
+    private val diffUtil = object : DiffUtil.ItemCallback<TriviaCategory>(){
+        override fun areItemsTheSame(oldItem: TriviaCategory, newItem: TriviaCategory): Boolean {
+            return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: ResultX, newItem: ResultX): Boolean {
+        override fun areContentsTheSame(oldItem: TriviaCategory, newItem: TriviaCategory): Boolean {
             return oldItem == newItem
         }
 
@@ -37,8 +36,8 @@ class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val topic = listDiffer.currentList[position]
         holder.itemView.apply {
-            name.text = topic.category
-            level.text = topic.question
+            name.text = topic.name
+            level.text = topic.id.toString()
         }
     }
 
