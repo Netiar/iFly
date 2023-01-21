@@ -8,3 +8,9 @@ class Event(var title:String){
     var date:Date? = null
 }
 
+class Job(var title:String){
+    var company: String? = null
+    var description:String? = null
+    var requirements = ArrayList<String>()
+    var date:Date? = null
+}
