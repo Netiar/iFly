@@ -9,15 +9,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.ScholarsRecAdapter
+import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ChatBinding
+import com.example.wingstofly.databinding.FragmentChatBinding
 import com.example.wingstofly.databinding.FragmentScholarBinding
 import com.example.wingstofly.databinding.ScholarBinding
 import com.example.wingstofly.databinding.ScholarSuggestionBinding
+import com.example.wingstofly.models.Scholar
 
 class ScholarFragment : Fragment() {
     private lateinit var bind:FragmentScholarBinding
-    private var suggestionsbind:ScholarSuggestionBinding? = null
-    private var scholarbind: ChatBinding? = null
+    private lateinit var suggestionsBind:ScholarSuggestionBinding
+    private lateinit var scholarBind: ChatBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +28,33 @@ class ScholarFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         bind = FragmentScholarBinding.inflate(inflater)
+        scholarBind = ChatBinding.inflate(inflater, container, false)
+        suggestionsBind = ScholarSuggestionBinding.inflate(inflater, container, false)
 
-//        scholarbind = ChatBinding.inflate(inflater, container, false)
-//        suggestionsbind = ScholarSuggestionBinding.inflate(inflater, container, false)
+        val dm = DataScholarManager()
 
-        val adapter = ScholarsRecAdapter(scholarbind, bind)
-        val adapter1 = ScholarsRecAdapter(suggestionsbind, bind)
+        val adapter = ScholarsRecAdapter(requireContext())
+        val scholarsList = dm.scholars
+        adapter.listDiffer.submitList(scholarsList)
+
+        val realScholar = Scholar("Charles Muvaka", "Student")
+        realScholar.apply {
+            setOrigin("Kericho Branch")
+            primarySchool = "Umoja primary school"
+            secondarySchool = "St Josephs Seminary Mwingi"
+            varsity = "The Technical University of Kenya"
+        }
+        val scholarSuggestion = ArrayList<Scholar>()
+        for (scholar in scholarsList){
+            if (scholar.getOrigin() == realScholar.getOrigin()){
+                scholarSuggestion.add(scholar)
+            }
+        }
+        val adapter1 = ScholarsRecAdapter(requireContext())
+        adapter1.listDiffer.submitList(scholarSuggestion)
         bind.topRecView.apply {
             this.adapter = adapter1
             this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
