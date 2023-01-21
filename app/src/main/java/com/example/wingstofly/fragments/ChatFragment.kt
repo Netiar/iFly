@@ -28,7 +28,7 @@ class ChatFragment : Fragment() {
         bind = FragmentChatBinding.inflate(inflater)
         recBind = ScholarBinding.inflate(inflater, container, false)
 
-        suggestionAdapter = ScholarsRecAdapter()
+        suggestionAdapter = ScholarsRecAdapter(requireContext())
         chatAdapter = ChatRecHolder()
 
         setUpRecyclerView()
