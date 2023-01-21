@@ -31,7 +31,8 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
               bind.status.text = scholar.getStatus()
           }
           if(v1.root.id == bind.root.id){
-              (bind as ScholarSuggestionBinding).scholarName.text = scholar.getName()
+              val newName = scholar.getName().trim().substring(scholar.getName().indexOf(" ") )
+              (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.getName().substring(0, 1)}.$newName"
           }
 
         }
