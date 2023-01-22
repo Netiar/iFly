@@ -8,6 +8,9 @@ class Scholar(private val name:String, private val status:String ) {
     var primarySchool: String? = null
     var secondarySchool: String? = null
     var varsity: String? = null
+    var meanGrade: String? = null
+    var meanScore: Int = 0
+    var meanAGP: Int = 0
 
     fun getName() = this.name
     fun getStatus() = this.status
@@ -72,6 +75,8 @@ class Scholar(private val name:String, private val status:String ) {
         }
         return 0
     }
+
+
 
 }
 
