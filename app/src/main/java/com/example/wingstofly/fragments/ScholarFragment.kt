@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.ScholarsRecAdapter
 import com.example.wingstofly.database.DataScholarManager
@@ -34,10 +35,9 @@ class ScholarFragment : Fragment() {
         scholarBind = ChatBinding.inflate(inflater, container, false)
         suggestionsBind = ScholarSuggestionBinding.inflate(inflater, container, false)
 
-        val dm = DataScholarManager()
 
         val adapter = ScholarsRecAdapter(requireContext())
-        val scholarsList = dm.scholars
+        val scholarsList = (activity as MainActivity).scholars
         adapter.listDiffer.submitList(scholarsList)
 
         val realScholar = Scholar("Charles Muvaka", "Student")
