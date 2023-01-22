@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.wingstofly.R
-import com.example.wingstofly.databinding.FragmentChatBinding
-import com.example.wingstofly.databinding.FragmentScholarBinding
-import com.example.wingstofly.databinding.ScholarBinding
-import com.example.wingstofly.databinding.ScholarSuggestionBinding
+import com.example.wingstofly.databinding.*
 import com.example.wingstofly.models.Scholar
 import kotlinx.android.synthetic.main.fragment_chat.view.top_rec_view
 import kotlinx.android.synthetic.main.fragment_scholar.view.*
@@ -30,7 +27,7 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
               bind.scholarName.text = scholar.getName()
               bind.status.text = scholar.getStatus()
           }
-          if(v1.root.id == bind.root.id){
+          if((v1.root.id == bind.root.id)){
               val newName = scholar.getName().trim().substring(scholar.getName().indexOf(" ") )
               (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.getName().substring(0, 1)}.$newName"
           }
@@ -40,7 +37,7 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
 
     private val diffUtil = object: DiffUtil.ItemCallback<Scholar>(){
         override fun areItemsTheSame(oldItem: Scholar, newItem: Scholar): Boolean {
-            return oldItem.getId() == newItem.getId()
+            return oldItem.pfNumber == newItem.pfNumber
         }
 
         override fun areContentsTheSame(oldItem: Scholar, newItem: Scholar): Boolean {
