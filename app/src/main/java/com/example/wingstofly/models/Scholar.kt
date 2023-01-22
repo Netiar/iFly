@@ -3,6 +3,7 @@ package com.example.wingstofly.models
 
 class Scholar(private val name:String, private val status:String ) {
     private lateinit var origin:String
+    private val agpValues = HashMap<String, Int>()
     var pfNumber: String = ""
     var primarySchool: String? = null
     var secondarySchool: String? = null
