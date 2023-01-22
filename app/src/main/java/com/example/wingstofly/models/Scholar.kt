@@ -16,4 +16,11 @@ class Scholar(private val name:String, private val status:String ) {
         this.origin = origin
     }
 
+    fun addSubject(subject: Subject){
+        subject.grade = assignGrades(subject.score)
+        subject.agp = assignAGP(subject.grade!!)!!
+        currentSubjects.add(subject)
+        calculateMeanScore()
+    }
+
 }
