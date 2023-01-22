@@ -90,6 +90,10 @@ class Scholar(private val name:String, private val status:String ) {
 
     }
 
+    private fun scholarMeanGrade(){
+        meanGrade = assignGrades(meanScore)
+    }
+
 
 
 }
