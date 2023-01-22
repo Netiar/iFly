@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wingstofly.R
+import com.example.wingstofly.MainActivity
 import com.example.wingstofly.adapters.ChatRecHolder
 import com.example.wingstofly.adapters.ScholarsRecAdapter
 import com.example.wingstofly.databinding.FragmentChatBinding
 import com.example.wingstofly.databinding.ScholarBinding
+import com.example.wingstofly.models.Scholar
 
 
 class ChatFragment : Fragment() {
@@ -29,6 +30,23 @@ class ChatFragment : Fragment() {
         recBind = ScholarBinding.inflate(inflater, container, false)
 
         suggestionAdapter = ScholarsRecAdapter(requireContext())
+        val scholarsList = (activity as MainActivity).scholars
+
+        val realScholar = Scholar("Charles Muvaka", "Student")
+        realScholar.apply {
+            setOrigin("Kericho Branch")
+            primarySchool = "Umoja primary school"
+            secondarySchool = "St Josephs Seminary Mwingi"
+            varsity = "The Technical University of Kenya"
+        }
+        val scholarSuggestion = ArrayList<Scholar>()
+        for (scholar in scholarsList){
+            if (scholar.getOrigin() == realScholar.getOrigin()){
+                scholarSuggestion.add(scholar)
+            }
+        }
+
+        suggestionAdapter.listDiffer.submitList(scholarSuggestion)
         chatAdapter = ChatRecHolder()
 
         setUpRecyclerView()
