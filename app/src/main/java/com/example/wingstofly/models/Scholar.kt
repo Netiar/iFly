@@ -24,3 +24,9 @@ class Scholar(private val name:String, private val status:String ) {
     }
 
 }
+
+data class Subject(var name: String, var category: String){
+    var grade: String? = null;
+    var agp: Int = 0
+    var score:Int = 0
+}
