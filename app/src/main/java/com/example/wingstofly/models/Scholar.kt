@@ -63,6 +63,15 @@ class Scholar(private val name:String, private val status:String ) {
         return "E"
     }
 
+    private fun assignAGP(grade: String): Int? {
+        for (key in agpValues.keys){
+            if (key == grade){
+                return agpValues[key]
+            }
+        }
+        return 0
+    }
+
 }
 
 data class Subject(var name: String, var category: String){
