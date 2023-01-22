@@ -7,6 +7,7 @@ class Scholar(private val name:String, private val status:String ) {
     var pfNumber: String = ""
     var primarySchool: String? = null
     var secondarySchool: String? = null
+    var currentSubjects = ArrayList<Subject>()
     var varsity: String? = null
     var meanGrade: String? = null
     var meanScore: Int = 0
