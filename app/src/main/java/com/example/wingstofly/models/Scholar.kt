@@ -76,6 +76,20 @@ class Scholar(private val name:String, private val status:String ) {
         return 0
     }
 
+    private fun calculateMeanScore(){
+        var totalMarks = 0
+        val noOfSubjects:Int = currentSubjects.size
+
+        for (subject in currentSubjects){
+            totalMarks += subject.score!!
+        }
+
+        meanScore = totalMarks/noOfSubjects
+        scholarMeanGrade()
+        scholarMeanAGP()
+
+    }
+
 
 
 }
