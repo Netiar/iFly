@@ -13,6 +13,7 @@ class DataScholarManager {
         val scholar = Scholar("Charles Muvaka", "Student")
         scholar.apply {
             setOrigin("Kericho Branch")
+            pfNumber = "pf41890"
             primarySchool = "Umoja primary school"
             secondarySchool = "St Josephs Seminary Mwingi"
             varsity = "The Technical University of Kenya"
@@ -21,6 +22,7 @@ class DataScholarManager {
         val scholar1 = Scholar("Albright Sunguti", "Student")
         scholar1.apply {
             setOrigin("Changamwe Branch")
+            pfNumber = "pf41891"
             primarySchool = "Chaani primary school"
             secondarySchool = "Alliance Boys High School"
         }
@@ -28,6 +30,7 @@ class DataScholarManager {
         val scholar2 = Scholar("Rose Chari", "Student")
         scholar2.apply {
             setOrigin("Moi-Avenue Branch")
+            pfNumber = "pf41892"
             primarySchool = "Nairobi primary school"
             secondarySchool = "Starehe Boys Centre"
         }
@@ -35,6 +38,7 @@ class DataScholarManager {
         val scholar3= Scholar("Fahmy Nassir", "Student")
         scholar3.apply {
             setOrigin("Digo-Road Branch")
+            pfNumber = "pf41893"
             primarySchool = "Wayani Hill Academy"
             secondarySchool = "Precious blood Riruta"
         }
@@ -42,6 +46,7 @@ class DataScholarManager {
         val scholar4 = Scholar("Francis Kalama", "Student")
         scholar4.apply {
             setOrigin("Subukia Branch")
+            pfNumber = "pf41894"
             primarySchool = "Gome Primary school"
             secondarySchool = "Nairobi School"
         }
