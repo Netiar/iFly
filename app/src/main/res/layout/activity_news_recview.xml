@@ -8,8 +8,17 @@
     android:layout_margin="8dp">
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:background="@drawable/wings"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wings"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            android:alpha="0.5"
+            />
 
         <TextView
             android:id="@+id/newsId"
@@ -18,6 +27,8 @@
             android:text="News Title"
             android:textStyle="bold"
             android:textColor="@color/black"
+            android:alpha="1"
+            android:shadowColor="@color/brown1"
             android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintTop_toTopOf="parent"
