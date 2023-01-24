@@ -14,7 +14,12 @@ class DataScholarManager {
         scholar.apply {
             setOrigin("Kericho Branch")
             pfNumber = "pf41890"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
             primarySchool = "Umoja primary school"
+            primaryMeanGrade = "B+"
+            primaryMarks = 364
+            primaryMeanAGP = 10
             secondarySchool = "St Josephs Seminary Mwingi"
             varsity = "The Technical University of Kenya"
         }
