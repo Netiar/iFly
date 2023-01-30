@@ -42,4 +42,8 @@
         android:id="@+id/fragmentEvents"
         android:name="com.example.wingstofly.fragments.FragmentEvents"
         android:label="FragmentEvents" />
+    <fragment
+        android:id="@+id/gradesFragment"
+        android:name="com.example.wingstofly.fragments.GradesFragment"
+        android:label="GradesFragment" />
 </navigation>
