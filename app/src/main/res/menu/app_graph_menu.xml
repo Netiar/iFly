@@ -36,9 +36,9 @@
     <item android:title="Profile">
         <menu>
             <group android:checkableBehavior="single">
-                <item android:title="Profile"
+                <item android:title="View scholar grades"
                     android:icon="@drawable/ic_person"
-                    android:id="@+id/p"/>
+                    android:id="@+id/gradesFragment"/>
                 <item android:title="logout"
                     android:icon="@drawable/ic_reply"
                     android:id="@+id/logout"/>
