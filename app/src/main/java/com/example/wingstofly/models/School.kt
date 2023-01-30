@@ -1,21 +1,13 @@
 package com.example.wingstofly.models
 
+import java.util.*
 import kotlin.properties.Delegates
 
-class School(private val name:String, private val location: String) {
-    private var website:String? = null
-    private var studentId:Int? = null
+class School(val name:String, val location: String) {
+    var website:String? = null
+    var studentId:Int? = null
+    var startYear: Date? = null
+    var endYear: Date? = null
+    var schoolType: String? = null
 
-    fun getStudentId() = this.studentId
-    fun getWebsite() = this.website
-    fun getName() = this.name
-    fun getLocation() = this.location
-
-    fun setWebsite(website:String){
-        this.website = website
-    }
-
-    fun setStudentId(id:Int){
-        this.studentId = id
-    }
 }
