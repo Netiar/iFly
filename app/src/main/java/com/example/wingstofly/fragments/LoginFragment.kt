@@ -1,6 +1,8 @@
 package com.example.wingstofly.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentSignBinding
 import com.example.wingstofly.models.Scholar
+import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.utils.Validator
 import kotlinx.android.synthetic.main.fragment_sign.*
 
@@ -19,7 +22,10 @@ import kotlinx.android.synthetic.main.fragment_sign.*
 class LoginFragment : Fragment(), View.OnClickListener {
     private lateinit var bind:FragmentSignBinding
     private lateinit var scholars: ArrayList<Scholar>
-    private lateinit var scholar: Scholar
+    private lateinit var pref: SharedPreferences
+    lateinit var scholar: Scholar
+    private  var pfNumber: String? = null
+    private lateinit var prefEditor: SharedPreferences.Editor
 
 
     override fun onCreateView(
@@ -28,8 +34,10 @@ class LoginFragment : Fragment(), View.OnClickListener {
         bind = FragmentSignBinding.inflate(layoutInflater)
 
         scholars = (activity as MainActivity).scholars
-
+        pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        prefEditor = pref.edit()
         bind.submit.setOnClickListener(this::onClick)
+
 
 
 
@@ -38,26 +46,28 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if (p0 == bind.submit){
-            validatePfNumber(p0)
-        }
-    }
-
-    private fun validatePfNumber(p0: View?){
-
             if (!Validator().validateInputText(scholar_id)){
                 return
             }
-        val pfNumber = bind.scholarId.editText!!.text.trim()
+            pfNumber = bind.scholarId.editText!!.text.trim().toString()
+            scholar = getCurrentScholar(pfNumber!!)
+            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
+    }
 
+
+    fun getCurrentScholar(pfNumber: String): Scholar {
+        var scholar:Scholar? = null
         for (i in 0 until scholars.size){
             val currentPfNumber = scholars[i].pfNumber
             if (pfNumber.contentEquals(currentPfNumber, true)){
                 scholar = scholars[i]
-                p0?.findFragment<LoginFragment>()?.findNavController()?.navigate(R.id.action_loginFragment_to_mainFragment)
+                prefEditor.putString(Constants.PF_NUMBER, pfNumber).apply()
                 break
             }else{
                 scholar_id.error = "Enter the correct number"
             }
         }
+        return scholar!!
     }
 }
