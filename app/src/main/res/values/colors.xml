@@ -11,6 +11,8 @@
     <color name="maroon">#961D24</color>
     <color name="maroon1">#FB5B5B</color>
     <color name="maroon2">#FDEEDB</color>
+    <color name="maroon3">#ECCDC3</color>
+    <color name="magenta">#EEA4BB</color>
     <color name="brown">#E0A95C</color>
     <color name="brown1">#97631A</color>
 </resources>
