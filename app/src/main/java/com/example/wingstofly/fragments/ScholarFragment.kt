@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.wingstofly.MainActivity
@@ -22,6 +24,7 @@ class ScholarFragment : Fragment() {
     private lateinit var bind:FragmentScholarBinding
     private lateinit var suggestionsBind:ScholarSuggestionBinding
     private lateinit var scholarBind: ChatBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +38,22 @@ class ScholarFragment : Fragment() {
         scholarBind = ChatBinding.inflate(inflater, container, false)
         suggestionsBind = ScholarSuggestionBinding.inflate(inflater, container, false)
 
-
         val adapter = ScholarsRecAdapter(requireContext())
         val scholarsList = (activity as MainActivity).scholars
+        val subjectsList = (activity as MainActivity).subjects
+
+        for (scholar in scholarsList){
+            for(subject in subjectsList){
+               when(subject.category){
+                   "Common" -> subject.score = 73
+                   "Humanities" -> subject.score = 86
+                   "Sciences" -> subject.score = 56
+                   else -> subject.score = 63
+               }
+
+                scholar.addSubject(subject)
+            }
+        }
         adapter.listDiffer.submitList(scholarsList)
 
         val realScholar = Scholar("Charles Muvaka", "Student")
