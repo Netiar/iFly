@@ -30,7 +30,7 @@ class SingleScholarFragment : Fragment() {
         // Inflate the layout for this fragment
 
         bind = FragmentSingleScholarBinding.inflate(inflater)
-        bind.current.text = "${param1!!.getStatus()} at ${param1!!.secondarySchool} \n current Grade: ${param1!!.meanGrade} \n current points: ${param1!!.primaryMeanAGP}"
+        bind.current.text = "${param1!!.status} at ${param1!!.secondarySchool} \n current Grade: ${param1!!.meanGrade} \n current points: ${param1!!.primaryMeanAGP}"
         bind.juniorSchool.text = "Primary School: ${param1!!.primarySchool} \n Mean Grade: ${param1!!.primaryMeanGrade} \n Total Marks: ${param1!!.primaryMarks}"
         bind.branchOrigin.text = "Origin Branch: ${param1!!.getOrigin()}"
         bind.phone.text = "Primary Number: ${param1!!.primaryNumber} \n Other Number: ${param1!!.otherNumber}"
