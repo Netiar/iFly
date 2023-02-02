@@ -2,9 +2,14 @@ package com.example.wingstofly.models
 
 data class Scholar (var name:String, var status:String): java.io.Serializable{
     var pfNumber: String?  = null
+    var primaryNumber: String? = null
+    var otherNumber: String? = null
     private val agpValues = HashMap<String, Int>()
     private lateinit var origin:String
     var primarySchool: String? = null
+    var primaryMeanGrade: String? = null
+    var primaryMeanAGP: Int = 0
+    var primaryMarks: Int = 0
     var secondarySchool: String? = null
     var varsity: String? = null
     var currentSubjects = ArrayList<Subject>()
