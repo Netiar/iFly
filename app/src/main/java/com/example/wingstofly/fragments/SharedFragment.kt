@@ -34,6 +34,16 @@ class SharedFragment : Fragment() {
         bind = FragmentSharedBinding.inflate(layoutInflater)
 
         bind.cutOff.text = "Scholar cut off: ${Constants.CUT_POINT}"
+
+        bind.meanGrade.text = " Your mean grade is ${scholar.meanGrade}"
+        if (Constants.CUT_POINT_OFF_POINTS < scholar.meanAGP){
+            bind.studentDeviation.text = "Congrats you are on the right track"
+        }else if (Constants.CUT_POINT_OFF_POINTS == scholar.meanAGP){
+            bind.studentDeviation.text = "Hey, You are treading on a dangerous zone!!"
+        }else{
+            var deviation = scholar.calculateDeviation() * scholar.currentSubjects.size
+            bind.studentDeviation.text = "Add more than $deviation marks in each subject to be on the safe side."
+        }
         setUpRecyclerView()
         return bind.root
     }
