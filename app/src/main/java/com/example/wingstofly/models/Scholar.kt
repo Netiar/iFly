@@ -1,6 +1,6 @@
 package com.example.wingstofly.models
 
-data class Scholar (var name:String, var status:String){
+data class Scholar (var name:String, var status:String): java.io.Serializable{
     var pfNumber: String?  = null
     private val agpValues = HashMap<String, Int>()
     private lateinit var origin:String
@@ -105,7 +105,7 @@ class ScholarStatus{
     var preCampus: String = "A post graduate"
 }
 
-data class Subject(var name: String, var category: String){
+data class Subject(var name: String, var category: String): java.io.Serializable{
     var grade: String? = null;
     var agp: Int = 0
     var score:Int = 0
