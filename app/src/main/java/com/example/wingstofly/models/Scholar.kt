@@ -1,28 +1,20 @@
 package com.example.wingstofly.models
 
-
-data class Scholar(private val name:String, private val status:String ): java.io.Serializable {
-    private lateinit var origin:String
+data class Scholar (var name:String, var status:String){
+    var pfNumber: String?  = null
     private val agpValues = HashMap<String, Int>()
-    var pfNumber: String = ""
-    var primaryNumber: String? = null
-    var otherNumber: String? = null
-    var emailAddress: String? = null
+    private lateinit var origin:String
     var primarySchool: String? = null
     var secondarySchool: String? = null
-    var currentSubjects = ArrayList<Subject>()
     var varsity: String? = null
-    var primaryMeanGrade: String? = null
-    var primaryMarks: Int = 0
-    var primaryMeanAGP: Int = 0
+    var currentSubjects = ArrayList<Subject>()
     var meanGrade: String? = null
     var meanScore: Int = 0
     var meanAGP: Int = 0
+    var courses = ArrayList<String>()
+    var tertiaryInstitutions = ArrayList<String>()
 
-    fun getName() = this.name
-    fun getStatus() = this.status
     fun getOrigin() = this.origin
-
     fun setOrigin(origin: String){
         this.origin = origin
     }
@@ -33,6 +25,7 @@ data class Scholar(private val name:String, private val status:String ): java.io
         currentSubjects.add(subject)
         calculateMeanScore()
     }
+
     private fun assignGrades(marks: Int): String{
 
         agpValues["A"] = 12
@@ -73,7 +66,6 @@ data class Scholar(private val name:String, private val status:String ): java.io
         }
         return "E"
     }
-
     private fun assignAGP(grade: String): Int? {
         for (key in agpValues.keys){
             if (key == grade){
@@ -82,7 +74,6 @@ data class Scholar(private val name:String, private val status:String ): java.io
         }
         return 0
     }
-
     private fun calculateMeanScore(){
         var totalMarks = 0
         val noOfSubjects:Int = currentSubjects.size
@@ -106,13 +97,16 @@ data class Scholar(private val name:String, private val status:String ): java.io
     }
 
 
+}
 
+class ScholarStatus{
+    var highSchool: String = "high-school"
+    var campus: String = "University scholar"
+    var preCampus: String = "A post graduate"
 }
 
 data class Subject(var name: String, var category: String){
     var grade: String? = null;
     var agp: Int = 0
     var score:Int = 0
-
-
 }
