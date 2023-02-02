@@ -32,8 +32,8 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
         fun setData(scholar:Scholar){
           if (v.root.id == bind.root.id){
               (bind as ScholarBinding).scholarStatus.text = scholar.secondarySchool
-              bind.scholarName.text = scholar.getName()
-              bind.status.text = scholar.getStatus()
+              bind.scholarName.text = scholar.name
+              bind.status.text = scholar.status
 
               bind.root.setOnClickListener{
                   val bundle = Bundle().apply {
@@ -43,8 +43,8 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
               }
           }
           if((v1.root.id == bind.root.id)){
-              val newName = scholar.getName().trim().substring(scholar.getName().indexOf(" ") )
-              (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.getName().substring(0, 1)}.$newName"
+              val newName = scholar.name.trim().substring(scholar.name.indexOf(" ") )
+              (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.name.substring(0, 1)}.$newName"
               v1.root.setOnClickListener{
                   val bundle = Bundle().apply {
                       putSerializable("scholar", scholar)
