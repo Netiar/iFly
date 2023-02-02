@@ -20,6 +20,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
     val args: ProfileFragmentArgs by navArgs()
     private lateinit var bind: FragmentProfileBinding
     private lateinit var fragmentScholarOverview: SingleScholarFragment
+    private lateinit var fragmentshared: SharedFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +35,13 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         bind = FragmentProfileBinding.inflate(layoutInflater)
         val scholar1 = param1
 
-        scholar_name.text = param1.getName()
-        scholar_status.text = "${param1.getStatus().capitalize()}, ${param1.secondarySchool}"
+        scholar_name.text = param1.name
+        scholar_status.text = "${param1.status.capitalize()}, ${param1.secondarySchool}"
 
         fragmentScholarOverview = SingleScholarFragment.newInstance(scholar1)
-        replaceFragment(fragmentScholarOverview)
+        fragmentshared = SharedFragment.newInstance(scholar1)
+
+        replaceFragment(fragmentshared)
 
         bind.overview.setOnClickListener(this::onClick)
         bind.grades.setOnClickListener(this::onClick)
@@ -53,8 +56,11 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
     }
 
     override fun onClick(p0: View?) {
-        if(p0 == bind.overview){
+        if(p0 == bind.grades){
             replaceFragment(fragmentScholarOverview)
+        }
+        if(p0 == bind.overview){
+            replaceFragment(fragmentshared)
         }
     }
 
