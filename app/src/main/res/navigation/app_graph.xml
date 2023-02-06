@@ -12,19 +12,17 @@
         android:label="fragment_scholar"
         tools:layout="@layout/fragment_scholar" >
         <action
-            android:id="@+id/action_scholarFragment2_to_singleScholarFragment"
-            app:destination="@id/singleScholarFragment" />
+            android:id="@+id/action_scholarFragment2_to_single_graph2"
+            app:destination="@id/single_graph" />
+        <action
+            android:id="@+id/action_scholarFragment2_to_singleActivity"
+            app:destination="@id/singleActivity" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment2"
         android:name="com.example.wingstofly.fragments.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
-    <fragment
-        android:id="@+id/singleScholarFragment"
-        android:name="com.example.wingstofly.fragments.SingleScholarFragment"
-        android:label="fragment_single_scholar"
-        tools:layout="@layout/fragment_single_scholar" />
     <fragment
         android:id="@+id/learnFragment2"
         android:name="com.example.wingstofly.fragments.LearnFragment"
@@ -33,7 +31,11 @@
     <fragment
         android:id="@+id/jobsFragment"
         android:name="com.example.wingstofly.fragments.JobsFragment"
-        android:label="JobsFragment" />
+        android:label="JobsFragment" >
+        <action
+            android:id="@+id/action_jobsFragment_to_singleActivity"
+            app:destination="@id/singleActivity" />
+    </fragment>
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.wingstofly.fragments.NewsFragment"
@@ -45,5 +47,21 @@
     <fragment
         android:id="@+id/gradesFragment"
         android:name="com.example.wingstofly.fragments.GradesFragment"
-        android:label="GradesFragment" />
+        android:label="GradesFragment" >
+        <action
+            android:id="@+id/action_gradesFragment_to_single_graph2"
+            app:destination="@id/single_graph" />
+        <action
+            android:id="@+id/action_gradesFragment_to_singleActivity"
+            app:destination="@id/singleActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/singleActivity"
+        android:name="com.example.wingstofly.SingleActivity"
+        android:label="activity_single"
+        tools:layout="@layout/activity_single" >
+        <argument
+            android:name="scholar"
+            app:argType="com.example.wingstofly.models.Scholar" />
+    </activity>
 </navigation>
