@@ -1,9 +1,12 @@
 package com.example.wingstofly.models
 
+import com.example.wingstofly.utils.Constants
+
 data class Scholar (var name:String, var status:String): java.io.Serializable{
     var pfNumber: String?  = null
     var primaryNumber: String? = null
     var otherNumber: String? = null
+    var emailAddress: String? = null
     private val agpValues = HashMap<String, Int>()
     private lateinit var origin:String
     var primarySchool: String? = null
@@ -99,6 +102,12 @@ data class Scholar (var name:String, var status:String): java.io.Serializable{
 
     private fun scholarMeanAGP(){
         meanAGP = assignAGP(meanGrade!!)!!
+    }
+
+    fun calculateDeviation(): Int{
+        var deviation = 0
+        deviation = Constants.CUT_POINT_OFF_POINTS - meanAGP
+        return deviation
     }
 
 
