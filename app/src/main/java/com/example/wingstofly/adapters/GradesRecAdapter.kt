@@ -12,7 +12,7 @@ class GradesRecAdapter: RecyclerView.Adapter<GradesRecAdapter.MyHolder>() {
     inner class MyHolder(private val bind:ActivityGradesRecViewBinding): RecyclerView.ViewHolder(bind.root){
         fun setData(scholar: Scholar){
             bind.position.text = (asyncListDiffer.currentList.indexOf(scholar) + 1).toString()
-            bind.scholarName.text = scholar.getName()
+            bind.scholarName.text = scholar.name
             bind.scholarGrade.text = scholar.meanGrade
             bind.scholarPoints.text = scholar.meanScore.toString()
         }
