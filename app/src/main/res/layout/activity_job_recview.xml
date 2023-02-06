@@ -4,25 +4,27 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="@drawable/layout_design"
-    android:backgroundTint="@color/brown"
+    android:backgroundTint="@color/maroon3"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:shapeAppearanceOverlay="@style/circle"
         android:src="@drawable/job"
+        app:layout_constraintEnd_toStartOf="@id/newsId"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/newsId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Event Title"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:layout_marginTop="16dp"
-        android:textColor="@color/black"
+        android:textColor="@color/maroon"
         android:textFontWeight="@integer/material_motion_duration_long_1"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,12 +33,25 @@
 
     <TextView
         android:id="@+id/newsDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Event Description"
-        app:layout_constraintStart_toEndOf="@id/image"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/image"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/newsId"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/news"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Click to read more"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toBottomOf="@id/newsDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
