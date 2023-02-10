@@ -1,5 +1,6 @@
 package com.example.wingstofly.database
 
+import com.example.wingstofly.R
 import com.example.wingstofly.models.Job
 import java.util.*
 import kotlin.collections.ArrayList
@@ -14,6 +15,7 @@ class JobsDataManager {
     private fun getAlJobs() {
         var job = Job("Kernel Engineer - Ubuntu Linux", "Software Engineer")
         job.apply {
+            companyImage = R.drawable.canoical
             companyName = "Canonical"
             jobPlace = "Nairobi-Kenya"
             jobType = "Full- time"
@@ -42,6 +44,7 @@ class JobsDataManager {
 
         var job1 = Job("Relationship Officer", "Operations")
         job1.apply {
+            companyImage = R.drawable.jumia
             companyName = "Jumia-Kenya"
             jobType = "Full Time"
             jobPlace = "Nairobi Kenya"
@@ -65,6 +68,7 @@ class JobsDataManager {
 
         var job2 = Job("Risk Attachees", "Risk")
         job2.apply {
+            companyImage = R.drawable.bank
             companyName = "Equity Bank LTD"
             jobPlace = "Multiple Locations"
             jobType = "Temporary"
@@ -87,6 +91,7 @@ class JobsDataManager {
 
         var job3 = Job("Group Financial Reporting Manager ", "Operations")
         job3.apply {
+            companyImage = R.drawable.bank
             companyName = "Equity Bank LTD"
             jobPlace = "Nairobi-Kenya"
             jobType = "Regular"
@@ -115,6 +120,7 @@ class JobsDataManager {
 
         var job4 = Job("Relationship Officer", "Operations")
         job4.apply {
+            companyImage = R.drawable.job
             companyName = "Arhs Developments"
             jobPlace = "Boulevard du Jazz, 13\n" +
                     "4370 Luxembourg"
@@ -149,6 +155,7 @@ class JobsDataManager {
 
         var job5 = Job("Telesales Representative", "Marketing")
         job5.apply {
+            companyImage = R.drawable.advert
             companyName = "Branded Communication agency"
             jobPlace = "Kitale, Trans-Nzoia County, Kenya"
             jobType = "Contract"
