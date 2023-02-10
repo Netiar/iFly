@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_graph">
+    <argument
+        android:name="scholar"
+        app:argType="com.example.wingstofly.models.Scholar" />
+    <fragment
+        android:id="@+id/scholarFragment"
+        android:name="com.example.wingstofly.fragments.ScholarFragment"
+        android:label="fragment_scholar"
+        tools:layout="@layout/fragment_scholar" />
+    <fragment
+        android:id="@+id/fragmentEvents2"
+        android:name="com.example.wingstofly.fragments.FragmentEvents"
+        android:label="FragmentEvents" >
+        <action
+            android:id="@+id/action_fragmentEvents2_to_singleActivity2"
+            app:destination="@id/singleActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobsFragment2"
+        android:name="com.example.wingstofly.fragments.JobsFragment"
+        android:label="JobsFragment" >
+        <action
+            android:id="@+id/action_jobsFragment2_to_singleActivity2"
+            app:destination="@id/singleActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.example.wingstofly.fragments.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.wingstofly.fragments.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <activity
+        android:id="@+id/singleActivity2"
+        android:name="com.example.wingstofly.SingleActivity"
+        android:label="activity_single"
+        tools:layout="@layout/activity_single" >
+        <argument
+            android:name="layoutNumber"
+            app:argType="integer" />
+        <argument
+            android:name="scholar"
+            app:argType="com.example.wingstofly.models.Scholar" />
+        <argument
+            android:name="job"
+            app:argType="com.example.wingstofly.models.Job" />
+    </activity>
+
+</navigation>
