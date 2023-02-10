@@ -11,12 +11,47 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_loginFragment_to_fragmentSign2"
+            app:destination="@id/fragmentSign2" />
+        <action
+            android:id="@+id/action_loginFragment_to_nonHighFragment"
+            app:destination="@id/nonHighFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPfFragment"
+            app:destination="@id/forgotPfFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_highSchoolFragment"
+            app:destination="@id/highSchoolFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.wingstofly.fragments.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/forgotPfFragment"
+        android:name="com.example.wingstofly.fragments.ForgotPfFragment"
+        android:label="fragment_forgot_pf"
+        tools:layout="@layout/fragment_forgot_pf" >
+        <action
+            android:id="@+id/action_forgotPfFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nonHighFragment"
+        android:name="com.example.wingstofly.fragments.NonHighFragment"
+        android:label="fragment_non_high"
+        tools:layout="@layout/fragment_non_high" />
+    <fragment
+        android:id="@+id/fragmentSign2"
+        android:name="com.example.wingstofly.fragments.FragmentSign"
+        android:label="fragment_sign"
+        tools:layout="@layout/fragment_sign" >
+        <action
+            android:id="@+id/action_fragmentSign2_to_nonHighFragment"
+            app:destination="@id/nonHighFragment" />
+        <action
+            android:id="@+id/action_fragmentSign2_to_highSchoolFragment"
+            app:destination="@id/highSchoolFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/highSchoolFragment"
+        android:name="com.example.wingstofly.fragments.HighSchoolFragment"
+        android:label="fragment_high_school"
+        tools:layout="@layout/fragment_high_school" />
 </navigation>
