@@ -1,21 +1,37 @@
 package com.example.wingstofly.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.findFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.ActivityJobRecviewBinding
+import com.example.wingstofly.fragments.JobsFragment
 import com.example.wingstofly.models.Job
 
 class JobsRecView: RecyclerView.Adapter<JobsRecView.MyHolder>() {
     inner class MyHolder(val bind: ActivityJobRecviewBinding): RecyclerView.ViewHolder(bind.root){
         fun setData(job: Job){
-            bind.newsId.text = job.title
+            bind.newsId.text = "${job.title}(${job.companyName})"
             bind.newsDescription.text = "${job.description.subSequence(0, 150)}....."
+            bind.image.setImageResource(job.companyImage)
+
+            bind.root.setOnClickListener{
+                val bundle = Bundle()
+                bundle.apply {
+                    putSerializable("job", job)
+                    putInt("layoutNumber", 1)
+                }
+                bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
+            }
         }
+
+
     }
 
     private val diffUtil = object : DiffUtil.ItemCallback<Job>(){
