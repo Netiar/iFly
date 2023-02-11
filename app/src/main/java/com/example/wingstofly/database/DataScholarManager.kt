@@ -13,7 +13,7 @@ class DataScholarManager {
         val scholar = Scholar("Charles Muvaka", "Student")
         scholar.apply {
             setOrigin("Kericho Branch")
-            pfNumber = "pf41890"
+            pfNumber = "sn41890"
             primaryNumber = "0768761610"
             otherNumber = "0114830685"
             primarySchool = "Umoja primary school"
