@@ -8,7 +8,7 @@
         android:id="@+id/jobs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jobs"
+        android:text="Available Jobs"
         android:textColor="@color/maroon"
         android:layout_margin="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
