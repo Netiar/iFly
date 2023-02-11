@@ -65,6 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="overview"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/image"
             app:layout_constraintEnd_toStartOf="@id/grades"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -74,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grades"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/image"
             app:layout_constraintStart_toEndOf="@id/overview"
             app:layout_constraintEnd_toStartOf="@id/summary"
@@ -84,6 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Summary"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/image"
             app:layout_constraintStart_toEndOf="@id/grades"
             app:layout_constraintEnd_toEndOf="parent"
