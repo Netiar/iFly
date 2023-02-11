@@ -60,6 +60,9 @@
         android:name="com.example.wingstofly.SingleActivity"
         android:label="activity_single"
         tools:layout="@layout/activity_single" >
+          <argument
+            android:name="layoutNumber"
+            app:argType="integer" />
         <argument
             android:name="scholar"
             app:argType="com.example.wingstofly.models.Scholar" />
