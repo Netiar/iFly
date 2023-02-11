@@ -28,7 +28,7 @@
                     android:id="@+id/learnFragment2"/>
                 <item android:title="Job Opportunities"
                     android:icon="@drawable/ic_work"
-                    android:id="@+id/jobsFragment"/>
+                    android:id="@+id/jobsFragment2"/>
             </group>
         </menu>
     </item>
@@ -36,12 +36,9 @@
     <item android:title="Profile">
         <menu>
             <group android:checkableBehavior="single">
-                <item android:title="View scholar grades"
-                    android:icon="@drawable/ic_person"
-                    android:id="@+id/gradesFragment"/>
-                <item android:title="logout"
+                 <item android:title="logout"
                     android:icon="@drawable/ic_reply"
-                    android:id="@+id/logout"/>
+                    android:id="@+id/loginFragment2"/>
 
                 <item android:title="Share"
                     android:icon="@drawable/ic_share"
