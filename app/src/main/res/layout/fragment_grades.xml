@@ -90,10 +90,43 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/brown"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/motivation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pos"
         tools:listitem="@layout/activity_grades_rec_view" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/motivation"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/gradesRec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <TextView
+            android:id="@+id/job_motivation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Congratulations!!"
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginStart="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/motivation_news"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold"
+            android:text="Top 50 students to be trained as chaperones for the next Wings To fly Conference."
+            app:layout_constraintTop_toBottomOf="@id/job_motivation"
+            app:layout_constraintStart_toStartOf="@id/job_motivation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
