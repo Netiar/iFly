@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.replace
 import androidx.navigation.fragment.navArgs
@@ -17,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener {
     private lateinit var param1: Scholar
-    val args: ProfileFragmentArgs by navArgs()
     private lateinit var bind: FragmentProfileBinding
     private lateinit var fragmentScholarOverview: SingleScholarFragment
     private lateinit var fragmentshared: SharedFragment
@@ -41,11 +41,13 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         fragmentScholarOverview = SingleScholarFragment.newInstance(scholar1)
         fragmentshared = SharedFragment.newInstance(scholar1)
 
-        replaceFragment(fragmentshared)
+        replaceFragment(fragmentScholarOverview)
 
-        bind.overview.setOnClickListener(this::onClick)
-        bind.grades.setOnClickListener(this::onClick)
-        bind.summary.setOnClickListener(this::onClick)
+        overview.setOnClickListener(this::onClick)
+        grades.setOnClickListener{
+            replaceFragment(fragmentshared)
+        }
+        summary.setOnClickListener(this::onClick)
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -56,11 +58,11 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
     }
 
     override fun onClick(p0: View?) {
-        if(p0 == bind.grades){
-            replaceFragment(fragmentScholarOverview)
+        if(p0 == grades){
+            Toast.makeText(requireContext(), "yees", Toast.LENGTH_SHORT).show()
         }
-        if(p0 == bind.overview){
-            replaceFragment(fragmentshared)
+        if(p0 == overview){
+            replaceFragment(fragmentScholarOverview)
         }
     }
 
