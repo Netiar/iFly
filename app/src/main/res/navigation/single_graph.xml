@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/single_graph">
+    android:id="@+id/single_graph"
+    app:startDestination="@id/scholarFragment">
     <argument
         android:name="scholar"
         app:argType="com.example.wingstofly.models.Scholar" />
@@ -26,6 +27,7 @@
         <action
             android:id="@+id/action_jobsFragment2_to_singleActivity2"
             app:destination="@id/singleActivity2" />
+
     </fragment>
     <fragment
         android:id="@+id/learnFragment"
@@ -48,9 +50,12 @@
         <argument
             android:name="scholar"
             app:argType="com.example.wingstofly.models.Scholar" />
-        <argument
-            android:name="job"
-            app:argType="com.example.wingstofly.models.Job" />
+
     </activity>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.wingstofly.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>
