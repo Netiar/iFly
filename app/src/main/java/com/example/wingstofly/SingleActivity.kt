@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
+import com.example.wingstofly.database.JobsDataManager
 import com.example.wingstofly.databinding.ActivitySingleBinding
 import com.example.wingstofly.fragments.ProfileFragment
 import com.example.wingstofly.fragments.SingleJobFragment
@@ -19,6 +18,7 @@ class SingleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bind = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(bind.root)
+        val jobs = JobsDataManager().allJobs
 
         val layoutNumber = args.layoutNumber
 
@@ -28,8 +28,8 @@ class SingleActivity : AppCompatActivity() {
             val fragment = ProfileFragment.newInstance(scholar)
             replaceFragment(fragment)
         }else{
-            val job = args.job
-            val fragment = SingleJobFragment.newInstance(job)
+
+            val fragment = SingleJobFragment.newInstance(jobs[0])
             replaceFragment(fragment)
         }
 
