@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.WingsToFly" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/maroon3</item>
-        <item name="colorPrimaryVariant">@color/maroon3</item>
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorPrimaryVariant">@color/maroon</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
