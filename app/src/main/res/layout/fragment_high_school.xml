@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MainFragment">
+    tools:context=".fragments.HighSchoolFragment">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -16,7 +16,7 @@
         android:backgroundTint="@color/white"
         app:headerLayout="@layout/header"
         app:itemIconTint="@color/maroon"
-        app:menu="@menu/app_graph_menu" />
+        app:menu="@menu/high_school_menu" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -51,8 +51,8 @@
             android:layout_height="wrap_content"
             android:text="find joy in the journey"
             android:textStyle="italic"
-            android:textSize="18sp"
-            android:textColor="@color/brown1"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
             android:layout_marginStart="8dp"
             app:layout_constraintTop_toBottomOf="@id/trvWelcome"
             app:layout_constraintStart_toStartOf="@id/trvWelcome"/>
