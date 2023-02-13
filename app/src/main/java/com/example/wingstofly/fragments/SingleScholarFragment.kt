@@ -30,10 +30,14 @@ class SingleScholarFragment : Fragment() {
         // Inflate the layout for this fragment
 
         bind = FragmentSingleScholarBinding.inflate(inflater)
-        bind.current.text = "${param1!!.status} at ${param1!!.secondarySchool} \n current Grade: ${param1!!.meanGrade} \n current points: ${param1!!.primaryMeanAGP}"
-        bind.juniorSchool.text = "Primary School: ${param1!!.primarySchool} \n Mean Grade: ${param1!!.primaryMeanGrade} \n Total Marks: ${param1!!.primaryMarks}"
+        bind.highSchool.text = "High-School: ${param1!!.secondarySchool}"
+        bind.highGrade.text = "Mean-Grade: ${param1!!.meanGrade}"
+        bind.highMarks.text = "Mean-AGP: ${param1!!.meanAGP.toString()}"
+        bind.primarySchool.text = "Primary School: ${param1!!.primarySchool}"
+        bind.primaryMarks.text = "Total marks: ${param1!!.primaryMarks.toString()}"
+        bind.primaryGrade.text = "Mean-Grade: ${param1!!.primaryMeanGrade}"
         bind.branchOrigin.text = "Origin Branch: ${param1!!.getOrigin()}"
-        bind.phone.text = "Primary Number: ${param1!!.primaryNumber} \n Other Number: ${param1!!.otherNumber}"
+        bind.phone.text = "Primary Number: ${param1!!.primaryNumber} \nOther Number: ${param1!!.otherNumber}"
 
         if (param1!!.emailAddress?.isEmpty() == true){
             bind.createEmail.visibility = View.VISIBLE
