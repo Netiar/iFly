@@ -3,16 +3,15 @@ package com.example.wingstofly.fragments
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
-import com.example.wingstofly.databinding.FragmentSignBinding
+import com.example.wingstofly.databinding.FragmentLoginBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.utils.Validator
@@ -20,24 +19,34 @@ import kotlinx.android.synthetic.main.fragment_sign.*
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
-    private lateinit var bind:FragmentSignBinding
+    private lateinit var bind:FragmentLoginBinding
     private lateinit var scholars: ArrayList<Scholar>
     private lateinit var pref: SharedPreferences
     lateinit var scholar: Scholar
     private  var pfNumber: String? = null
     private lateinit var prefEditor: SharedPreferences.Editor
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        val decorView = requireActivity().window.decorView // Hide the status bar.
+//
+//        val uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN
+//        decorView.systemUiVisibility = uiOptions
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        bind = FragmentSignBinding.inflate(layoutInflater)
+
+
+        bind = FragmentLoginBinding.inflate(layoutInflater)
 
         scholars = (activity as MainActivity).scholars
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         prefEditor = pref.edit()
         bind.submit.setOnClickListener(this::onClick)
-
+        bind.forgot1.setOnClickListener(this::onClick)
 
 
 
@@ -49,14 +58,19 @@ class LoginFragment : Fragment(), View.OnClickListener {
             if (!Validator().validateInputText(scholar_id)){
                 return
             }
-            pfNumber = bind.scholarId.editText!!.text.trim().toString()
+            pfNumber = bind.firstName.editText!!.text.trim().toString()
             scholar = getCurrentScholar(pfNumber!!)
-            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            val testNumber = pfNumber!!.subSequence(0,3)
+            if (testNumber.contentEquals("pf")){
+                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment)
+            }else{
+                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment)
+            }
         }
     }
 
 
-    fun getCurrentScholar(pfNumber: String): Scholar {
+    private fun getCurrentScholar(pfNumber: String): Scholar {
         var scholar:Scholar? = null
         for (i in 0 until scholars.size){
             val currentPfNumber = scholars[i].pfNumber
@@ -66,6 +80,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 break
             }else{
                 scholar_id.error = "Enter the correct number"
+
             }
         }
         return scholar!!
