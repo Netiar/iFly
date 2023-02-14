@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:title="Home"
+            android:icon="@drawable/ic_home"
+            android:id="@+id/newsFragment"/>
+
+        <item android:title="Scholars"
+            android:icon="@drawable/ic_group"
+            android:id="@+id/scholarFragment2"/>
+
+        <item android:title="Chats"
+            android:icon="@drawable/chat"
+            android:id="@+id/chatFragment2"/>
+
+        <item android:title="Events"
+            android:icon="@drawable/ic_event"
+            android:id="@+id/fragmentEvents"/>
+
+
+
+    </group>
+    <item android:title="Growth">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:title="Learn"
+                    android:icon="@drawable/ic_book"
+                    android:id="@+id/learnFragment2"/>
+                <item android:title="View scholar grades"
+                    android:icon="@drawable/ic_person"
+                    android:id="@+id/gradesFragment"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                  <item android:title="logout"
+                    android:icon="@drawable/ic_reply"
+                    android:id="@+id/logout"/>
+
+                <item android:title="Share"
+                    android:icon="@drawable/ic_share"
+                    android:id="@+id/share"/>
+            </group>
+        </menu>
+    </item>
+</menu>
