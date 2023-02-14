@@ -176,5 +176,47 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/professional_certifications"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Professional Certifications"
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toBottomOf="@id/cont_personal_info"
+            app:layout_constraintBottom_toTopOf="@id/rec_professional_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/add_professional_certifications"
+            android:textAlignment="textStart"
+            />
+
+        <TextView
+            android:id="@+id/add_professional_certifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toTopOf="@id/professional_certifications"
+            app:layout_constraintBottom_toBottomOf="@id/professional_certifications"
+            app:layout_constraintStart_toEndOf="@id/professional_certifications"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="textEnd"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_professional_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/activity_scholar_proffesional_info"
+            app:layout_constraintTop_toBottomOf="@id/professional_certifications"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
