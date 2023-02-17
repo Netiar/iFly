@@ -18,8 +18,8 @@ class DataScholarManager {
             otherNumber = "0114830685"
             primarySchool = "Umoja primary school"
             primaryMeanGrade = "B+"
-            primaryMarks = 364
-            primaryMeanAGP = 10
+            primaryMarks = 404
+            primaryMeanAGP = 12
             secondarySchool = "St Josephs Seminary Mwingi"
             varsity = "The Technical University of Kenya"
         }
@@ -92,7 +92,7 @@ class DataScholarManager {
             secondarySchool = "Nairobi School"
         }
         scholars.add(scholar9)
-        val scholar10 = Scholar("Charles Muvaka", "Student")
+        val scholar10 = Scholar("ALice Elias", "Student")
         scholar10.apply {
             setOrigin("Kericho Branch")
             primarySchool = "Umoja primary school"
@@ -136,5 +136,79 @@ class DataScholarManager {
             varsity = "The Technical University of Kenya"
         }
         scholars.add(scholar15)
+
+        //Employed and non-employed students
+
+        val scholar16 = Scholar("Gideon Masha", "Employed")
+        scholar16.apply {
+            setOrigin("Kericho Branch")
+            pfNumber = "sn51890"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
+            primarySchool = "Umoja primary school"
+            primaryMeanGrade = "B+"
+            primaryMarks = 364
+            primaryMeanAGP = 10
+            secondarySchool = "St Josephs Seminary Mwingi"
+            varsity = "The Technical University of Kenya"
+        }
+        scholars.add(scholar16)
+        val scholar17 = Scholar("Ian Miheno", "Unemployed")
+        scholar17.apply {
+            setOrigin("Changamwe Branch")
+            pfNumber = "sn51891"
+            primarySchool = "Chaani primary school"
+            secondarySchool = "Alliance Boys High School"
+            primaryMarks = 364
+            primaryMeanAGP = 10
+            varsity = "The Technical University of Kenya"
+            primaryMeanGrade = "B+"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
+
+        }
+        scholars.add(scholar17)
+        val scholar18 = Scholar("Michael Ratego", "Employed")
+        scholar2.apply {
+            setOrigin("Moi-Avenue Branch")
+            pfNumber = "sn51892"
+            primarySchool = "Nairobi primary school"
+            secondarySchool = "Starehe Boys Centre"
+            primaryMarks = 364
+            primaryMeanAGP = 10
+            varsity = "The Technical University of Kenya"
+            primaryMeanGrade = "B+"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
+        }
+        scholars.add(scholar18)
+        val scholar19= Scholar("Salim AbdulNassir", "Unemployed")
+        scholar3.apply {
+            setOrigin("Digo-Road Branch")
+            pfNumber = "sn51893"
+            primarySchool = "Wayani Hill Academy"
+            secondarySchool = "Precious blood Riruta"
+            primaryMarks = 364
+            primaryMeanAGP = 10
+            varsity = "The Technical University of Kenya"
+            primaryMeanGrade = "B+"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
+        }
+        scholars.add(scholar19)
+        val scholar20 = Scholar("Joshua Ndemwa", "Employed")
+        scholar4.apply {
+            setOrigin("Subukia Branch")
+            pfNumber = "sn51894"
+            primarySchool = "Gome Primary school"
+            secondarySchool = "Nairobi School"
+            primaryMarks = 364
+            primaryMeanAGP = 10
+            varsity = "The Technical University of Kenya"
+            primaryMeanGrade = "B+"
+            primaryNumber = "0768761610"
+            otherNumber = "0114830685"
+        }
+        scholars.add(scholar20)
     }
 }
