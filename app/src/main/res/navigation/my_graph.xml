@@ -36,7 +36,11 @@
         android:id="@+id/nonHighFragment"
         android:name="com.example.wingstofly.fragments.NonHighFragment"
         android:label="fragment_non_high"
-        tools:layout="@layout/fragment_non_high" />
+        tools:layout="@layout/fragment_non_high" >
+        <argument
+            android:name="scholar"
+            app:argType="com.example.wingstofly.models.Scholar" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentSign2"
         android:name="com.example.wingstofly.fragments.FragmentSign"
@@ -53,5 +57,9 @@
         android:id="@+id/highSchoolFragment"
         android:name="com.example.wingstofly.fragments.HighSchoolFragment"
         android:label="fragment_high_school"
-        tools:layout="@layout/fragment_high_school" />
+        tools:layout="@layout/fragment_high_school" >
+        <argument
+            android:name="scholar"
+            app:argType="com.example.wingstofly.models.Scholar" />
+    </fragment>
 </navigation>
