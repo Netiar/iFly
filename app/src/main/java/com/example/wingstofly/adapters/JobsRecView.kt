@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
+import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityJobRecviewBinding
 import com.example.wingstofly.fragments.JobsFragment
 import com.example.wingstofly.models.Job
@@ -24,7 +26,9 @@ class JobsRecView: RecyclerView.Adapter<JobsRecView.MyHolder>() {
             bind.root.setOnClickListener{
                 val bundle = Bundle()
                 bundle.apply {
+                    val scholar = DataScholarManager().scholars[0]
                     putSerializable("job", job)
+                    putSerializable("scholar", scholar)
                     putInt("layoutNumber", 1)
                 }
                 bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
