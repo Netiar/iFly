@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.findNavController
@@ -60,11 +61,16 @@ class LoginFragment : Fragment(), View.OnClickListener {
             }
             pfNumber = bind.firstName.editText!!.text.trim().toString()
             scholar = getCurrentScholar(pfNumber!!)
-            val testNumber = pfNumber!!.subSequence(0,3)
-            if (testNumber.contentEquals("pf")){
-                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment)
+            val testNumber = pfNumber!!.subSequence(0,2)
+
+            val bundle = Bundle().apply {
+                putSerializable("scholar", scholar)
+            }
+
+            if (testNumber == "pf"){
+                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle)
             }else{
-                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment)
+                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle)
             }
         }
     }
