@@ -15,8 +15,8 @@ class JobsDataManager {
     private fun getAlJobs() {
         var job = Job("Kernel Engineer - Ubuntu Linux", "Software Engineer")
         job.apply {
-            companyImage = R.drawable.canoical
-            companyName = "Canonical"
+            companyImage = R.drawable.mastercard
+            companyName = "MasterCard Foundation"
             jobPlace = "Nairobi-Kenya"
             jobType = "Full- time"
             jobLevel = "Entry Level"
@@ -155,7 +155,7 @@ class JobsDataManager {
 
         var job5 = Job("Telesales Representative", "Marketing")
         job5.apply {
-            companyImage = R.drawable.advert
+            companyImage = R.drawable.canoical
             companyName = "Branded Communication agency"
             jobPlace = "Kitale, Trans-Nzoia County, Kenya"
             jobType = "Contract"
