@@ -2,13 +2,12 @@ package com.example.wingstofly.models
 
 import com.example.wingstofly.utils.Constants
 
-data class Scholar (var name:String, var status:String): java.io.Serializable{
+class Scholar: java.io.Serializable{
+    var name:String? = null; var status:String? = null
     var pfNumber: String?  = null
     var primaryNumber: String? = null
     var otherNumber: String? = null
     var emailAddress: String? = null
-    private val agpValues = HashMap<String, Int>()
-    private lateinit var origin:String
     var primarySchool: String? = null
     var primaryMeanGrade: String? = null
     var primaryMeanAGP: Int = 0
@@ -20,11 +19,15 @@ data class Scholar (var name:String, var status:String): java.io.Serializable{
     var meanScore: Int = 0
     var meanAGP: Int = 0
     var courses = ArrayList<String>()
+    var origin:String? = null
     var tertiaryInstitutions = ArrayList<String>()
+    var password: String? = null
+    private val agpValues = HashMap<String, Int>()
 
-    fun getOrigin() = this.origin
-    fun setOrigin(origin: String){
-        this.origin = origin
+    constructor(){}
+    constructor(name:String, status:String){
+        this.name = name
+        this.status = status
     }
 
     fun addSubject(subject: Subject){
@@ -119,8 +122,15 @@ class ScholarStatus{
     var preCampus: String = "A post graduate"
 }
 
-data class Subject(var name: String, var category: String): java.io.Serializable{
+class Subject: java.io.Serializable{
+    var name: String? =null; var category: String? =null
     var grade: String? = null;
     var agp: Int = 0
     var score:Int = 0
+
+    constructor(){}
+    constructor(name: String, category: String){
+      this.name = name
+      this.category = category
+    }
 }
