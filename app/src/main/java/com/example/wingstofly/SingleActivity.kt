@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.example.wingstofly.database.JobsDataManager
 import com.example.wingstofly.databinding.ActivitySingleBinding
+import com.example.wingstofly.fragments.MessagesFragment
 import com.example.wingstofly.fragments.ProfileFragment
 import com.example.wingstofly.fragments.SingleJobFragment
+import com.example.wingstofly.models.Scholar
 
 class SingleActivity : AppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding
@@ -20,15 +22,18 @@ class SingleActivity : AppCompatActivity() {
         setContentView(bind.root)
         val jobs = JobsDataManager().allJobs
 
-        val layoutNumber = args.layoutNumber
+        val intent = intent
+        val layout = intent.getIntExtra("layout", 0)
 
-        if (layoutNumber == 2){
-            val scholar = args.scholar
+        if (layout == 2 ){
+            val scholar = intent.getSerializableExtra("scholar") as Scholar
             Toast.makeText(this, "scholar data", Toast.LENGTH_SHORT).show()
             val fragment = ProfileFragment.newInstance(scholar)
             replaceFragment(fragment)
+        }else if(layout == 3){
+            val fragment = MessagesFragment()
+            replaceFragment(fragment)
         }else{
-
             val fragment = SingleJobFragment.newInstance(jobs[0])
             replaceFragment(fragment)
         }
