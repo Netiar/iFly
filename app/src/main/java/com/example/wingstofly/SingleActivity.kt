@@ -31,7 +31,8 @@ class SingleActivity : AppCompatActivity() {
             val fragment = ProfileFragment.newInstance(scholar)
             replaceFragment(fragment)
         }else if(layout == 3){
-            val fragment = MessagesFragment()
+            val scholar = intent.getSerializableExtra("scholar") as Scholar
+            val fragment = MessagesFragment.newInstance(scholar)
             replaceFragment(fragment)
         }else{
             val fragment = SingleJobFragment.newInstance(jobs[0])
