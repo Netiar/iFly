@@ -33,7 +33,7 @@ class HighSchoolFragment : Fragment(), View.OnClickListener {
         viewModel = (activity as MainActivity).questViewModel
 
         bind.image.setOnClickListener(this::onClick)
-        val scholarNames = scholar.name.split(" ")
+        val scholarNames = scholar.name!!.split(" ")
         bind.trvWelcome.text = "Welcome ${scholarNames[0]}"
 
         // getting the navigation header components
