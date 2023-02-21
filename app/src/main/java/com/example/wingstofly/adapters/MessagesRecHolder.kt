@@ -1,5 +1,8 @@
 package com.example.wingstofly.adapters
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.wingstofly.R
 import com.example.wingstofly.models.Message
 import com.example.wingstofly.models.Scholar
+import com.example.wingstofly.utils.Constants
+import java.util.prefs.Preferences
 
-class MessagesRecHolder(val scholar: Scholar, val messageList: List<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+class MessagesRecHolder(val context: Context, val scholar: Scholar, val messageList: ArrayList<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     val RECEIVE_VIEW = 1
     val SENT_VIEW = 2
 
@@ -41,7 +46,8 @@ class MessagesRecHolder(val scholar: Scholar, val messageList: List<Message>): R
 
     override fun getItemViewType(position: Int): Int {
         val userMessage = messageList[position]
-        return if (scholar.pfNumber == userMessage.userUid){
+        val userPf = pref.getString(Constants.PF_NUMBER, null)
+        return if (userPf == userMessage.userUid){
             SENT_VIEW
         }else{
             RECEIVE_VIEW
