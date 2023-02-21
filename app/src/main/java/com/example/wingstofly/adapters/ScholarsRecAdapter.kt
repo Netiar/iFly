@@ -1,9 +1,11 @@
 package com.example.wingstofly.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.wingstofly.R
+import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.*
 import com.example.wingstofly.fragments.ScholarFragment
 import com.example.wingstofly.models.Scholar
@@ -31,22 +34,36 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
               bind.root.setOnClickListener{
                   val bundle = Bundle().apply {
                       putSerializable("scholar", scholar)
+                      putInt("layoutNumber", 2)
                   }
-                  it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
+                  val testNumber = scholar.pfNumber!!.subSequence(0,2)
+
+                  if ( testNumber.contentEquals("pf", ignoreCase = true)){
+                      Toast.makeText(context, scholar.pfNumber!!.subSequence(0,2), Toast.LENGTH_SHORT ).show()
+                      val intent = Intent(context, SingleActivity::class.java)
+                      intent.putExtra("layout", 2)
+                      intent.putExtra("scholar", scholar)
+                      context.startActivity(intent)
+//                      it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
+                  }else{
+                      Toast.makeText(context, scholar.pfNumber!!.subSequence(0,2), Toast.LENGTH_SHORT ).show()
+                      val intent = Intent(context, SingleActivity::class.java)
+                      intent.putExtra("layout", 2)
+                      intent.putExtra("scholar", scholar)
+                      context.startActivity(intent)
+//                      it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment_to_singleActivity2, bundle)
+                  }
               }
           }
           if((v1.root.id == bind.root.id)){
-              val newName = scholar.name.trim().substring(scholar.name.indexOf(" ") )
-              (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.name.substring(0, 1)}.$newName"
-              v1.root.setOnClickListener{
+              val newName = scholar.name!!.trim().substring(scholar.name!!.indexOf(" ") )
+              (bind as ScholarSuggestionBinding).scholarName.text = "${scholar.name!!.substring(0, 1)}.$newName"
+              bind.root.setOnClickListener{
                   val bundle = Bundle().apply {
                       putSerializable("scholar", scholar)
-                      putInt("layoutNumber", 2)
                   }
                   it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
-
               }
-
           }
 
         }
@@ -82,9 +99,6 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val scholar = listDiffer.currentList[position]
         holder.setData(scholar)
-
-
-
     }
 
     override fun getItemCount() = listDiffer.currentList.size
