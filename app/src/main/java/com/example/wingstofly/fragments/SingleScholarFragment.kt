@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentSingleScholarBinding
 import com.example.wingstofly.models.Scholar
 
@@ -29,6 +28,7 @@ class SingleScholarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
+
         bind = FragmentSingleScholarBinding.inflate(inflater)
         bind.highSchool.text = "High-School: ${param1!!.secondarySchool}"
         bind.highGrade.text = "Mean-Grade: ${param1!!.meanGrade}"
@@ -36,7 +36,7 @@ class SingleScholarFragment : Fragment() {
         bind.primarySchool.text = "Primary School: ${param1!!.primarySchool}"
         bind.primaryMarks.text = "Total marks: ${param1!!.primaryMarks.toString()}"
         bind.primaryGrade.text = "Mean-Grade: ${param1!!.primaryMeanGrade}"
-        bind.branchOrigin.text = "Origin Branch: ${param1!!.getOrigin()}"
+        bind.branchOrigin.text = "Origin Branch: ${param1!!.origin}"
         bind.phone.text = "Primary Number: ${param1!!.primaryNumber} \nOther Number: ${param1!!.otherNumber}"
 
         if (param1!!.emailAddress?.isEmpty() == true){
