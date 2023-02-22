@@ -1,25 +1,48 @@
 package com.example.wingstofly.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wingstofly.R
 import com.example.wingstofly.adapters.NewsRecAdapter
-import kotlinx.android.synthetic.main.activity_news.*
+import com.example.wingstofly.databinding.ActivityNewsBinding
+import com.example.wingstofly.models.Event
 
-class NewsFragment: Fragment(R.layout.activity_news) {
+class NewsFragment: Fragment() {
+    private lateinit var bind: ActivityNewsBinding
     private lateinit var newsAdapter: NewsRecAdapter
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        newsAdapter = NewsRecAdapter(requireContext())
-        setUpRecyclerView()
+    private var event: Event? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            event = it.getSerializable("event") as Event?
+        }
     }
 
-    private fun setUpRecyclerView() {
-        jobsRecView.apply {
-            adapter = newsAdapter
-            layoutManager = LinearLayoutManager(context)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        bind = ActivityNewsBinding.inflate(inflater)
+
+        //binding event data to the fragment
+        bind.jobTitle.text = event!!.title
+        bind.scholarStatus.text = event!!.eventOwner
+        bind.description.text = event!!.description
+
+        bind.postingDate.text = event!!.date.toString()
+        bind.jobType.text = event!!.venue
+
+        return bind.root
+    }
+
+    companion object{
+        fun newInstance(event: Event): NewsFragment{
+            val args = Bundle().apply {
+                putSerializable("event", event)
+            }
+            val fragment = NewsFragment()
+            fragment.arguments = args
+            return fragment
         }
     }
 }
