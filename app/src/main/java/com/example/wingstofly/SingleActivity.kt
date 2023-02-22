@@ -4,23 +4,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.navArgs
-import com.example.wingstofly.database.JobsDataManager
 import com.example.wingstofly.databinding.ActivitySingleBinding
 import com.example.wingstofly.fragments.MessagesFragment
+import com.example.wingstofly.fragments.NewsFragment
 import com.example.wingstofly.fragments.ProfileFragment
 import com.example.wingstofly.fragments.SingleJobFragment
+import com.example.wingstofly.models.Event
+import com.example.wingstofly.models.Job
 import com.example.wingstofly.models.Scholar
 
 class SingleActivity : AppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding
-    val args: SingleActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(bind.root)
-        val jobs = JobsDataManager().allJobs
 
         val intent = intent
         val layout = intent.getIntExtra("layout", 0)
@@ -34,12 +33,16 @@ class SingleActivity : AppCompatActivity() {
             val scholar = intent.getSerializableExtra("scholar") as Scholar
             val fragment = MessagesFragment.newInstance(scholar)
             replaceFragment(fragment)
+        }else if (layout == 5){
+            val event = intent.getSerializableExtra("event") as Event
+            val fragment = NewsFragment.newInstance(event)
+            replaceFragment(fragment)
+
         }else{
-            val fragment = SingleJobFragment.newInstance(jobs[0])
+            val job = intent.getSerializableExtra("job") as Job
+            val fragment = SingleJobFragment.newInstance(job)
             replaceFragment(fragment)
         }
-
-
 
     }
 
