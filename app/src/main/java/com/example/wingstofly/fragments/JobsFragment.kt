@@ -1,33 +1,34 @@
 package com.example.wingstofly.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
-import com.example.wingstofly.R
 import com.example.wingstofly.adapters.JobsRecView
+import com.example.wingstofly.databinding.ActivityJobsBinding
 import com.example.wingstofly.models.Job
-import kotlinx.android.synthetic.main.activity_jobs.*
-import kotlinx.android.synthetic.main.activity_news.*
-import kotlinx.android.synthetic.main.activity_news.jobsRecView
 
-class JobsFragment: Fragment(R.layout.activity_jobs) {
+class JobsFragment: Fragment() {
+    private lateinit var bind: ActivityJobsBinding
     private lateinit var jobsAdapter: JobsRecView
     private  var jobs = ArrayList<Job>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        bind = ActivityJobsBinding.inflate(inflater)
 
         jobs = (activity as MainActivity).jobs
 
-        jobsAdapter = JobsRecView()
+        jobsAdapter = JobsRecView(requireContext())
         jobsAdapter.asyncList.submitList(jobs)
         setUpRecyclerView()
+        return bind.root
     }
 
     private fun setUpRecyclerView() {
-        jobsRecView.apply {
+        bind.jobsRecView.apply {
             adapter = jobsAdapter
             layoutManager = LinearLayoutManager(context)
         }
