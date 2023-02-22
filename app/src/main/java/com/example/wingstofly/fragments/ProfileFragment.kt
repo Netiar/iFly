@@ -1,19 +1,12 @@
 package com.example.wingstofly.fragments
 
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
-import androidx.navigation.fragment.navArgs
-import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentProfileBinding
 import com.example.wingstofly.models.Scholar
-import com.example.wingstofly.utils.Constants
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener {
@@ -36,7 +29,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         val scholar1 = param1
 
         scholar_name.text = param1.name
-        scholar_status.text = "${param1.status.capitalize()}, ${param1.secondarySchool}"
+        scholar_status.text = "${param1.status!!.capitalize()}, ${param1.secondarySchool}"
 
         fragmentScholarOverview = SingleScholarFragment.newInstance(scholar1)
         fragmentshared = SharedFragment.newInstance(scholar1)
@@ -44,6 +37,8 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         replaceFragment(fragmentScholarOverview)
 
         overview.setOnClickListener(this::onClick)
+        back.setOnClickListener(this::onClick)
+
         grades.setOnClickListener{
             replaceFragment(fragmentshared)
         }
@@ -63,6 +58,9 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         }
         if(p0 == overview){
             replaceFragment(fragmentScholarOverview)
+        }
+        if (p0 == back){
+
         }
     }
 
