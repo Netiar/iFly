@@ -3,29 +3,22 @@
     <group android:checkableBehavior="single">
         <item android:title="Home"
             android:icon="@drawable/ic_home"
-            android:id="@+id/newsFragment"/>
+            android:id="@+id/fragmentEvents"/>
 
         <item android:title="Scholars"
             android:icon="@drawable/ic_group"
-            android:id="@+id/scholarFragment2"/>
+            android:id="@+id/scholarFragment"/>
 
         <item android:title="Chats"
             android:icon="@drawable/chat"
-            android:id="@+id/chatFragment2"/>
-
-        <item android:title="Events"
-            android:icon="@drawable/ic_event"
-            android:id="@+id/fragmentEvents"/>
-
-
-
+            android:id="@+id/chatFragment"/>
     </group>
     <item android:title="Growth">
         <menu>
             <group android:checkableBehavior="single">
                 <item android:title="Learn"
                     android:icon="@drawable/ic_book"
-                    android:id="@+id/learnFragment2"/>
+                    android:id="@+id/learnFragment"/>
                 <item android:title="View scholar grades"
                     android:icon="@drawable/ic_person"
                     android:id="@+id/gradesFragment"/>
