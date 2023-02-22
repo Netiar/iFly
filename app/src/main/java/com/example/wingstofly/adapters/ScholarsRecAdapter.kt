@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.findFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.*
-import com.example.wingstofly.fragments.ScholarFragment
 import com.example.wingstofly.models.Scholar
 import kotlinx.android.synthetic.main.fragment_chat.view.top_rec_view
 import kotlinx.android.synthetic.main.fragment_scholar.view.*
@@ -62,7 +58,7 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
                   val bundle = Bundle().apply {
                       putSerializable("scholar", scholar)
                   }
-                  it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
+//                  it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
               }
           }
 
