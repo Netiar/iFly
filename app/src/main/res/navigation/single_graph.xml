@@ -3,10 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/single_graph"
-    app:startDestination="@id/scholarFragment">
-    <argument
-        android:name="scholar"
-        app:argType="com.example.wingstofly.models.Scholar" />
+    app:startDestination="@id/fragmentEvents2">
+
     <fragment
         android:id="@+id/scholarFragment"
         android:name="com.example.wingstofly.fragments.ScholarFragment"
@@ -15,20 +13,11 @@
     <fragment
         android:id="@+id/fragmentEvents2"
         android:name="com.example.wingstofly.fragments.FragmentEvents"
-        android:label="FragmentEvents" >
-        <action
-            android:id="@+id/action_fragmentEvents2_to_singleActivity2"
-            app:destination="@id/singleActivity2" />
-    </fragment>
+        android:label="FragmentEvents" />
     <fragment
-        android:id="@+id/jobsFragment2"
+        android:id="@+id/jobsFragment"
         android:name="com.example.wingstofly.fragments.JobsFragment"
-        android:label="JobsFragment" >
-        <action
-            android:id="@+id/action_jobsFragment2_to_singleActivity2"
-            app:destination="@id/singleActivity2" />
-
-    </fragment>
+        android:label="JobsFragment" />
     <fragment
         android:id="@+id/learnFragment"
         android:name="com.example.wingstofly.fragments.LearnFragment"
@@ -39,23 +28,5 @@
         android:name="com.example.wingstofly.fragments.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
-    <activity
-        android:id="@+id/singleActivity2"
-        android:name="com.example.wingstofly.SingleActivity"
-        android:label="activity_single"
-        tools:layout="@layout/activity_single" >
-        <argument
-            android:name="layoutNumber"
-            app:argType="integer" />
-        <argument
-            android:name="scholar"
-            app:argType="com.example.wingstofly.models.Scholar" />
-
-    </activity>
-    <fragment
-        android:id="@+id/loginFragment2"
-        android:name="com.example.wingstofly.fragments.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
 
 </navigation>
