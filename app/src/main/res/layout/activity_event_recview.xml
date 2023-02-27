@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:text="Event Title"
             android:textStyle="bold"
+            android:alpha="1"
             android:textColor="@color/black"
-            android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
