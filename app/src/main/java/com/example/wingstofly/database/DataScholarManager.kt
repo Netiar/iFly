@@ -78,7 +78,7 @@ class DataScholarManager {
             pfNumber = "sn44890"
             origin = "Moi-Avenue Branch"
             primarySchool = "Nairobi primary school"
-            secondarySchool = "Starehe Boys Centre"
+            secondarySchool = "Alliance Boys High School"
         }
         scholars.add(scholar7)
         val scholar8 = Scholar("Leo Messi", "Student")
@@ -102,7 +102,7 @@ class DataScholarManager {
             origin = "Kericho Branch"
             pfNumber = "sn46890"
             primarySchool = "Umoja primary school"
-            secondarySchool = "St Josephs Seminary Mwingi"
+            secondarySchool = "Alliance Boys High School"
             varsity = "The Technical University of Kenya"
         }
         scholars.add(scholar10)
