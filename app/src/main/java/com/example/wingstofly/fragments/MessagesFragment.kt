@@ -14,8 +14,6 @@ import com.example.wingstofly.models.Message
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_single_job.view.*
-import java.util.prefs.Preferences
 import kotlin.apply
 
 class MessagesFragment: Fragment(), View.OnClickListener {
@@ -69,6 +67,7 @@ class MessagesFragment: Fragment(), View.OnClickListener {
 
             })
         bind.send.setOnClickListener(this::onClick)
+        bind.back.setOnClickListener(this::onClick)
 
         return bind.root
     }
@@ -110,6 +109,9 @@ class MessagesFragment: Fragment(), View.OnClickListener {
         if (p0 == bind.send){
             createMessageObject()
             bind.yourMessage.text = null
+        }
+        if (p0 == bind.back){
+            requireActivity().finish()
         }
     }
 
