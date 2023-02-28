@@ -60,7 +60,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
             replaceFragment(fragmentScholarOverview)
         }
         if (p0 == back){
-
+            requireActivity().finish()
         }
     }
 
