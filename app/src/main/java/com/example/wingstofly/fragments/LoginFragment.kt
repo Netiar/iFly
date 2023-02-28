@@ -60,18 +60,28 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 return
             }
             pfNumber = bind.firstName.editText!!.text.trim().toString()
-            scholar = getCurrentScholar(pfNumber!!)
-            val testNumber = pfNumber!!.subSequence(0,2)
 
-            val bundle = Bundle().apply {
-                putSerializable("scholar", scholar)
+            for (databaseScholar in scholars){
+                val currentPfNumber = databaseScholar.pfNumber
+                if (currentPfNumber.contentEquals(pfNumber, true)){
+                    scholar = databaseScholar
+                    prefEditor.putString(Constants.PF_NUMBER, currentPfNumber).apply()
+                    val testNumber = pfNumber!!.subSequence(0,2)
+                    val bundle = Bundle().apply {
+                        putSerializable("scholar", scholar)
+                    }
+                    if (testNumber == "pf"){
+                        p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle)
+                    }else{
+                        p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle)
+                    }
+                    break
+                }else{
+                    bind.scholarId.error = "Pf Number not found"
+
+                }
             }
 
-            if (testNumber == "pf"){
-                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle)
-            }else{
-                p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle)
-            }
         }
     }
 
@@ -80,10 +90,9 @@ class LoginFragment : Fragment(), View.OnClickListener {
         var scholar:Scholar? = null
         for (i in 0 until scholars.size){
             val currentPfNumber = scholars[i].pfNumber
-            if (pfNumber.contentEquals(currentPfNumber, true)){
+            if (currentPfNumber.contentEquals(pfNumber, true)){
                 scholar = scholars[i]
                 prefEditor.putString(Constants.PF_NUMBER, pfNumber).apply()
-                break
             }else{
                 scholar_id.error = "Enter the correct number"
 
