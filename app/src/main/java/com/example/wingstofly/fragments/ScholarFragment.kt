@@ -40,24 +40,12 @@ class ScholarFragment : Fragment() {
 
         val adapter = ScholarsRecAdapter(requireContext())
         val scholarsList = (activity as MainActivity).scholars
-        val subjectsList = (activity as MainActivity).subjects
 
 
         adapter.listDiffer.submitList(scholarsList)
 
-        val realScholar = Scholar("Charles Muvaka", "Student")
-        realScholar.apply {
-            origin = "Kericho Branch"
-            primarySchool = "Umoja primary school"
-            secondarySchool = "St Josephs Seminary Mwingi"
-            varsity = "The Technical University of Kenya"
-        }
         val scholarSuggestion = ArrayList<Scholar>()
-//        for (scholar in scholarsList){
-//            if (scholar.getOrigin() == realScholar.getOrigin()){
-//                scholarSuggestion.add(scholar)
-//            }
-//        }
+
         val adapter1 = ScholarsRecAdapter(requireContext())
         adapter1.listDiffer.submitList(scholarSuggestion)
         bind.topRecView.apply {
