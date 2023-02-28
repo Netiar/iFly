@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.MainActivity
@@ -38,32 +37,35 @@ class ChatFragment : Fragment(), View.OnClickListener {
 
     private var realScholar: Scholar? = null
     private var pfNumber: String? = null
-    lateinit var hashMap: HashMap<Scholar, Message>
+    private var hashMap: HashMap<Scholar, Message>? = null
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         bind = FragmentChatBinding.inflate(inflater)
+
+        //initialising late init vars
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        databaseReference = FirebaseDatabase.getInstance().reference
         scholarsList = (activity as MainActivity).scholars
         scholarsAdapter = BottomSheetRecAdapter(requireContext())
         scholarsAdapter.listDiffer.submitList(scholarsList)
-
-
-
         bottomSheet = BottomSheetDialog(requireContext())
-        createBottomSheetDialog(inflater, container)
-
         suggestionAdapter = ScholarsRecAdapter(requireContext())
+        databaseReference = FirebaseDatabase.getInstance().reference
 
-        bind.fab.setOnClickListener(this::onClick)
-
+        //getting the scholars pf number from shared preferences
         pfNumber = pref.getString(Constants.PF_NUMBER, null)
-        getScholar(pfNumber)
+
+        //getting the scholars last message
         hashMap = (activity as MainActivity).hashMap
 
-        if (hashMap.size != 0){
+        //Creating the bottom sheet dialog
+        createBottomSheetDialog(inflater, container)
+
+        //adding onclick listeners
+        bind.fab.setOnClickListener(this::onClick)
+
+        if (hashMap!!.size != 0){
             chatAdapter = (activity as MainActivity).chatAdapter
             setUpRecyclerView()
 
@@ -71,37 +73,18 @@ class ChatFragment : Fragment(), View.OnClickListener {
             bind.chats.text = "You have not chats."
         }
 
-
-        val scholarSuggestion = ArrayList<Scholar>()
-//        for (scholar in scholarsList){
-//            if (scholar.origin == realScholar!!.origin){
-//                scholarSuggestion.add(scholar)
-//            }
-//        }
-
+        val scholarSuggestion = (activity as MainActivity).scholarSuggestion
         suggestionAdapter.listDiffer.submitList(scholarSuggestion)
-
-
-
 
         return bind.root
     }
 
-    private fun getScholar(pfNumber: String?){
-        for (i in scholarsList.indices){
-            if (pfNumber.contentEquals(scholarsList[i].pfNumber)){
-                realScholar = scholarsList[i]
-            }
-            break
-        }
-    }
 
-
+    //method to create the bottom sheet dialog
     private fun createBottomSheetDialog(inflater: LayoutInflater, container: ViewGroup?) {
         val view = inflater.inflate(R.layout.bottom_sheet, null, false)
 
-
-
+        //getting the recycler view in the bottom sheet dialog
         val recView = view.findViewById<RecyclerView>(R.id.recView)
         recView.layoutManager = LinearLayoutManager(requireContext())
         recView.adapter = scholarsAdapter
@@ -119,10 +102,10 @@ class ChatFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setUpRecyclerView() {
-//        bind.topRecView.apply {
-//            adapter = suggestionAdapter
-//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//        }
+        bind.topRecView.apply {
+            adapter = suggestionAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
 
         bind.chatRecView.apply {
             adapter = chatAdapter
@@ -137,6 +120,7 @@ class ChatFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    //Dismissing the bottom sheet dialog when the fragment is stopped
     override fun onStop() {
         super.onStop()
         bottomSheet.dismiss()
