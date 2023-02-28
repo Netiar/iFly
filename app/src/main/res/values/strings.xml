@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WingsToFly</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">All scholars</string>
+    <string name="events">Event Description</string>
+    <string name="eventId">Event Title</string>
+</resources>

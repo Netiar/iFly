@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "546017914343",
+    "project_id": "equifly-42d4e",
+    "storage_bucket": "equifly-42d4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546017914343:android:af1d30cc009821c019e142",
+        "android_client_info": {
+          "package_name": "com.example.wingstofly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546017914343-fds7lngg02eb1bji0936b45o14d1hlvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpn69JmxA4hpyuKR0TB6lKa62-H7cJ01E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546017914343-fds7lngg02eb1bji0936b45o14d1hlvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
