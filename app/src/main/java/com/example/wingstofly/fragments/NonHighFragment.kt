@@ -1,6 +1,7 @@
 package com.example.wingstofly.fragments;
 
 import android.os.Bundle;
+import android.transition.TransitionInflater
 
 import androidx.fragment.app.Fragment;
 
@@ -29,6 +30,19 @@ class NonHighFragment: Fragment() , View.OnClickListener {
     private  val args: NonHighFragmentArgs by navArgs()
 
     private lateinit var bind:FragmentNonHighBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        //getting the animation transition from the login fragment
+        val animationTransition = TransitionInflater.from(requireContext()).inflateTransition(
+            android.R.transition.move
+        )
+
+        //initiating the animation transition
+        sharedElementEnterTransition = animationTransition
+        sharedElementReturnTransition = animationTransition
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bind = FragmentNonHighBinding.inflate(layoutInflater)
 
