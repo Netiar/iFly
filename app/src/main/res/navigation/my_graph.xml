@@ -15,13 +15,21 @@
             app:destination="@id/fragmentSign2" />
         <action
             android:id="@+id/action_loginFragment_to_nonHighFragment"
-            app:destination="@id/nonHighFragment" />
+            app:destination="@id/nonHighFragment"
+            app:enterAnim="@anim/enter_anim"
+            app:exitAnim="@anim/exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
         <action
             android:id="@+id/action_loginFragment_to_forgotPfFragment"
             app:destination="@id/forgotPfFragment" />
         <action
             android:id="@+id/action_loginFragment_to_highSchoolFragment"
-            app:destination="@id/highSchoolFragment" />
+            app:destination="@id/highSchoolFragment"
+            app:enterAnim="@anim/enter_anim"
+            app:exitAnim="@anim/exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/forgotPfFragment"
