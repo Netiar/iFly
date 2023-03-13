@@ -21,9 +21,6 @@
             app:popEnterAnim="@anim/pop_enter_anim"
             app:popExitAnim="@anim/pop_exit_anim" />
         <action
-            android:id="@+id/action_loginFragment_to_forgotPfFragment"
-            app:destination="@id/forgotPfFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_highSchoolFragment"
             app:destination="@id/highSchoolFragment"
             app:enterAnim="@anim/enter_anim"
@@ -60,6 +57,9 @@
         <action
             android:id="@+id/action_fragmentSign2_to_highSchoolFragment"
             app:destination="@id/highSchoolFragment" />
+        <action
+            android:id="@+id/action_fragmentSign2_to_forgotPfFragment"
+            app:destination="@id/forgotPfFragment" />
     </fragment>
     <fragment
         android:id="@+id/highSchoolFragment"
