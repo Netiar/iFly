@@ -1,12 +1,10 @@
 package com.example.wingstofly.repository
 
 import com.example.wingstofly.api.RetrofitClient
-import com.example.wingstofly.database.DataManager
-import com.example.wingstofly.models.Topic
-import retrofit2.Response
+
 
 class QuizRepository {
-    private val dataManager = DataManager()
+//    private val dataManager = DataMa?nager()
 
     suspend fun getTopics() = RetrofitClient.getApiClient.getCategories()
 

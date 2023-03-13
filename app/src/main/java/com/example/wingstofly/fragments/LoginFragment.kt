@@ -16,10 +16,12 @@ import com.example.wingstofly.databinding.FragmentLoginBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.utils.Validator
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_sign.*
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
+    private lateinit var mAuth: DatabaseReference
     private lateinit var bind:FragmentLoginBinding
     private lateinit var scholars: ArrayList<Scholar>
     private lateinit var pref: SharedPreferences
@@ -27,23 +29,16 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private  var pfNumber: String? = null
     private lateinit var prefEditor: SharedPreferences.Editor
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        val decorView = requireActivity().window.decorView // Hide the status bar.
-//
-//        val uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN
-//        decorView.systemUiVisibility = uiOptions
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
 
         bind = FragmentLoginBinding.inflate(layoutInflater)
+        mAuth = FirebaseDatabase.getInstance().reference
 
-        scholars = (activity as MainActivity).scholars
+
+        scholars = getScholars()
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         prefEditor = pref.edit()
         bind.submit.setOnClickListener(this::onClick)
@@ -54,12 +49,30 @@ class LoginFragment : Fragment(), View.OnClickListener {
         return bind.root
     }
 
+    private fun getScholars(): ArrayList<Scholar> {
+        val list = ArrayList<Scholar>()
+
+        mAuth.child("users").addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (data in snapshot.children){
+                    list.add(data.getValue(Scholar::class.java)!!)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
+        return list
+    }
+
     override fun onClick(p0: View?) {
         if (p0 == bind.submit){
             if (!Validator().validateInputText(scholar_id)){
                 return
             }
             pfNumber = bind.firstName.editText!!.text.trim().toString()
+            val password = bind.scholarId.editText!!.text.trim().toString()
 
             for (databaseScholar in scholars){
                 val currentPfNumber = databaseScholar.pfNumber
@@ -85,6 +98,9 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 }
             }
 
+        }
+        if(p0 == bind.forgot1){
+            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_fragmentSign2)
         }
     }
 
