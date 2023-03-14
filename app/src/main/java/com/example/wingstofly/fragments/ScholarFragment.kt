@@ -44,7 +44,7 @@ class ScholarFragment : Fragment() {
 
         adapter.listDiffer.submitList(scholarsList)
 
-        val scholarSuggestion = ArrayList<Scholar>()
+        val scholarSuggestion = (activity as MainActivity).scholarSuggestion
 
         val adapter1 = ScholarsRecAdapter(requireContext())
         adapter1.listDiffer.submitList(scholarSuggestion)
