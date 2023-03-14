@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.wingstofly.databinding.ActivitySingleBinding
-import com.example.wingstofly.fragments.MessagesFragment
-import com.example.wingstofly.fragments.NewsFragment
-import com.example.wingstofly.fragments.ProfileFragment
-import com.example.wingstofly.fragments.SingleJobFragment
+import com.example.wingstofly.fragments.*
 import com.example.wingstofly.models.Event
 import com.example.wingstofly.models.Job
 import com.example.wingstofly.models.Scholar
+import com.example.wingstofly.models.Upskill
 
 class SingleActivity : AppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding
@@ -36,6 +34,11 @@ class SingleActivity : AppCompatActivity() {
         }else if (layout == 5){
             val event = intent.getSerializableExtra("event") as Event
             val fragment = NewsFragment.newInstance(event)
+            replaceFragment(fragment)
+
+        }else if (layout == 7){
+            val event = intent.getSerializableExtra("school") as Upskill
+            val fragment = UpskillFragment.newInstance(event)
             replaceFragment(fragment)
 
         }else{
