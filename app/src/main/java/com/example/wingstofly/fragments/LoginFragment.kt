@@ -52,7 +52,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private fun getScholars(): ArrayList<Scholar> {
         val list = ArrayList<Scholar>()
 
-        mAuth.child("users").addValueEventListener(object :ValueEventListener{
+        mAuth.child("user").addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (data in snapshot.children){
                     list.add(data.getValue(Scholar::class.java)!!)
@@ -77,23 +77,29 @@ class LoginFragment : Fragment(), View.OnClickListener {
             for (databaseScholar in scholars){
                 val currentPfNumber = databaseScholar.pfNumber
                 if (currentPfNumber.contentEquals(pfNumber, true)){
-                    scholar = databaseScholar
-                    prefEditor.putString(Constants.PF_NUMBER, currentPfNumber).apply()
-                    val testNumber = pfNumber!!.subSequence(0,2)
-                    val bundle = Bundle().apply {
-                        putSerializable("scholar", scholar)
-                    }
-                    //creating fragment navigator extras instance
-                    val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image")
+                    if(password.contentEquals(databaseScholar.password)){
+                        scholar = databaseScholar
+                        prefEditor.putString(Constants.PF_NUMBER, currentPfNumber).apply()
+                        val testNumber = pfNumber!!.subSequence(0,2)
+                        val bundle = Bundle().apply {
+                            putSerializable("scholar", scholar)
+                        }
+                        //creating fragment navigator extras instance
+                        val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image")
 
-                    if (testNumber == "pf"){
-                             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle, null, transitionExtras)
+                        if (testNumber == "pf"){
+                            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle, null, transitionExtras)
+                        }else{
+                            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle, null, transitionExtras)
+                        }
+                        break
                     }else{
-                        p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle, null, transitionExtras)
+                        bind.scholarId.error = "Pf Number not found"
+
                     }
-                    break
+
                 }else{
-                    bind.scholarId.error = "Pf Number not found"
+                    bind.firstName.error = "Pf Number not found"
 
                 }
             }
