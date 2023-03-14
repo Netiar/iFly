@@ -9,7 +9,7 @@ import com.example.wingstofly.adapters.NewsRecAdapter
 import com.example.wingstofly.databinding.ActivityNewsBinding
 import com.example.wingstofly.models.Event
 
-class NewsFragment: Fragment() {
+class NewsFragment: Fragment(), View.OnClickListener {
     private lateinit var bind: ActivityNewsBinding
     private lateinit var newsAdapter: NewsRecAdapter
     private var event: Event? = null
@@ -32,6 +32,8 @@ class NewsFragment: Fragment() {
         bind.postingDate.text = event!!.date.toString()
         bind.jobType.text = event!!.venue
 
+        bind.back.setOnClickListener(this::onClick)
+
         return bind.root
     }
 
@@ -43,6 +45,12 @@ class NewsFragment: Fragment() {
             val fragment = NewsFragment()
             fragment.arguments = args
             return fragment
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0 == bind.back){
+            requireActivity().finish()
         }
     }
 }
