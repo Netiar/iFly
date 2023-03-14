@@ -26,10 +26,11 @@ class PfNotificationService(private val cont: Context) {
         )
 
         //creating a notification instance
+        val names = scholar.name!!.split(" ")
         val notification = NotificationCompat.Builder(cont, PF_CHANNEL_ID)
             .setSmallIcon(R.drawable.logo)
             .setContentTitle("Scholar Number")
-            .setContentText("Hello ${scholar.name} here is your scholar number: ${scholar.pfNumber}")
+            .setContentText("Hello ${names[names.size - 1]} Number: ${scholar.pfNumber}")
             .setContentIntent(pendingIntent).build()
 
         notificationManager.notify(1, notification)
