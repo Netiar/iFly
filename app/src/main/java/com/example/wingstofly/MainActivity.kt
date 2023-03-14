@@ -4,13 +4,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.wingstofly.adapters.ChatRecHolder
-import com.example.wingstofly.database.DataScholarManager
-import com.example.wingstofly.database.EventsDataManager
-import com.example.wingstofly.database.JobsDataManager
-import com.example.wingstofly.database.Subjects
+import com.example.wingstofly.database.*
 import com.example.wingstofly.models.*
 import com.example.wingstofly.repository.QuizRepository
 import com.example.wingstofly.utils.Constants
@@ -26,9 +21,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var jobs: ArrayList<Job>
     lateinit var events: ArrayList<Event>
     lateinit var scholarMessages: ArrayList<Message>
-    lateinit var scholarSuggestion: ArrayList<Scholar>
-    lateinit var hashMap: HashMap<Scholar, Message>
-    lateinit var chatAdapter: ChatRecHolder
+    var scholarSuggestion =  ArrayList<Scholar>()
+    lateinit var schools: ArrayList<Upskill>
     var realScholar: Scholar? = null
 
     private var pfNumber: String? = null
@@ -58,13 +52,11 @@ class MainActivity : AppCompatActivity() {
         val jobManager = JobsDataManager()
         val eventManager = EventsDataManager()
         scholarMessages = ArrayList()
-        scholarSuggestion = ArrayList()
-        hashMap = getScholarMessages()
-        chatAdapter = ChatRecHolder(hashMap, this)
         events = eventManager.allEvents
         scholars = dm.scholars
         subjects = subject.allSubjects
         jobs = jobManager.allJobs
+        schools = UpSkillDataManager().schools
 
         //getting the scholar using the app
         realScholar = getScholar(pfNumber)
@@ -82,15 +74,8 @@ class MainActivity : AppCompatActivity() {
                 scholar.addSubject(subject)
             }
         }
-        addUsers(scholars)
 
 
-    }
-
-    private fun addUsers(scholars: ArrayList<Scholar>) {
-        for (scholar in scholars){
-            mAuth.child("user").child(scholar.name!!).setValue(scholar)
-        }
     }
 
     //defining a method to get the actual scholar
@@ -110,48 +95,4 @@ class MainActivity : AppCompatActivity() {
         scholarSuggestion.remove(realScholar)
         return realScholar!!
     }
-
-    private fun getScholarMessages(): HashMap<Scholar, Message> {
-        var methodHashmap = HashMap<Scholar, Message>()
-        mAuth.child("chats").addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (dataSnapshot in snapshot.children){
-                    if(dataSnapshot.key!!.substring(0,7) == pfNumber ){
-//                        Toast.makeText(requireContext(), dataSnapshot.key!!.substring(0,7), Toast.LENGTH_LONG).show()
-
-                        mAuth.child("chats").child(dataSnapshot.key!!).child("messages").addValueEventListener(object: ValueEventListener{
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                val scholarPf = dataSnapshot.key!!.substring(7)
-                                for (receiver in scholars){
-                                    if(receiver.pfNumber == scholarPf){
-                                        for (messageSnapshot in snapshot.children){
-                                            scholarMessages.add(messageSnapshot.getValue(Message::class.java)!!)
-                                        }
-                                        methodHashmap!![receiver] = scholarMessages[scholarMessages.size - 1]
-                                        Toast.makeText(this@MainActivity,
-                                            methodHashmap.keys.elementAt(0).status, Toast.LENGTH_LONG).show()
-
-                                    }
-                                }
-                                chatAdapter.notifyDataSetChanged()
-                            }
-
-                            override fun onCancelled(error: DatabaseError) {
-
-                            }
-
-                        })
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        } )
-
-        return methodHashmap
-    }
-
 }
