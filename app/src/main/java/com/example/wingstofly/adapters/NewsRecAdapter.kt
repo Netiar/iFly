@@ -5,13 +5,16 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.models.Event
-import kotlinx.android.synthetic.main.activity_event_recview.view.*
+import kotlinx.android.synthetic.main.activity_event_recview.view.newsDescription
+import kotlinx.android.synthetic.main.activity_event_recview.view.newsId
+import kotlinx.android.synthetic.main.activity_job_recview.view.*
 
 class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyHolder>() {
 
@@ -44,7 +47,7 @@ class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         MyHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.activity_event_recview,
+                R.layout.activity_job_recview,
                 parent,
                 false
             )
@@ -55,8 +58,10 @@ class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyH
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val event = asyncList.currentList[position]
         holder.itemView.apply {
-            newsDescription.text = event.description!!.subSequence(0, 50)
+            newsDescription.text = "${event.description!!.subSequence(0, 100)}.....click to read more"
             newsId.text = event.title
+            news.isVisible = false
+            image.isVisible = false
         }
         holder.setClickListener(event)
     }
