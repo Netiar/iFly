@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.adapters.QuestRecAdapter
+import com.example.wingstofly.adapters.UpskillRecHolder
 import com.example.wingstofly.databinding.FragmentLearnBinding
 import com.example.wingstofly.utils.Resource
 import com.example.wingstofly.viewmodel.QuizViewModel
@@ -25,6 +26,16 @@ class LearnFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         bind = FragmentLearnBinding.inflate(layoutInflater)
+
+        val schools = (activity as MainActivity).schools
+        val schoolsRecHolder = UpskillRecHolder(requireContext())
+        schoolsRecHolder.asyncList.submitList(schools)
+
+        bind.recView2.apply {
+            adapter = schoolsRecHolder
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+        }
 
         viewModel = (activity as MainActivity).questViewModel
         topicsAdapter = QuestRecAdapter()
@@ -52,29 +63,6 @@ class LearnFragment : Fragment() {
             }
 
         })
-
-//        viewModel.questions.observe(viewLifecycleOwner, Observer { questResources ->
-//            when(questResources){
-//                is Resource.Success ->{
-//                    questResources.newsData?.let { topicData ->
-//                        topicsAdapter.listDiffer.submitList(topicData.results)
-//                        Toast.makeText(context, "messages received", Toast.LENGTH_LONG).show()
-//
-//                    }
-//                }
-//                is Resource.Failure ->{
-//                    questResources.questMessage?.let { message ->
-//                        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-//                    }
-//                }
-//
-//                is Resource.Loading -> {
-//                    Toast.makeText(context, "messages loading", Toast.LENGTH_LONG).show()
-//                }
-//
-//            }
-//
-//        })
 
 
         return bind.root
