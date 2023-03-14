@@ -37,7 +37,7 @@ class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
         val topic = listDiffer.currentList[position]
         holder.itemView.apply {
             name.text = topic.name
-            level.text = topic.id.toString()
+            level.text = "Find questions on ${topic.name} to challenge yourself, choices are given."
         }
     }
 
