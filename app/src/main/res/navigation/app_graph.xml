@@ -30,4 +30,13 @@
         android:name="com.example.wingstofly.fragments.GradesFragment"
         android:label="GradesFragment" >
     </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.wingstofly.fragments.SummaryFragment"
+        android:label="SummaryFragment" />
+    <fragment
+        android:id="@+id/editInfoFragment"
+        android:name="com.example.wingstofly.fragments.EditInfoFragment"
+        android:label="fragment_edit_info"
+        tools:layout="@layout/fragment_edit_info" />
 </navigation>
