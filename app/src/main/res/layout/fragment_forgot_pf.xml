@@ -84,7 +84,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:hint="Enter your phone number"
-        android:inputType="text"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -92,26 +92,18 @@
 
 
 
-<com.google.android.material.textfield.TextInputLayout
+<Spinner
     android:id="@+id/scholar_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     app:passwordToggleTint="@color/maroon"
-    app:layout_constraintTop_toBottomOf="@id/first_name"
+    app:layout_constraintTop_toBottomOf="@id/scholar_phone"
     app:layout_constraintBottom_toTopOf="@id/confirm_password"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:hint="Enter your branch origin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<com.google.android.material.textfield.TextInputLayout
+<Spinner
     android:id="@+id/confirm_password"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -119,17 +111,7 @@
     app:passwordToggleTint="@color/maroon"
     app:layout_constraintTop_toBottomOf="@id/scholar_id"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:hint="Enter your high school name"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-</com.google.android.material.textfield.TextInputLayout>
-
+    app:layout_constraintEnd_toEndOf="parent"/>
 
 <com.google.android.material.button.MaterialButton
     android:id="@+id/submit"
