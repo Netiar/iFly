@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.MainActivity
@@ -33,11 +34,11 @@ class ChatFragment : Fragment(), View.OnClickListener {
     private lateinit var scholarsList: ArrayList<Scholar>
     private lateinit var scholarsAdapter: BottomSheetRecAdapter
     private lateinit var pref: SharedPreferences
-    private lateinit var databaseReference: DatabaseReference
+    private lateinit var mAuth: DatabaseReference
 
     private var realScholar: Scholar? = null
     private var pfNumber: String? = null
-    private var hashMap: HashMap<Scholar, Message>? = null
+    private var hashMap = HashMap<Scholar, Message>()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -51,13 +52,60 @@ class ChatFragment : Fragment(), View.OnClickListener {
         scholarsAdapter.listDiffer.submitList(scholarsList)
         bottomSheet = BottomSheetDialog(requireContext())
         suggestionAdapter = ScholarsRecAdapter(requireContext())
-        databaseReference = FirebaseDatabase.getInstance().reference
+        mAuth = FirebaseDatabase.getInstance().reference
 
         //getting the scholars pf number from shared preferences
         pfNumber = pref.getString(Constants.PF_NUMBER, null)
 
         //getting the scholars last message
-        hashMap = (activity as MainActivity).hashMap
+        mAuth.child("chats").addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children){
+                    if(dataSnapshot.key!!.substring(0,7) == pfNumber ){
+//                        Toast.makeText(requireContext(), dataSnapshot.key!!.substring(0,7), Toast.LENGTH_LONG).show()
+
+                        mAuth.child("chats").child(dataSnapshot.key!!).child("messages").addValueEventListener(object: ValueEventListener{
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                val scholarPf = dataSnapshot.key!!.substring(7)
+                                val scholarMessages = ArrayList<Message>()
+                                for (receiver in scholarsList){
+                                    if(receiver.pfNumber == scholarPf){
+                                        for (messageSnapshot in snapshot.children){
+                                            scholarMessages.add(messageSnapshot.getValue(Message::class.java)!!)
+                                        }
+                                        hashMap[receiver] = scholarMessages[scholarMessages.size - 1]
+                                        Toast.makeText(requireContext(),
+                                            hashMap.keys.elementAt(0).status, Toast.LENGTH_LONG).show()
+
+                                        if (hashMap.size == 0){
+                                            bind.chats.text = "You have no chats."
+                                        }
+                                    }
+                                }
+                                chatAdapter = ChatRecHolder(hashMap, requireContext())
+                                chatAdapter.notifyDataSetChanged()
+                                bind.chatRecView.apply {
+                                    adapter = chatAdapter
+                                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+                                }
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+
+                            }
+
+                        })
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        } )
+
 
         //Creating the bottom sheet dialog
         createBottomSheetDialog(inflater, container)
@@ -65,16 +113,15 @@ class ChatFragment : Fragment(), View.OnClickListener {
         //adding onclick listeners
         bind.fab.setOnClickListener(this::onClick)
 
-        if (hashMap!!.size != 0){
-            chatAdapter = (activity as MainActivity).chatAdapter
-            setUpRecyclerView()
 
-        }else{
-            bind.chats.text = "You have not chats."
-        }
 
         val scholarSuggestion = (activity as MainActivity).scholarSuggestion
         suggestionAdapter.listDiffer.submitList(scholarSuggestion)
+        bind.topRecView.apply {
+            adapter = suggestionAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        }
 
         return bind.root
     }
@@ -101,18 +148,6 @@ class ChatFragment : Fragment(), View.OnClickListener {
         layout.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
     }
 
-    private fun setUpRecyclerView() {
-        bind.topRecView.apply {
-            adapter = suggestionAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        }
-
-        bind.chatRecView.apply {
-            adapter = chatAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
-        }
-    }
 
     override fun onClick(p0: View?) {
         if (p0 == bind.fab){
