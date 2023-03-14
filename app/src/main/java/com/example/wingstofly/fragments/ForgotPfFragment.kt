@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.wingstofly.MainActivity
+import com.example.wingstofly.R
 
 import com.example.wingstofly.databinding.FragmentForgotPfBinding
 import com.example.wingstofly.models.Scholar
@@ -28,9 +31,7 @@ class ForgotPfFragment: Fragment(), View.OnClickListener {
     private lateinit var bind: FragmentForgotPfBinding
     private lateinit var prefEditor: SharedPreferences.Editor
     private lateinit var pref: SharedPreferences
-
-    lateinit var scholar: Scholar
-
+    private lateinit var scholars: ArrayList<Scholar>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bind = FragmentForgotPfBinding.inflate(layoutInflater)
@@ -38,8 +39,57 @@ class ForgotPfFragment: Fragment(), View.OnClickListener {
         mAuth = FirebaseDatabase.getInstance().reference
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         prefEditor = pref.edit()
+        scholars = (activity as MainActivity).scholars
 
-        bind.submit.setOnClickListener(this::onClick)
+
+        val schools = HashSet<String>()
+        val branches = HashSet<String>()
+        for (scholar in scholars){
+            schools.add(scholar.secondarySchool!!)
+            branches.add(scholar.origin!!)
+        }
+
+        val adapter = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, schools.toList())
+        val adapterBranches = ArrayAdapter<String>(requireContext(), R.layout.spinner_item, branches.toList())
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapterBranches.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        bind.scholarId.adapter = adapter
+        bind.confirmPassword.adapter = adapterBranches
+
+        val service = PfNotificationService(requireContext())
+
+
+        bind.submit.setOnClickListener{
+            val scholarName = bind.firstName.editText!!.text.trim().toString()
+            val scholarHighSchool = bind.scholarId.selectedItem.toString()
+            val scholarBranch = bind.confirmPassword.selectedItem.toString()
+            val scholarPhone = bind.scholarPhone.editText!!.text.trim().toString()
+
+            Toast.makeText(requireContext(), scholarHighSchool, Toast.LENGTH_LONG).show()
+
+
+            for (i in 0 until scholars.size){
+                if (scholars[i].origin.equals(scholarBranch,true) &&
+                    scholars[i].name!!.equals(scholarName, true) &&
+                    scholars[i].secondarySchool!!.equals(scholarHighSchool, true)){
+                    val scholar = scholars[i]
+                    saveToFirebase(scholar)
+
+                    scholar.primaryNumber = scholarPhone
+                    service.showNotification(scholar)
+
+                    prefEditor.putString(Constants.PF_NUMBER, scholar.pfNumber).apply()
+
+                    Toast.makeText(requireContext(), "Click on the notification to register.", Toast.LENGTH_LONG).show()
+                    break
+                }else{
+                    bind.firstName.error = "Check your details"
+                    return@setOnClickListener
+                }
+            }
+
+
+        }
 
 
         return bind.root
@@ -49,48 +99,8 @@ class ForgotPfFragment: Fragment(), View.OnClickListener {
         mAuth.child("user").child(scholar.name!!).setValue(scholar)
     }
 
-    private fun getScholarData(scholars: ArrayList<Scholar>): Scholar {
-        var scholar: Scholar? = null
-
-        val scholarName = bind.firstName.editText!!.text.trim().toString()
-        val scholarHighSchool = bind.confirmPassword.editText!!.text.trim().toString()
-        val scholarBranch = bind.scholarId.editText!!.text.trim().toString()
-        val scholarPhone = bind.scholarPhone.editText!!.text.trim().toString()
-
-        for (i in 0 until scholars.size){
-            if (scholars[i].origin.equals(scholarBranch,true) &&
-            scholars[i].name!!.equals(scholarName, true) &&
-                    scholars[i].secondarySchool!!.equals(scholarHighSchool, true)){
-                scholar = scholars[i]
-                scholar.primaryNumber = scholarPhone
-                prefEditor.putString(Constants.PF_NUMBER, scholar.pfNumber).apply()
-
-            }else{
-                if (scholars[i].origin!! != scholarBranch){
-                    bind.scholarId.isErrorEnabled = true
-                    bind.scholarId.error = "Did you mean ${scholars[i].origin}"
-                }else if (scholars[i].name != scholarName){
-                    bind.firstName.isErrorEnabled = true
-                    bind.firstName.error = "Did you mean ${scholars[i].name}"
-
-                }else{
-                    bind.confirmPassword.isErrorEnabled = true
-                    bind.confirmPassword.error = "Did you mean ${scholars[i].secondarySchool}"
-                }
-            }
-        }
-
-        return scholar!!
-    }
-
     override fun onClick(p0: View?) {
 
-        val scholars = (activity as MainActivity).scholars
-        scholar = getScholarData(scholars)
-        saveToFirebase(scholar)
-
-        val service = PfNotificationService(requireContext())
-        service.showNotification(scholar)
     }
 
 }
