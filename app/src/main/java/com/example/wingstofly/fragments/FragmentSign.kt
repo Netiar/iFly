@@ -70,10 +70,10 @@ class FragmentSign: Fragment(), View.OnClickListener {
                         val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image")
 
                         if (testNumber == "pf"){
-                            p0.findFragment<FragmentSign>().findNavController().navigate(R.id.action_fragmentSign2_to_highSchoolFragment, bundle)
+                            p0.findFragment<FragmentSign>().findNavController().navigate(R.id.action_fragmentSign2_to_highSchoolFragment, bundle, null, transitionExtras)
 
                         }else{
-                            p0.findFragment<FragmentSign>().findNavController().navigate(R.id.action_fragmentSign2_to_nonHighFragment, bundle)
+                            p0.findFragment<FragmentSign>().findNavController().navigate(R.id.action_fragmentSign2_to_nonHighFragment, bundle, null, transitionExtras)
                         }
                         break
                     }else{
