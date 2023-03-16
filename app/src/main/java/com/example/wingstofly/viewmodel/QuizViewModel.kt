@@ -10,13 +10,12 @@ import com.example.wingstofly.utils.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class QuizViewModel(private val quizRepository: QuizRepository): ViewModel() {
+class QuizViewModel(private val cat: String, private val quizRepository: QuizRepository): ViewModel() {
     val topics:MutableLiveData<Resource<TopicCategory>> = MutableLiveData()
     val questions: MutableLiveData<Resource<Topic>> = MutableLiveData() //posts api request state to the observer
     val amount: String = "10" ;val difficulty: String = "hard"; val type: String = "multiple"; val category: String = "any"
-
     init {
-        getQuestions()
+        getQuestions(cat)
         getCategories()
     }
 
@@ -39,9 +38,9 @@ class QuizViewModel(private val quizRepository: QuizRepository): ViewModel() {
 
 
 
-    private fun getQuestions() = viewModelScope.launch {
+    private fun getQuestions(cat: String) = viewModelScope.launch {
         questions.postValue(Resource.Loading())
-        val response = quizRepository.getQuestions() // getting the response from the repository
+        val response = quizRepository.getQuestions(category = cat) // getting the response from the repository
         questions.postValue(getResponseState(response)) // posting the current state of the request to the observer
     }
 
