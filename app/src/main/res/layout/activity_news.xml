@@ -88,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:text="Job description"
                 android:textSize="20sp"
-                android:textColor="@color/maroon"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:layout_margin="8dp"
