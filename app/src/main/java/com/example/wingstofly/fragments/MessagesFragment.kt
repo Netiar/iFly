@@ -46,6 +46,9 @@ class MessagesFragment: Fragment(), View.OnClickListener {
         receiverRoom = userPf + receiverPf
         senderRoom = receiverPf + userPf
 
+        bind.send.setOnClickListener(this::onClick)
+        bind.back.setOnClickListener(this::onClick)
+
         databaseRef.child("chats").child(senderRoom!!).child("messages")
             .addValueEventListener(object: ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -55,19 +58,18 @@ class MessagesFragment: Fragment(), View.OnClickListener {
                         messageList.add(message!!)
                     }
                     mAdapter = MessagesRecHolder(requireContext(),scholar!!,messageList )
+                    mAdapter.notifyDataSetChanged()
                     bind.recMessages.apply{
                         adapter = mAdapter
                         layoutManager = LinearLayoutManager(requireContext())
                     }
-                    mAdapter.notifyDataSetChanged()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                 }
 
             })
-        bind.send.setOnClickListener(this::onClick)
-        bind.back.setOnClickListener(this::onClick)
+
 
         return bind.root
     }
