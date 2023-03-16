@@ -51,6 +51,9 @@ class SingleJobFragment : Fragment() {
             adapter = JobDetailsRecView(jobTasks)
             layoutManager = LinearLayoutManager(requireContext())
         }
+        bind.back.setOnClickListener{
+            requireActivity().finish()
+        }
         return bind.root
     }
 
