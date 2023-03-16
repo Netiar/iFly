@@ -58,7 +58,6 @@ class MessagesFragment: Fragment(), View.OnClickListener {
                         messageList.add(message!!)
                     }
                     mAdapter = MessagesRecHolder(requireContext(),scholar!!,messageList )
-                    mAdapter.notifyDataSetChanged()
                     bind.recMessages.apply{
                         adapter = mAdapter
                         layoutManager = LinearLayoutManager(requireContext())
