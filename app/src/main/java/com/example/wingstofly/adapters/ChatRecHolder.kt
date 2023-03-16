@@ -17,7 +17,11 @@ class ChatRecHolder(
 
         fun setData(scholar: Scholar){
             bind.scholarName.text = scholar.name
-            bind.scholarStatus.text = messages[scholar]!!.description
+            if (messages[scholar]!!.description!!.length > 20){
+                bind.scholarStatus.text = "${messages[scholar]!!.description!!.subSequence(0,20)}..."
+            }else{
+                bind.scholarStatus.text = messages[scholar]!!.description
+            }
 
             bind.root.setOnClickListener{
                 val intent = Intent(cont, SingleActivity::class.java)
