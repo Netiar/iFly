@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
@@ -20,10 +21,8 @@ class LearnFragment : Fragment() {
     private lateinit var viewModel: QuizViewModel
     private lateinit var topicsAdapter: QuestRecAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
         bind = FragmentLearnBinding.inflate(layoutInflater)
 
@@ -38,26 +37,28 @@ class LearnFragment : Fragment() {
         }
 
         viewModel = (activity as MainActivity).questViewModel
-        topicsAdapter = QuestRecAdapter()
+        topicsAdapter = QuestRecAdapter(requireContext())
         setUpRecView()
 
         viewModel.topics.observe(viewLifecycleOwner, Observer { topicCategories ->
             when(topicCategories){
                 is Resource.Success -> {
                     topicCategories.newsData?.let {
+                        bind.progress.isVisible = false
                         topicsAdapter.listDiffer.submitList(it.trivia_categories)
-                        Toast.makeText(context, "messages received", Toast.LENGTH_LONG).show()
 
                     }
                 }
 
                 is Resource.Failure ->{
                     topicCategories.questMessage?.let { message ->
+                        bind.progress.isVisible = true
                         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
                     }
                 }
 
                 is Resource.Loading -> {
+                    bind.progress.isVisible = true
                     Toast.makeText(context, "messages loading", Toast.LENGTH_LONG).show()
                 }
             }
