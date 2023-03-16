@@ -106,7 +106,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         }
         if(p0 == bind.forgot1){
-            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_fragmentSign2)
+            val transitionExtras = FragmentNavigatorExtras(bind.image to "image_sign")
+            p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_fragmentSign2, null, null, transitionExtras)
         }
     }
 
