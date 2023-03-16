@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/layout_design"
+    android:backgroundTint="@color/maroon3"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/home_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/maroon"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/answers"/>
+
+
+    <RadioGroup
+        android:id="@+id/answers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/home_team"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+        <RadioButton android:id="@+id/radio_ans1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pirates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <RadioButton android:id="@+id/radio_ans2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pirates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+        <RadioButton android:id="@+id/radio_ans3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pirates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+        <RadioButton android:id="@+id/radio_ans4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pirates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/readMore"
+        app:cornerRadius="20dp"
+        android:text="View Correct answer"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/answers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
