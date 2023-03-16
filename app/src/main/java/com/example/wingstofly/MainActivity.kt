@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         //initialising the quiz repository and provider
         val repo = QuizRepository()
-        val provider = QuizProviderFactory(repo)
+        val provider = QuizProviderFactory("", repo)
         questViewModel = ViewModelProvider(this, provider)[QuizViewModel::class.java]
 
         //getting data from the data managers
