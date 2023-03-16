@@ -1,17 +1,32 @@
 package com.example.wingstofly.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wingstofly.R
+import com.example.wingstofly.SingleActivity
+import com.example.wingstofly.databinding.LearnBinding
 import com.example.wingstofly.models.TriviaCategory
-import kotlinx.android.synthetic.main.learn.view.*
 
-class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
-    inner class MyHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class QuestRecAdapter(val context: Context): RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
+    inner class MyHolder(val bind: LearnBinding): RecyclerView.ViewHolder(bind.root) {
+        fun setData(cat: TriviaCategory){
+            bind.name.text = cat.name
+            bind.level.text = "Find questions on ${cat.name} to challenge yourself, choices are given."
+
+            bind.root.setOnClickListener{
+                val category = cat.id
+                val catName = cat.name
+                val intent = Intent(context, SingleActivity::class.java)
+                intent.putExtra("category", category)
+                intent.putExtra("catName", catName)
+                intent.putExtra("layout", 8)
+                context.startActivity(intent)
+            }
+        }
 
     }
 
@@ -29,16 +44,13 @@ class QuestRecAdapter: RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
     val listDiffer = AsyncListDiffer(this, diffUtil)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.learn, parent, false)
-        return MyHolder(v)
+        val bind = LearnBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyHolder(bind)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val topic = listDiffer.currentList[position]
-        holder.itemView.apply {
-            name.text = topic.name
-            level.text = "Find questions on ${topic.name} to challenge yourself, choices are given."
-        }
+        holder.setData(topic)
     }
 
     override fun getItemCount() = listDiffer.currentList.size
