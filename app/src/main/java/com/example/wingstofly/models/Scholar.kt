@@ -18,9 +18,10 @@ class Scholar: java.io.Serializable{
     var meanGrade: String? = null
     var meanScore: Int = 0
     var meanAGP: Int = 0
-    var courses = ArrayList<String>()
+    var coursesName: String? = null
+    var varsityGrade: String? = null
     var origin:String? = null
-    var tertiaryInstitutions = ArrayList<String>()
+    var tertiaryInstitutions = HashMap<String, String>()
     var password: String? = null
     private val agpValues = HashMap<String, Int>()
 
