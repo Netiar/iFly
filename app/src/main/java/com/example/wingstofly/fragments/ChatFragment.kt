@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.MainActivity
@@ -57,6 +58,22 @@ class ChatFragment : Fragment(), View.OnClickListener {
         //getting the scholars pf number from shared preferences
         pfNumber = pref.getString(Constants.PF_NUMBER, null)
 
+        val scholarSuggestion = ArrayList<Scholar>()
+
+        var realScholar: Scholar? = null
+        for (i in scholarsList.indices){
+            if (pfNumber.contentEquals(scholarsList[i].pfNumber)){
+                realScholar = scholarsList[i]
+                for (i in scholarsList.indices){
+                    if ((scholarsList[i].origin == realScholar.origin) || (scholarsList[i].secondarySchool == realScholar.secondarySchool)){
+                        scholarSuggestion.add(scholarsList[i])
+                    }
+                }
+            }
+
+        }
+        scholarSuggestion.remove(realScholar)
+
         //getting the scholars last message
         mAuth.child("chats").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -66,6 +83,7 @@ class ChatFragment : Fragment(), View.OnClickListener {
 
                         mAuth.child("chats").child(dataSnapshot.key!!).child("messages").addValueEventListener(object: ValueEventListener{
                             override fun onDataChange(snapshot: DataSnapshot) {
+                                bind.progress.isVisible = false
                                 val scholarPf = dataSnapshot.key!!.substring(7)
                                 val scholarMessages = ArrayList<Message>()
                                 for (receiver in scholarsList){
@@ -92,6 +110,8 @@ class ChatFragment : Fragment(), View.OnClickListener {
                             }
 
                             override fun onCancelled(error: DatabaseError) {
+                                bind.progress.isVisible = true
+                                bind.chats.text = "Check your internet connection "
 
                             }
 
@@ -101,7 +121,8 @@ class ChatFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                bind.progress.isVisible = true
+                bind.chats.text = "Check your internet connection "
             }
 
         } )
@@ -115,7 +136,8 @@ class ChatFragment : Fragment(), View.OnClickListener {
 
 
 
-        val scholarSuggestion = (activity as MainActivity).scholarSuggestion
+
+
         suggestionAdapter.listDiffer.submitList(scholarSuggestion)
         bind.topRecView.apply {
             adapter = suggestionAdapter
