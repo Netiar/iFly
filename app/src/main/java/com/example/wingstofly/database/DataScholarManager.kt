@@ -1,9 +1,12 @@
 package com.example.wingstofly.database
 
 import com.example.wingstofly.models.Scholar
+import com.example.wingstofly.models.Subject
 
 class DataScholarManager {
     val scholars = ArrayList<Scholar>()
+    private  val subjects = Subjects().allSubjects
+
 
     init {
         getScholars()
@@ -22,6 +25,7 @@ class DataScholarManager {
             primaryMeanAGP = 12
             secondarySchool = "St Josephs Seminary Mwingi"
             varsity = "The Technical University of Kenya"
+            coursesName = "Business Information Technology"
         }
         scholars.add(scholar)
         val scholar1 = Scholar("Albright Sunguti", "Student")
@@ -30,6 +34,9 @@ class DataScholarManager {
             pfNumber = "pf41891"
             primarySchool = "Chaani primary school"
             secondarySchool = "Alliance Boys High School"
+            primaryMeanGrade = "B+"
+            primaryMarks = 396
+            primaryMeanAGP = 11
         }
         scholars.add(scholar1)
         val scholar2 = Scholar("Rose Chari", "Student")
@@ -221,5 +228,18 @@ class DataScholarManager {
             otherNumber = "0114830685"
         }
         scholars.add(scholar20)
+        // assigning the scholar subjects marks
+        for (scholar in scholars){
+            for(subject in subjects){
+                when(subject.category){
+                    "Common" -> subject.score = 73
+                    "Humanities" -> subject.score = 86
+                    "Sciences" -> subject.score = 56
+                    else -> subject.score = 63
+                }
+
+                scholar.addSubject(subject)
+            }
+        }
     }
 }
