@@ -88,8 +88,10 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image")
 
                         if (testNumber == "pf"){
+                            bind.scholarId.isErrorEnabled = false
                             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle, null, transitionExtras)
                         }else{
+                            bind.scholarId.isErrorEnabled = false
                             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle, null, transitionExtras)
                         }
                         break
