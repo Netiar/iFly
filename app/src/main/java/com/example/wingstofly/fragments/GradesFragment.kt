@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.GradesRecAdapter
+import com.example.wingstofly.database.Subjects
 import com.example.wingstofly.databinding.FragmentGradesBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.models.Subject
@@ -21,7 +22,7 @@ class GradesFragment: Fragment(R.layout.fragment_grades) {
 
         val mainActivity =(activity as MainActivity)
         scholars = mainActivity.scholars
-        subjects = mainActivity.subjects
+        subjects = Subjects().allSubjects
 
         for (scholar in scholars){
             for (subject in subjects){
@@ -39,7 +40,4 @@ class GradesFragment: Fragment(R.layout.fragment_grades) {
         }
     }
 
-    private fun setUpRecyclerView() {
-
-    }
 }
