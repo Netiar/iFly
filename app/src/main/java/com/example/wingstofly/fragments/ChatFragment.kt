@@ -92,9 +92,6 @@ class ChatFragment : Fragment(), View.OnClickListener {
                                             scholarMessages.add(messageSnapshot.getValue(Message::class.java)!!)
                                         }
                                         hashMap[receiver] = scholarMessages[scholarMessages.size - 1]
-                                        Toast.makeText(requireContext(),
-                                            hashMap.keys.elementAt(0).status, Toast.LENGTH_LONG).show()
-
                                         if (hashMap.size == 0){
                                             bind.chats.text = "You have no chats."
                                         }
