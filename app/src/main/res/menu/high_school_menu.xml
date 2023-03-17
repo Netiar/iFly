@@ -36,7 +36,7 @@
 
                 <item android:title="logout"
                     android:icon="@drawable/ic_reply"
-                    android:id="@+id/summaryFragment2"/>
+                    android:id="@+id/summaryFragment"/>
 
                 <item android:title="Share"
                     android:icon="@drawable/ic_share"
