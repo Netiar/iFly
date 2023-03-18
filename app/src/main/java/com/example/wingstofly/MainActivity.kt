@@ -13,6 +13,7 @@ import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.viewmodel.QuizProviderFactory
 import com.example.wingstofly.viewmodel.QuizViewModel
 import com.google.firebase.database.*
+import com.skydoves.transformationlayout.onTransformationStartContainer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mAuth: DatabaseReference
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        onTransformationStartContainer() // called before the super.onCreate method
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
