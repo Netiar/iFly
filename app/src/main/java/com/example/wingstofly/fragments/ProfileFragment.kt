@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentProfileBinding
 import com.example.wingstofly.models.Scholar
+import com.skydoves.transformationlayout.addTransformation
+import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener {
@@ -17,6 +19,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        onTransformationStartContainer()
         arguments?.let {
             param1 = it.getSerializable("scholar") as Scholar
         }
@@ -32,7 +35,12 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         scholar_status.text = "${param1.status!!.capitalize()}, ${param1.secondarySchool}"
 
         fragmentScholarOverview = SingleScholarFragment.newInstance(scholar1)
+
+        transformationLayout.transitionName = "myTransitionName"
+        val bundle = transformationLayout.getBundle("TransformationParams")
+        bundle.putSerializable("scholar", scholar1)
         fragmentshared = SharedFragment.newInstance(scholar1)
+        fragmentshared.arguments = bundle
 
         replaceFragment(fragmentScholarOverview)
 
@@ -40,7 +48,11 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         back.setOnClickListener(this::onClick)
 
         grades.setOnClickListener{
-            replaceFragment(fragmentshared)
+            val manager = childFragmentManager
+            val transaction = manager.beginTransaction().addTransformation(transformationLayout)
+            transaction.replace(bind.frameLayout.id, fragmentshared)
+            transaction.commit()
+
         }
         summary.setOnClickListener(this::onClick)
     }
