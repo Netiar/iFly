@@ -10,6 +10,8 @@ import com.example.wingstofly.adapters.SubjectsRecAdapter
 import com.example.wingstofly.databinding.FragmentSharedBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
+import com.skydoves.transformationlayout.TransformationLayout
+import com.skydoves.transformationlayout.onTransformationEndContainer
 
 
 class SharedFragment : Fragment() {
@@ -19,6 +21,10 @@ class SharedFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val params = arguments?.getParcelable<TransformationLayout.Params>("TransformationParams")
+        onTransformationEndContainer(params)
+
         arguments?.let {
             scholar = it.getSerializable("scholar") as Scholar
         }
@@ -28,6 +34,7 @@ class SharedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         bind = FragmentSharedBinding.inflate(layoutInflater)
+        bind.root.transitionName = "myTransitionName"
 
         bind.cutOff.text = "Scholar cut off: ${Constants.CUT_POINT}"
 
@@ -41,6 +48,7 @@ class SharedFragment : Fragment() {
             bind.studentDeviation.text = "Add more than $deviation marks in each subject to be on the safe side."
         }
         setUpRecyclerView()
+
         return bind.root
     }
 
