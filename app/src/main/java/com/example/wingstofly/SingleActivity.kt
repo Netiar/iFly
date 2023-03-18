@@ -15,9 +15,10 @@ import com.example.wingstofly.repository.QuizRepository
 import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.viewmodel.QuizProviderFactory
 import com.example.wingstofly.viewmodel.QuizViewModel
+import com.skydoves.transformationlayout.TransformationAppCompatActivity
 import java.util.function.Predicate
 
-class SingleActivity : AppCompatActivity() {
+class SingleActivity : TransformationAppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding
     lateinit var questViewModel: QuizViewModel
     lateinit var scholars: ArrayList<Scholar>
@@ -36,7 +37,6 @@ class SingleActivity : AppCompatActivity() {
 
         if (layout == 2 ){
             val scholar = intent.getSerializableExtra("scholar") as Scholar
-            Toast.makeText(this, "scholar data", Toast.LENGTH_SHORT).show()
             val fragment = ProfileFragment.newInstance(scholar)
             replaceFragment(fragment)
         }else if(layout == 3){
