@@ -60,26 +60,42 @@
             app:layout_constraintTop_toBottomOf="@id/scholar_name"
             />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/overview"
+        <com.skydoves.transformationlayout.TransformationLayout
+            android:id="@+id/transformationOverview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="overview"
-            android:textColor="@color/white"
+            app:transformation_duration="550"
             app:layout_constraintTop_toBottomOf="@id/image"
-            app:layout_constraintEnd_toStartOf="@id/grades"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintEnd_toStartOf="@id/transformationLayout"
+            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="overview"
+                android:textColor="@color/white"
+                />
+        </com.skydoves.transformationlayout.TransformationLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/grades"
+
+        <com.skydoves.transformationlayout.TransformationLayout
+            android:id="@+id/transformationLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grades"
-            android:textColor="@color/white"
+            app:transformation_duration="550"
             app:layout_constraintTop_toBottomOf="@id/image"
-            app:layout_constraintStart_toEndOf="@id/overview"
-            app:layout_constraintEnd_toStartOf="@id/summary"
-            />
+            app:layout_constraintStart_toEndOf="@id/transformationOverview"
+            app:layout_constraintEnd_toStartOf="@id/summary">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/grades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grades"
+                android:textColor="@color/white" />
+
+
+        </com.skydoves.transformationlayout.TransformationLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/summary"
@@ -88,7 +104,7 @@
             android:text="Summary"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/image"
-            app:layout_constraintStart_toEndOf="@id/grades"
+            app:layout_constraintStart_toEndOf="@id/transformationLayout"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
