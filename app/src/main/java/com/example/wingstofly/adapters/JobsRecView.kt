@@ -12,6 +12,7 @@ import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityJobRecviewBinding
 import com.example.wingstofly.models.Job
+import com.skydoves.transformationlayout.TransformationCompat
 
 class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecView.MyHolder>() {
     inner class MyHolder(val bind: ActivityJobRecviewBinding): RecyclerView.ViewHolder(bind.root){
@@ -31,7 +32,7 @@ class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecVie
                 val intent = Intent(context, SingleActivity::class.java)
                 intent.putExtra("layout", 1)
                 intent.putExtra("job", job)
-                context.startActivity(intent)
+                TransformationCompat.startActivity(bind.transformationLayout, intent)
 //                bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
             }
         }
