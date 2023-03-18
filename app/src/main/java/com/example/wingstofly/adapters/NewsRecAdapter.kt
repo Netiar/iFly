@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.models.Event
+import com.skydoves.transformationlayout.TransformationCompat
+import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.activity_event_recview.view.newsDescription
 import kotlinx.android.synthetic.main.activity_event_recview.view.newsId
 import kotlinx.android.synthetic.main.activity_job_recview.view.*
@@ -19,13 +21,14 @@ import kotlinx.android.synthetic.main.activity_job_recview.view.*
 class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyHolder>() {
 
     inner class MyHolder(val view: View): RecyclerView.ViewHolder(view){
+        val layout: TransformationLayout = view.findViewById(R.id.transformationLayout)
 
         fun setClickListener(event: Event){
             view.setOnClickListener{
                 val intent = Intent(cont, SingleActivity::class.java)
                 intent.putExtra("layout", 5)
                 intent.putExtra("event", event )
-                cont.startActivity(intent)
+                TransformationCompat.startActivity(layout, intent)
             }
         }
     }
