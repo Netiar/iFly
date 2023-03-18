@@ -12,6 +12,7 @@ import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityUpskillRecBinding
 import com.example.wingstofly.models.Upskill
+import com.skydoves.transformationlayout.TransformationCompat
 
 class UpskillRecHolder(private val context: Context): RecyclerView.Adapter<UpskillRecHolder.MyHolder>() {
     inner class MyHolder(val bind: ActivityUpskillRecBinding): RecyclerView.ViewHolder(bind.root){
@@ -32,7 +33,7 @@ class UpskillRecHolder(private val context: Context): RecyclerView.Adapter<Upski
                 val intent = Intent(context, SingleActivity::class.java)
                 intent.putExtra("layout", 7)
                 intent.putExtra("school", upskill)
-                context.startActivity(intent)
+                TransformationCompat.startActivity(bind.transformationLayout, intent)
 //                bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
             }
 
