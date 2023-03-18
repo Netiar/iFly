@@ -24,7 +24,7 @@ class GradesRecAdapter: RecyclerView.Adapter<GradesRecAdapter.MyHolder>() {
         }
 
         override fun areContentsTheSame(oldItem: Scholar, newItem: Scholar): Boolean {
-            return oldItem == newItem
+            return oldItem.equals(newItem)
         }
 
     }
