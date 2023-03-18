@@ -9,6 +9,7 @@ import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.ChatBinding
 import com.example.wingstofly.models.Message
 import com.example.wingstofly.models.Scholar
+import com.skydoves.transformationlayout.TransformationCompat
 
 class ChatRecHolder(
     private val messages: HashMap<Scholar, Message>, private val cont: Context
@@ -27,7 +28,7 @@ class ChatRecHolder(
                 val intent = Intent(cont, SingleActivity::class.java)
                 intent.putExtra("layout", 3)
                 intent.putExtra("scholar", scholar)
-                cont.startActivity(intent)
+                TransformationCompat.startActivity(bind.transformationLayout, intent)
             }
         }
     }
