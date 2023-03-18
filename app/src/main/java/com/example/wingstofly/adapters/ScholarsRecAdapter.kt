@@ -13,6 +13,7 @@ import androidx.viewbinding.ViewBinding
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.*
 import com.example.wingstofly.models.Scholar
+import com.skydoves.transformationlayout.TransformationCompat
 import kotlinx.android.synthetic.main.fragment_chat.view.top_rec_view
 import kotlinx.android.synthetic.main.fragment_scholar.view.*
 
@@ -39,14 +40,14 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
                       val intent = Intent(context, SingleActivity::class.java)
                       intent.putExtra("layout", 2)
                       intent.putExtra("scholar", scholar)
-                      context.startActivity(intent)
+                      TransformationCompat.startActivity(bind.transformationLayout, intent)
 //                      it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment2_to_singleActivity, bundle)
                   }else{
                       Toast.makeText(context, scholar.pfNumber!!.subSequence(0,2), Toast.LENGTH_SHORT ).show()
                       val intent = Intent(context, SingleActivity::class.java)
                       intent.putExtra("layout", 2)
                       intent.putExtra("scholar", scholar)
-                      context.startActivity(intent)
+                      TransformationCompat.startActivity(bind.transformationLayout, intent)
 //                      it.findFragment<ScholarFragment>().findNavController().navigate(R.id.action_scholarFragment_to_singleActivity2, bundle)
                   }
               }
