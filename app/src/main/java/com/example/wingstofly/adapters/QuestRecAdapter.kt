@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.LearnBinding
 import com.example.wingstofly.models.TriviaCategory
+import com.skydoves.transformationlayout.TransformationCompat
 
 class QuestRecAdapter(val context: Context): RecyclerView.Adapter<QuestRecAdapter.MyHolder>() {
     inner class MyHolder(val bind: LearnBinding): RecyclerView.ViewHolder(bind.root) {
@@ -24,7 +25,7 @@ class QuestRecAdapter(val context: Context): RecyclerView.Adapter<QuestRecAdapte
                 intent.putExtra("category", category)
                 intent.putExtra("catName", catName)
                 intent.putExtra("layout", 8)
-                context.startActivity(intent)
+                TransformationCompat.startActivity(bind.transformationLayout, intent)
             }
         }
 
