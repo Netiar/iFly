@@ -6,11 +6,11 @@
 
     <TextView
         android:id="@+id/received_message"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is your message"
         android:layout_margin="8dp"
-        android:background="@drawable/layout_design"
+        android:background="@drawable/messages_design"
         android:backgroundTint="@color/white"
         android:padding="8dp"
         android:textAlignment="textStart"
