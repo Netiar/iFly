@@ -75,6 +75,8 @@ class FragmentSign: Fragment(), View.OnClickListener {
                         }else{
                             p0.findFragment<FragmentSign>().findNavController().navigate(R.id.action_fragmentSign2_to_nonHighFragment, bundle, null, transitionExtras)
                         }
+                        bind.firstName.isErrorEnabled = false
+
                         break
                     }else{
                         bind.firstName.isErrorEnabled = true
