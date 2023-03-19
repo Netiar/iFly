@@ -232,10 +232,10 @@ class DataScholarManager {
         for (scholar in scholars){
             for(subject in subjects){
                 when(subject.category){
-                    "Common" -> subject.score = 73
-                    "Humanities" -> subject.score = 86
-                    "Sciences" -> subject.score = 56
-                    else -> subject.score = 63
+                    "Common" -> if(scholar.name!!.subSequence(0,1) == "A") subject.score = 53 else subject.score = 83
+                    "Humanities" ->if(scholar.name!!.subSequence(0,1) == "A") subject.score = 56 else subject.score = 76
+                    "Sciences" -> if(scholar.name!!.subSequence(0,1) == "A") subject.score = 56 else subject.score = 66
+                    else -> if(scholar.name!!.subSequence(0,1) == "A") subject.score = 53 else subject.score = 73
                 }
 
                 scholar.addSubject(subject)
