@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.ScholarBinding
 import com.example.wingstofly.models.Scholar
+import com.skydoves.transformationlayout.TransformationCompat
 
 class BottomSheetRecAdapter(val cont: Context): RecyclerView.Adapter<BottomSheetRecAdapter.MyHolder>() {
     inner class MyHolder( val bind: ScholarBinding): RecyclerView.ViewHolder(bind.root){
@@ -23,7 +24,7 @@ class BottomSheetRecAdapter(val cont: Context): RecyclerView.Adapter<BottomSheet
                 val intent = Intent(cont, SingleActivity::class.java)
                 intent.putExtra("layout", 3)
                 intent.putExtra("scholar", scholar)
-                cont.startActivity(intent)
+                TransformationCompat.startActivity(bind.transformationLayout, intent)
             }
         }
     }
