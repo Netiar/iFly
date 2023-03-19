@@ -93,9 +93,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
                         }else{
                             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_nonHighFragment, bundle, null, transitionExtras)
-                            bind.scholarId.isErrorEnabled = false
 
                         }
+                        bind.scholarId.isErrorEnabled = false
+                        bind.firstName.isErrorEnabled = false
+
                         break
                     }else{
                         bind.scholarId.error = "Pf Number not found"
