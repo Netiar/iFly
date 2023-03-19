@@ -1,19 +1,16 @@
 package com.example.wingstofly.fragments;
 
 import android.content.SharedPreferences
-import android.os.Bundle;
+import android.os.Bundle
 import android.preference.PreferenceManager
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
-
 import com.example.wingstofly.databinding.FragmentForgotPfBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
@@ -26,14 +23,14 @@ import com.google.firebase.database.FirebaseDatabase
  * Use the {@link ForgotPfFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-class ForgotPfFragment: Fragment(), View.OnClickListener {
+class ForgotPfFragment: Fragment(){
     private lateinit var mAuth: DatabaseReference
     private lateinit var bind: FragmentForgotPfBinding
     private lateinit var prefEditor: SharedPreferences.Editor
     private lateinit var pref: SharedPreferences
     private lateinit var scholars: ArrayList<Scholar>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         bind = FragmentForgotPfBinding.inflate(layoutInflater)
 
         mAuth = FirebaseDatabase.getInstance().reference
@@ -65,26 +62,25 @@ class ForgotPfFragment: Fragment(), View.OnClickListener {
             val scholarBranch = bind.confirmPassword.selectedItem.toString()
             val scholarPhone = bind.scholarPhone.editText!!.text.trim().toString()
 
-            Toast.makeText(requireContext(), scholarHighSchool, Toast.LENGTH_LONG).show()
 
-
+            var scholar: Scholar? = null
             for (i in 0 until scholars.size){
-                if (scholars[i].origin.equals(scholarBranch,true) &&
-                    scholars[i].name!!.equals(scholarName, true) &&
-                    scholars[i].secondarySchool!!.equals(scholarHighSchool, true)){
-                    val scholar = scholars[i]
-                    saveToFirebase(scholar)
+                if (scholars[i].origin == scholarBranch &&
+                    scholars[i].name!! == scholarName &&
+                    scholars[i].secondarySchool!! == scholarHighSchool){
+                    scholar = scholars[i]
 
                     scholar.primaryNumber = scholarPhone
                     service.showNotification(scholar)
+                    mAuth.child("user").child(scholar.name!!).setValue(scholar)
 
                     prefEditor.putString(Constants.PF_NUMBER, scholar.pfNumber).apply()
 
                     Toast.makeText(requireContext(), "Click on the notification to register.", Toast.LENGTH_LONG).show()
+                    bind.firstName.isErrorEnabled = false
                     break
                 }else{
                     bind.firstName.error = "Check your details"
-                    return@setOnClickListener
                 }
             }
 
@@ -93,14 +89,6 @@ class ForgotPfFragment: Fragment(), View.OnClickListener {
 
 
         return bind.root
-    }
-
-    private fun saveToFirebase(scholar: Scholar) {
-        mAuth.child("user").child(scholar.name!!).setValue(scholar)
-    }
-
-    override fun onClick(p0: View?) {
-
     }
 
 }
