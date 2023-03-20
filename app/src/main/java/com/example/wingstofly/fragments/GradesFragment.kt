@@ -24,12 +24,12 @@ class GradesFragment: Fragment(R.layout.fragment_grades) {
         scholars = mainActivity.scholars
         subjects = Subjects().allSubjects
 
-        for (scholar in scholars){
-            for (subject in subjects){
-                subject.score = 83
-                scholar.addSubject(subject)
-            }
-        }
+//        for (scholar in scholars){
+//            for (subject in subjects){
+//                subject.score = 83
+//                scholar.addSubject(subject)
+//            }
+//        }
 
         gradesRecAdapter = GradesRecAdapter()
         gradesRecAdapter.asyncListDiffer.submitList(scholars)
