@@ -1,6 +1,7 @@
 # EquiFly
 
 EquiFly is an application aimed at linking and re-uniting Mastercard Foundation scholars.
+Listen to a short demo: https://www.youtube.com/watch?v=_9jEJWzDDxs&t=65s
 
 ## Contributors
 * **Charles Muvaka**
