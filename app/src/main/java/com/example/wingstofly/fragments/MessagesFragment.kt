@@ -57,17 +57,19 @@ class MessagesFragment: Fragment(), View.OnClickListener {
                         val message = dataSnapshot.getValue(Message::class.java)
                         messageList.add(message!!)
                     }
-                    mAdapter = MessagesRecHolder(requireContext(),scholar!!,messageList )
-                    bind.recMessages.apply{
-                        adapter = mAdapter
-                        layoutManager = LinearLayoutManager(requireContext())
-                    }
+                    mAdapter.notifyDataSetChanged()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                 }
 
             })
+
+        mAdapter = MessagesRecHolder(requireContext(),scholar!!,messageList )
+        bind.recMessages.apply{
+            adapter = mAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
 
 
         return bind.root
