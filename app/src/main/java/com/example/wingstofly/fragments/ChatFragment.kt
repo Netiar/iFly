@@ -95,15 +95,13 @@ class ChatFragment : Fragment(), View.OnClickListener {
                                         if (hashMap.size == 0){
                                             bind.chats.text = "You have no chats."
                                         }
+                                        break
                                     }
                                 }
-                                chatAdapter = ChatRecHolder(hashMap, requireContext())
-                                chatAdapter.notifyDataSetChanged()
-                                bind.chatRecView.apply {
-                                    adapter = chatAdapter
-                                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-                                }
+                                chatAdapter.notifyDataSetChanged()
+
+
                             }
 
                             override fun onCancelled(error: DatabaseError) {
@@ -123,6 +121,13 @@ class ChatFragment : Fragment(), View.OnClickListener {
             }
 
         } )
+
+        chatAdapter = ChatRecHolder(hashMap, requireContext())
+        bind.chatRecView.apply {
+            adapter = chatAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        }
 
 
         //Creating the bottom sheet dialog
@@ -178,6 +183,31 @@ class ChatFragment : Fragment(), View.OnClickListener {
     override fun onStop() {
         super.onStop()
         bottomSheet.dismiss()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val scholarSuggestion = ArrayList<Scholar>()
+
+        var realScholar: Scholar? = null
+        for (i in scholarsList.indices){
+            if (pfNumber.contentEquals(scholarsList[i].pfNumber)){
+                realScholar = scholarsList[i]
+                for (i in scholarsList.indices){
+                    if ((scholarsList[i].origin == realScholar.origin) || (scholarsList[i].secondarySchool == realScholar.secondarySchool)){
+                        scholarSuggestion.add(scholarsList[i])
+                    }
+                }
+            }
+
+        }
+        scholarSuggestion.remove(realScholar)
+        suggestionAdapter.listDiffer.submitList(scholarSuggestion)
+        bind.topRecView.apply {
+            adapter = suggestionAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        }
     }
 
 }
