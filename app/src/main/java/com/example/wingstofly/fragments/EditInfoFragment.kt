@@ -88,7 +88,7 @@ class EditInfoFragment : Fragment(){
 
         }
         if(pfNumber!!.subSequence(0,2) == "pf"){
-            bind.editProfessionalCertifications.isVisible = false
+            bind.addProfessionalCertifications.isVisible = false
         }
 
         bind.addProfessionalCertifications.setOnClickListener{
