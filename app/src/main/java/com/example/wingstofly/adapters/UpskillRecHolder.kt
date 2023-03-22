@@ -2,6 +2,7 @@ package com.example.wingstofly.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -30,11 +31,9 @@ class UpskillRecHolder(private val context: Context): RecyclerView.Adapter<Upski
                     putSerializable("scholar", scholar)
                     putInt("layoutNumber", 1)
                 }
-                val intent = Intent(context, SingleActivity::class.java)
-                intent.putExtra("layout", 7)
-                intent.putExtra("school", upskill)
+                val uri = Uri.parse(upskill.uri)
+                val intent = Intent(Intent.ACTION_VIEW, uri)
                 TransformationCompat.startActivity(bind.transformationLayout, intent)
-//                bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
             }
 
         }
