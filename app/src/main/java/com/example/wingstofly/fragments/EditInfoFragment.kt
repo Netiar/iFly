@@ -87,6 +87,9 @@ class EditInfoFragment : Fragment(){
             bottomSheet.show()
 
         }
+        if(pfNumber!!.subSequence(0,2) == "pf"){
+            bind.editProfessionalCertifications.isVisible = false
+        }
 
         bind.addProfessionalCertifications.setOnClickListener{
             createAddBottomSheet(inflater)
@@ -137,6 +140,8 @@ class EditInfoFragment : Fragment(){
 
             mAuth.child("user").child(scholar.name!!).setValue(scholar)
             Toast.makeText(requireContext(), "Successfully submitted", Toast.LENGTH_LONG).show()
+            bind.checkText.text = "$varsityName \n Course Name: $varsityCourseName \n Grade: $grade"
+
             bottomSheet.dismiss()
         }
 
@@ -183,6 +188,9 @@ class EditInfoFragment : Fragment(){
                 emailAddress = userEmail
             }
             mAuth.child("user").child(scholar.name!!).setValue(scholar)
+            bind.phone.text = "Primary Number: $userPhone \n Other Number: $userOtherPhone"
+            bind.email.text = "Email : $userEmail"
+
             Toast.makeText(requireContext(), "Successfully submitted", Toast.LENGTH_LONG).show()
             bottomSheet.dismiss()
         }
