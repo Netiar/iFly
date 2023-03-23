@@ -50,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="find joy in the journey"
+            android:transitionName="main_slogan"
             android:textStyle="italic"
             android:textSize="20sp"
             android:textColor="@color/brown"
