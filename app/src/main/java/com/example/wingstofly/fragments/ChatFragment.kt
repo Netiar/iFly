@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +45,9 @@ class ChatFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         bind = FragmentChatBinding.inflate(inflater)
+
+        //starting Animations
+        startAnimations()
 
         //initialising late init vars
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -148,6 +151,16 @@ class ChatFragment : Fragment(), View.OnClickListener {
         }
 
         return bind.root
+    }
+
+    private fun startAnimations() {
+
+        bind.topRecView.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+        bind.chatRecView.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
     }
 
 
