@@ -41,6 +41,7 @@
             android:layout_height="wrap_content"
             android:text="Primary School"
             android:textColor="@color/maroon"
+            android:textStyle="bold"
             android:layout_marginStart="12dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
