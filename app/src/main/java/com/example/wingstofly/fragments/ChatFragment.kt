@@ -144,7 +144,7 @@ class ChatFragment : Fragment(), View.OnClickListener {
 
 
         suggestionAdapter.listDiffer.submitList(scholarSuggestion)
-        bind.topRecView.apply {
+        bind.topView.apply {
             adapter = suggestionAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
@@ -154,10 +154,6 @@ class ChatFragment : Fragment(), View.OnClickListener {
     }
 
     private fun startAnimations() {
-
-        bind.topRecView.startAnimation(AnimationUtils.loadAnimation(
-            requireContext(), R.anim.zoom_in
-        ))
         bind.chatRecView.startAnimation(AnimationUtils.loadAnimation(
             requireContext(), R.anim.zoom_in
         ))
@@ -216,7 +212,7 @@ class ChatFragment : Fragment(), View.OnClickListener {
         }
         scholarSuggestion.remove(realScholar)
         suggestionAdapter.listDiffer.submitList(scholarSuggestion)
-        bind.topRecView.apply {
+        bind.topView.apply {
             adapter = suggestionAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 

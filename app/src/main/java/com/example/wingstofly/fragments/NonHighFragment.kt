@@ -48,7 +48,7 @@ class NonHighFragment: Fragment() , View.OnClickListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         // finally change the color
-        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon3);
+        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon2);
 
 
         //getting the animation transition from the login fragment

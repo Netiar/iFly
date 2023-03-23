@@ -85,9 +85,6 @@ class ScholarFragment : Fragment() {
         bind.topRecView.startAnimation(AnimationUtils.loadAnimation(
             requireContext(), R.anim.zoom_in
         ))
-        bind.myRecView.startAnimation(AnimationUtils.loadAnimation(
-            requireContext(), R.anim.zoom_in
-        ))
 
     }
 

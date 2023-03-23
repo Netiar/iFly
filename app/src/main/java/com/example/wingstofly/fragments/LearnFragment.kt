@@ -74,9 +74,6 @@ class LearnFragment : Fragment() {
     }
 
     private fun startAnimations() {
-        bind.recView1.startAnimation(AnimationUtils.loadAnimation(
-            requireContext(), R.anim.zoom_in
-        ))
         bind.recView2.startAnimation(AnimationUtils.loadAnimation(
             requireContext(), R.anim.zoom_in
         ))

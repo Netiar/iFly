@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -65,6 +66,15 @@ class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyH
             newsId.text = event.title
             news.isVisible = false
             image.isVisible = false
+
+            newsDescription.startAnimation(
+                AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+            newsId.startAnimation(AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+
         }
         holder.setClickListener(event)
     }

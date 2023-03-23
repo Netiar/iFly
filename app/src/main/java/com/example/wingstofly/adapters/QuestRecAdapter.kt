@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.LearnBinding
 import com.example.wingstofly.models.TriviaCategory
@@ -18,6 +20,16 @@ class QuestRecAdapter(val context: Context): RecyclerView.Adapter<QuestRecAdapte
             bind.name.text = cat.name
             bind.level.text = "Find questions on ${cat.name} to challenge yourself, choices are given."
 
+            bind.name.startAnimation(
+                AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+            bind.level.startAnimation(AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+            bind.image.startAnimation(AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
             bind.root.setOnClickListener{
                 val category = cat.id
                 val catName = cat.name

@@ -32,9 +32,7 @@ class JobsFragment: Fragment() {
     }
 
     private fun startAnimation() {
-        bind.jobsRecView.startAnimation(AnimationUtils.loadAnimation(
-            requireContext(), R.anim.zoom_in
-        ))
+
     }
 
     private fun setUpRecyclerView() {

@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityJobRecviewBinding
@@ -20,6 +22,18 @@ class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecVie
             bind.newsId.text = "${job.title}(${job.companyName})"
             bind.newsDescription.text = "${job.description.subSequence(0, 150)}....."
             bind.image.setImageResource(job.companyImage)
+
+            bind.newsId.startAnimation(
+                AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+
+            bind.newsDescription.startAnimation(AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
+            bind.image.startAnimation(AnimationUtils.loadAnimation(
+                context, R.anim.zoom_in
+            ))
 
             bind.root.setOnClickListener{
                 val bundle = Bundle()

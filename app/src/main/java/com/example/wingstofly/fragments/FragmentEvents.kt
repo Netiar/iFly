@@ -35,9 +35,6 @@ class FragmentEvents: Fragment() {
         bind.upcoming.startAnimation(AnimationUtils.loadAnimation(
             requireContext(), R.anim.zoom_in
         ))
-        bind.eventsRecView.startAnimation(AnimationUtils.loadAnimation(
-            requireContext(), R.anim.zoom_in
-        ))
     }
 
     private fun setUpRecyclerView(eventsRecView: RecyclerView) {
