@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
+import com.example.wingstofly.R
 import com.example.wingstofly.adapters.ScholarsRecAdapter
 import com.example.wingstofly.databinding.ChatBinding
 import com.example.wingstofly.databinding.FragmentScholarBinding
@@ -38,6 +40,8 @@ class ScholarFragment : Fragment() {
         suggestionsBind = ScholarSuggestionBinding.inflate(inflater, container, false)
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
+        //starting animations
+        startAnimations()
         //getting the scholars pf number
         val pfNumber = pref.getString(Constants.PF_NUMBER, null)
         val adapter = ScholarsRecAdapter(requireContext())
@@ -75,6 +79,16 @@ class ScholarFragment : Fragment() {
             this.layoutManager = LinearLayoutManager(context)
         }
         return bind.root
+    }
+
+    private fun startAnimations() {
+        bind.topRecView.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+        bind.myRecView.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+
     }
 
     companion object {
