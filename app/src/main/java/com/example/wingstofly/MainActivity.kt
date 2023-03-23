@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.wingstofly.database.*
+import com.example.wingstofly.databinding.ActivityMainBinding
 import com.example.wingstofly.models.*
 import com.example.wingstofly.repository.QuizRepository
 import com.example.wingstofly.utils.Constants
@@ -16,13 +18,12 @@ import com.google.firebase.database.*
 import com.skydoves.transformationlayout.onTransformationStartContainer
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var bind: ActivityMainBinding
     private lateinit var mAuth: DatabaseReference
     lateinit var questViewModel: QuizViewModel
     var scholars =  ArrayList<Scholar>()
     lateinit var jobs: ArrayList<Job>
     lateinit var events: ArrayList<Event>
-    lateinit var scholarMessages: ArrayList<Message>
-    var scholarSuggestion =  ArrayList<Scholar>()
     lateinit var schools: ArrayList<Upskill>
     private var pfNumber: String? = null
     private lateinit var pref: SharedPreferences
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationStartContainer() // called before the super.onCreate method
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bind.root)
 
         //initialising late init vars
         mAuth = FirebaseDatabase.getInstance().reference
@@ -55,9 +57,14 @@ class MainActivity : AppCompatActivity() {
                 for (data in snapshot.children){
                     scholars.add(data.getValue(Scholar::class.java)!!)
                 }
+                bind.progress.isVisible = false
             }
 
             override fun onCancelled(error: DatabaseError) {
+                bind.progress.isVisible = false
+                bind.connection.isVisible = true
+                bind.fragmentContainerView.isVisible = false
+                bind.connection.text = "Check your internet connection"
                 Toast.makeText(this@MainActivity,  error.message, Toast.LENGTH_LONG).show()
             }
 
