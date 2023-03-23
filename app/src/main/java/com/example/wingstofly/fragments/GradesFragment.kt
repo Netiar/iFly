@@ -2,6 +2,7 @@ package com.example.wingstofly.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
@@ -24,12 +25,8 @@ class GradesFragment: Fragment(R.layout.fragment_grades) {
         scholars = mainActivity.scholars
         subjects = Subjects().allSubjects
 
-//        for (scholar in scholars){
-//            for (subject in subjects){
-//                subject.score = 83
-//                scholar.addSubject(subject)
-//            }
-//        }
+        //starting Animations
+        startAnimations()
 
         gradesRecAdapter = GradesRecAdapter()
         gradesRecAdapter.asyncListDiffer.submitList(scholars)
@@ -38,6 +35,18 @@ class GradesFragment: Fragment(R.layout.fragment_grades) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
+    }
+
+    private fun startAnimations() {
+        grades.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+        gradesRec.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+        motivation_news.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
     }
 
 }
