@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
+import com.example.wingstofly.R
 import com.example.wingstofly.adapters.QuestRecAdapter
 import com.example.wingstofly.adapters.UpskillRecHolder
 import com.example.wingstofly.databinding.FragmentLearnBinding
@@ -26,6 +28,8 @@ class LearnFragment : Fragment() {
         // Inflate the layout for this fragment
         bind = FragmentLearnBinding.inflate(layoutInflater)
 
+        //starting Animations
+        startAnimations()
         val schools = (activity as MainActivity).schools
         val schoolsRecHolder = UpskillRecHolder(requireContext())
         schoolsRecHolder.asyncList.submitList(schools)
@@ -67,6 +71,15 @@ class LearnFragment : Fragment() {
 
 
         return bind.root
+    }
+
+    private fun startAnimations() {
+        bind.recView1.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+        bind.recView2.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
     }
 
     private fun setUpRecView(){
