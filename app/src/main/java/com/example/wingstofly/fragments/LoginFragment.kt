@@ -6,6 +6,12 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.animation.AnimationUtils
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -29,14 +35,37 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private  var pfNumber: String? = null
     private lateinit var prefEditor: SharedPreferences.Editor
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+        //hiding the status bar
+        val window = requireActivity().window
+        val windowInsetsController =
+            WindowCompat.getInsetsController(window, window.decorView)
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.isAppearanceLightStatusBars = true
+
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon2);
+
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-
-
         bind = FragmentLoginBinding.inflate(layoutInflater)
         mAuth = FirebaseDatabase.getInstance().reference
 
+        startAnimations()
 
         scholars = getScholars()
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -47,6 +76,41 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
 
         return bind.root
+    }
+
+    private fun startAnimations() {
+        bind.image.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.form.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.slogan.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.scholarId.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.firstName.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.submit.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.forgot1.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.forgot.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
     }
 
     private fun getScholars(): ArrayList<Scholar> {
@@ -85,7 +149,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                             putSerializable("scholar", scholar)
                         }
                         //creating fragment navigator extras instance
-                        val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image")
+                        val transitionExtras = FragmentNavigatorExtras(bind.image to "fragment_image", bind.slogan to "main_slogan")
 
                         if (testNumber == "pf"){
                             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_highSchoolFragment, bundle, null, transitionExtras)
@@ -112,9 +176,45 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         }
         if(p0 == bind.forgot1){
+            stopAnimations()
             val transitionExtras = FragmentNavigatorExtras(bind.image to "image_sign")
             p0.findFragment<LoginFragment>().findNavController().navigate(R.id.action_loginFragment_to_fragmentSign2, null, null, transitionExtras)
         }
+    }
+
+    private fun stopAnimations() {
+        bind.image.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.form.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.slogan.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.scholarId.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.firstName.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.submit.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.forgot1.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
+        bind.forgot.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_out
+            ))
     }
 
 
@@ -132,4 +232,26 @@ class LoginFragment : Fragment(), View.OnClickListener {
         }
         return scholar!!
     }
+
+    override fun onResume() {
+        super.onResume()
+        //hiding the status bar
+        val window = requireActivity().window
+        val windowInsetsController =
+            WindowCompat.getInsetsController(window, window.decorView)
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.isAppearanceLightStatusBars = true
+
+
+        // clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        // finally change the color
+        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon2);
+
+    }
+
 }
