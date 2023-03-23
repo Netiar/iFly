@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -28,6 +29,7 @@ class FragmentSign: Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bind = FragmentSignBinding.inflate(layoutInflater)
 
+        startAnimations()
         mAuth = FirebaseDatabase.getInstance().reference
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         prefEditor = pref.edit()
@@ -37,6 +39,39 @@ class FragmentSign: Fragment(), View.OnClickListener {
 
         return bind.root
     }
+
+    private fun startAnimations() {
+        bind.image.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.form.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+
+        bind.confirmPassword.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.scholarId.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.firstName.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.submit.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.forgot.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+    }
+
 
     override fun onClick(p0: View?) {
         if (p0 == bind.forgot){
