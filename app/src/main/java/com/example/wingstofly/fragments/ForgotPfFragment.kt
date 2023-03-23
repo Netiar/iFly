@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -32,6 +33,7 @@ class ForgotPfFragment: Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         bind = FragmentForgotPfBinding.inflate(layoutInflater)
+        startAnimations()
 
         mAuth = FirebaseDatabase.getInstance().reference
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -89,6 +91,40 @@ class ForgotPfFragment: Fragment(){
 
 
         return bind.root
+    }
+    private fun startAnimations() {
+        bind.image.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.form.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.slogan.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.scholarId.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.firstName.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.submit.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
+        bind.scholarPhone.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(), R.anim.zoom_in
+        ))
+
+        bind.confirmPassword.startAnimation(
+            AnimationUtils.loadAnimation(
+                requireContext(), R.anim.zoom_in
+            ))
     }
 
 }
