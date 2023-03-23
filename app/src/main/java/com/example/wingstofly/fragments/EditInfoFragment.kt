@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
@@ -47,6 +48,8 @@ class EditInfoFragment : Fragment(){
         bind = FragmentEditInfoBinding.inflate(layoutInflater)
         bottomSheet = BottomSheetDialog(requireContext())
 
+        //starting Animations
+        startAnimations()
 
 
         mAuth = FirebaseDatabase.getInstance().reference
@@ -98,6 +101,36 @@ class EditInfoFragment : Fragment(){
 
 
         return bind.root
+    }
+
+    private fun startAnimations() {
+        bind.primarySchool.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.primaryMarks.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.primaryGrade.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.highSchool.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.highMarks.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.highGrade.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.branchOrigin.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.phone.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
+        bind.email.startAnimation(AnimationUtils.loadAnimation(
+            requireContext(),R.anim.zoom_in
+        ))
     }
 
     private fun createAddBottomSheet(inflater: LayoutInflater) {
