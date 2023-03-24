@@ -30,13 +30,12 @@ class SingleScholarFragment : Fragment() {
 
 
         bind = FragmentSingleScholarBinding.inflate(inflater)
-        bind.highSchool.text = "High-School: ${param1!!.secondarySchool}"
-        bind.highGrade.text = "Mean-Grade: ${param1!!.meanGrade}"
-        bind.highMarks.text = "Mean-AGP: ${param1!!.meanAGP.toString()}"
-        bind.primarySchool.text = "Primary School: ${param1!!.primarySchool}"
-        bind.primaryMarks.text = "Total marks: ${param1!!.primaryMarks.toString()}"
-        bind.primaryGrade.text = "Mean-Grade: ${param1!!.primaryMeanGrade}"
-        bind.branchOrigin.text = "Origin Branch: ${param1!!.origin}"
+        bind.primarySchool.text = "${param1!!.name!!.split(" ")[0]} is currently a student at ${param1!!.secondarySchool} after successfully completing her junior studies in ${param1!!.primarySchool}."
+        //bind.highGrade.text = "Mean-Grade: ${param1!!.meanGrade}"
+        //bind.highMarks.text = "Mean-AGP: ${param1!!.meanAGP.toString()}"
+        //bind.primaryMarks.text = "Total marks: ${param1!!.primaryMarks.toString()}"
+        //bind.primaryGrade.text = "Mean-Grade: ${param1!!.primaryMeanGrade}"
+        bind.branchOrigin.text = "${param1!!.name!!.split(" ")[0]} is a member of ${param1!!.origin} wings to fly community. Here is how you can reach her/him."
         bind.phone.text = "Primary Number: ${param1!!.primaryNumber} \nOther Number: ${param1!!.otherNumber}"
 
         if (param1!!.emailAddress?.isEmpty() == true){
