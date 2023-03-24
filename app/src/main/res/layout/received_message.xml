@@ -10,11 +10,12 @@
         android:layout_height="wrap_content"
         android:text="This is your message"
         android:layout_margin="8dp"
+        android:textColor="@color/black"
         android:background="@drawable/messages_design"
         android:backgroundTint="@color/white"
         android:padding="8dp"
         android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
