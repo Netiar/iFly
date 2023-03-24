@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Student at St Josephs Seminary Mwingi"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/brown"
             app:layout_constraintEnd_toStartOf="@id/image"
@@ -75,9 +75,8 @@
                 android:layout_height="35dp"
                 android:background="@drawable/main"
                 android:text="overview"
-                android:theme="@style/Button.White"
-                android:textColor="@color/maroon"
                 android:textStyle="bold"
+                android:textSize="15sp"
                 />
         </com.skydoves.transformationlayout.TransformationLayout>
 
@@ -98,7 +97,9 @@
                 android:layout_height="35dp"
                 android:background="@drawable/main"
                 android:text="Grades"
-                android:textColor="@color/white" />
+                android:textStyle="bold"
+                android:textSize="15sp"
+                />
 
 
         </com.skydoves.transformationlayout.TransformationLayout>
@@ -109,7 +110,8 @@
             android:layout_height="35dp"
             android:background="@drawable/main"
             android:text="Summary"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="@id/transformationOverview"
             app:layout_constraintStart_toEndOf="@id/transformationLayout"
             app:layout_constraintEnd_toEndOf="parent"
