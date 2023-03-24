@@ -55,6 +55,7 @@ class MessagesFragment: Fragment(), View.OnClickListener {
                     messageList.clear()
                     for (dataSnapshot in snapshot.children){
                         val message = dataSnapshot.getValue(Message::class.java)
+                        message.toString().trim()
                         messageList.add(message!!)
                     }
                     mAdapter.notifyDataSetChanged()
@@ -80,7 +81,7 @@ class MessagesFragment: Fragment(), View.OnClickListener {
     }
 
     private fun createMessageObject() {
-        val message = bind.yourMessage.text.toString()
+        val message = bind.yourMessage.text.trim().toString()
         val userPf = pref.getString(Constants.PF_NUMBER, "")
 
         val messageObject = Message(userPf!!, message)
