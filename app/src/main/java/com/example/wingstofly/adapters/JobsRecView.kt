@@ -19,9 +19,10 @@ import com.skydoves.transformationlayout.TransformationCompat
 class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecView.MyHolder>() {
     inner class MyHolder(val bind: ActivityJobRecviewBinding): RecyclerView.ViewHolder(bind.root){
         fun setData(job: Job){
-            bind.newsId.text = "${job.title}(${job.companyName})"
-            bind.newsDescription.text = "${job.description.subSequence(0, 150)}....."
+            bind.newsId.text = job.title
+            bind.newsDescription.text = "${job.description.subSequence(0, 100)}....."
             bind.image.setImageResource(job.companyImage)
+            bind.news.text = job.companyName
 
             bind.newsId.startAnimation(
                 AnimationUtils.loadAnimation(
