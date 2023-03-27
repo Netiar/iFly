@@ -8,50 +8,54 @@
 
     <TextView
         android:id="@+id/position"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:fontFamily="@font/poppins"
         android:text="1"
         android:textAlignment="textStart"
-        app:layout_constraintEnd_toStartOf="@id/scholar_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_margin="4dp"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/scholar_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/scholar_name"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="Charles Muvaka Kata"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/position"
+        app:layout_constraintBottom_toBottomOf="@id/position"
         app:layout_constraintEnd_toStartOf="@id/scholar_grade"
         app:layout_constraintStart_toEndOf="@id/position"
-        app:layout_constraintBottom_toBottomOf="@id/position"/>
+        app:layout_constraintTop_toTopOf="@id/position" />
 
     <TextView
         android:id="@+id/scholar_grade"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="B+"
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/scholar_name"
+        app:layout_constraintBottom_toBottomOf="@id/scholar_name"
         app:layout_constraintEnd_toStartOf="@id/scholar_points"
         app:layout_constraintStart_toEndOf="@id/scholar_name"
-        app:layout_constraintBottom_toBottomOf="@id/scholar_name"/>
+        app:layout_constraintTop_toTopOf="@id/scholar_name" />
 
     <TextView
         android:id="@+id/scholar_points"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="81.11"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/scholar_grade"
-        app:layout_constraintStart_toEndOf="@id/scholar_grade"
         app:layout_constraintBottom_toBottomOf="@id/scholar_grade"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scholar_grade"
+        app:layout_constraintTop_toTopOf="@id/scholar_grade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

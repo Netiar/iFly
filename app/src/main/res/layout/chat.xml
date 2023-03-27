@@ -1,354 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<com.skydoves.transformationlayout.TransformationLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transformationLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:transformation_duration="550">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:backgroundTint="@color/maroon3"
+        android:background="@drawable/layout_design">
 
-        <View
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:backgroundTint="@color/maroon3"
-            android:background="@drawable/layout_design"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/topCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintTop_toTopOf="@id/header"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/layout_design"
-                android:backgroundTint="@color/maroon2">
-
-                <TextView
-                    android:layout_marginTop="4dp"
-                    android:id="@+id/activity_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Employment Information \n Current"
-                    android:textSize="20sp"
-                    android:textColor="@color/maroon"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toRightOf="@id/animation_view"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/animation_view"
-                    app:layout_constraintBottom_toTopOf="@id/activity"/>
-
-                <TextView
-                    android:id="@+id/activity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Charles is a payment officer at Equity Bank Ltd since 21st March 2021. We encourage you to always update your information to get more opportunities. "
-                    android:textSize="19sp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/animation_view"
-                    app:layout_constraintBottom_toTopOf="@id/activity_part"/>
-
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/animation_view"
-                    android:layout_width="100dp"
-                    android:layout_height="70dp"
-                    app:layout_constraintBottom_toTopOf="@id/activity"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/job" />
-
-                <TextView
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/activity_part"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="19sp"
-                    android:textColor="@color/maroon"
-                    android:text="Equity Bank Ltd"
-                    android:layout_marginEnd="16dp"
-                    android:textAlignment="textEnd"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/animation_view"
-                    app:layout_constraintLeft_toRightOf="@id/activity_par2"
-                    app:layout_constraintTop_toBottomOf="@id/activity"/>
-                <TextView
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/activity_par2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="19sp"
-                    android:textColor="@color/maroon"
-                    android:text="Employed"
-                    android:layout_marginStart="10dp"
-                    android:textAlignment="textStart"
-                    app:layout_constraintRight_toLeftOf="@id/activity_part"
-                    app:layout_constraintBottom_toBottomOf="@id/activity_part"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/activity_part"/>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintBottom_toBottomOf="@id/header"
-            app:layout_constraintTop_toBottomOf="@id/header"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/layout_design"
-                android:backgroundTint="@color/maroon2">
-
-                <TextView
-                    android:layout_marginTop="4dp"
-                    android:id="@+id/activity_name1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Skill set and profession"
-                    android:textSize="20sp"
-                    android:textColor="@color/maroon"
-                    android:layout_marginStart="10dp"
-                    android:textAlignment="textStart"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/animation_view1"
-                    app:layout_constraintTop_toTopOf="@id/animation_view1"
-                    />
-
-                <TextView
-                    android:id="@+id/activity1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Dear Charles Muvaka, we would love to tell everyone what you are good at or what you would like to do."
-                    android:textSize="19sp"
-                    android:layout_margin="8dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_name1"
-                    app:layout_constraintBottom_toTopOf="@id/activity_part1"/>
-
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/animation_view1"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/activity_name1"
-                    app:layout_constraintTop_toTopOf="@id/activity_name1"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/learn2" />
-
-                <TextView
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/activity_part1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="19sp"
-                    android:textColor="@color/maroon"
-                    android:text="Software Engineer"
-                    android:layout_marginEnd="16dp"
-                    android:textAlignment="textEnd"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity1"/>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-        <View
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginTop="4dp"
-            android:backgroundTint="@color/maroon3"
-            android:background="@drawable/layout_design"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/contentCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="4dp"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:src="@drawable/profile2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bottomCard"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circle" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/layout_design"
-                android:backgroundTint="@color/maroon2">
-
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/profesion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Professional Details"
-                    android:textSize="20sp"
-                    android:textColor="@color/maroon"
-                    android:textAlignment="textStart"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/animation"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/act"/>
-
-                <TextView
-                    android:id="@+id/act"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Learning never stops. These are other institutions Muvaka attended after high school studies. "
-                    android:textSize="19sp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/profesion" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/animation"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/act"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/learn2" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/act"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/bottomCard"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/scholar_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintTop_toTopOf="@id/content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:fontFamily="@font/poppins_bold"
+            android:text="Brad Pitt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/maroon"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/scholar_status"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintVertical_bias="0.0" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/layout_design"
-                android:backgroundTint="@color/maroon2">
-
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/employment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Employment History"
-                    android:textSize="20sp"
-                    android:textColor="@color/maroon"
-                    android:textAlignment="textStart"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/details"/>
-
-                <TextView
-                    android:id="@+id/details"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Muvaka has been involved in the following positions. "
-                    android:textSize="19sp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/employment" />
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/view"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/details"
-                    app:layout_constraintStart_toEndOf="@id/anim"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/anim"
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/details"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/call1" />
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/scholar_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="available"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image"
+            app:layout_constraintStart_toStartOf="@+id/scholar_name"
+            app:layout_constraintTop_toBottomOf="@+id/scholar_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</com.skydoves.transformationlayout.TransformationLayout>

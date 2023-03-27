@@ -25,14 +25,15 @@
                 android:id="@+id/locat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Scholars"
-                android:textSize="20sp"
                 android:layout_marginTop="8dp"
-                android:textStyle="bold"
+                android:fontFamily="@font/poppins_bold"
+                android:text="All Scholars"
                 android:textColor="@color/maroon"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/recView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/recView"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recView"

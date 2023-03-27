@@ -6,7 +6,7 @@
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
     android:layout_margin="8dp">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,41 +14,44 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/news"
-            android:scaleType="fitXY"
-            app:layout_constraintTop_toTopOf="parent"
             android:alpha="0.5"
-            />
+            android:scaleType="fitXY"
+            android:src="@drawable/news"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/newsId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="News Title"
-            android:textStyle="bold"
-            android:textColor="@color/maroon"
-            android:alpha="1"
             android:layout_margin="8dp"
-            android:textAlignment="textEnd"
+            android:layout_marginEnd="12dp"
+            android:alpha="1"
+            android:fontFamily="@font/poppins_bold"
             android:shadowColor="@color/brown1"
+            android:text="News Title"
+            android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/newsDescription"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/newsDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins"
             android:text="News Description"
-            android:textColor="@color/white"
             android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toBottomOf="@id/newsId"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsId" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

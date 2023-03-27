@@ -7,40 +7,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/layout_design"
-            android:backgroundTint="@color/maroon3">
+            android:backgroundTint="@color/maroon3"
+            android:padding="8dp">
 
                 <TextView
-                    android:layout_marginTop="14dp"
                     android:id="@+id/activity_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Activity Name"
-                    android:textColor="@color/maroon"
                     android:textAlignment="textStart"
-                    android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/maroon"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/activity"
                     app:layout_constraintLeft_toRightOf="@id/animation_view"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/animation_view"
-                    app:layout_constraintBottom_toTopOf="@id/activity"/>
+                    app:layout_constraintTop_toTopOf="@id/animation_view" />
 
                 <TextView
                     android:id="@+id/activity"
-                    android:layout_marginEnd="16dp"
-                    android:textStyle="italic"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/poppins"
                     android:text="Activity Name"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@id/activity_part"
                     app:layout_constraintLeft_toRightOf="@id/animation_view"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activity_name"
-                    app:layout_constraintBottom_toTopOf="@id/activity_part"/>
+                    app:layout_constraintTop_toBottomOf="@id/activity_name" />
 
 
                 <com.airbnb.lottie.LottieAnimationView
@@ -55,19 +59,19 @@
                     app:lottie_rawRes="@raw/learn" />
 
                 <TextView
-                    android:layout_marginBottom="14dp"
                     android:id="@+id/activity_part"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/maroon"
+                    android:layout_marginBottom="14dp"
+                    android:fontFamily="@font/poppins"
                     android:text="Activity Name"
-                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/maroon"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/animation_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/animation_view"
-                    app:layout_constraintTop_toBottomOf="@id/activity"/>
+                    app:layout_constraintTop_toBottomOf="@id/activity" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
