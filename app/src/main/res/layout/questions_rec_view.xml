@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     android:background="@drawable/layout_design"
     android:backgroundTint="@color/maroon3"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/home_team"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/maroon"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_margin="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/maroon"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/answers"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/answers"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <RadioGroup
@@ -29,49 +30,63 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/home_team"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/home_team"
         app:layout_constraintLeft_toLeftOf="parent"
-        >
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_team"
+        app:layout_constraintTop_toBottomOf="@id/home_team">
 
-        <RadioButton android:id="@+id/radio_ans1"
+        <RadioButton
+            android:id="@+id/radio_ans1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="pirates"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp" />
 
-        <RadioButton android:id="@+id/radio_ans2"
+        <RadioButton
+            android:id="@+id/radio_ans2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="pirates"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp" />
 
 
-        <RadioButton android:id="@+id/radio_ans3"
+        <RadioButton
+            android:id="@+id/radio_ans3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="pirates"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp" />
 
 
-        <RadioButton android:id="@+id/radio_ans4"
+        <RadioButton
+            android:id="@+id/radio_ans4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="pirates"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp" />
 
     </RadioGroup>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/readMore"
-        app:cornerRadius="20dp"
-        android:text="View Correct answer"
-        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/answers"
+        android:padding="16dp"
+        android:text="View Correct answer"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/answers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,264 +15,293 @@
         android:id="@+id/academic_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Academic details"
-        android:textStyle="bold"
-        app:layout_constraintVertical_chainStyle="packed"
         android:layout_margin="8dp"
-        android:textColor="@color/maroon"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Academic details"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/maroon"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/cont_academic"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cont_academic"
-        android:background="@drawable/layout_design"
-        android:backgroundTint="@color/maroon3"
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/personal_info"
-        app:layout_constraintTop_toBottomOf="@id/academic_details"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_margin="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/layout_design"
+        android:backgroundTint="@color/maroon3"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/academic_details">
 
         <TextView
             android:id="@+id/primary_school"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Primary School"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/maroon"
             android:textStyle="bold"
-            android:layout_marginStart="12dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/primary_marks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Primary School"
+            android:fontFamily="@font/poppins"
+            android:text="350/400 Marks"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toBottomOf="@id/primary_school"
-            app:layout_constraintStart_toStartOf="@id/primary_school"/>
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/primary_school"
+            app:layout_constraintTop_toBottomOf="@id/primary_school" />
 
         <TextView
             android:id="@+id/primary_grade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Primary School"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textAlignment="textEnd"
             android:layout_marginEnd="12dp"
-            app:layout_constraintTop_toTopOf="@id/primary_marks"
+            android:fontFamily="@font/poppins"
+            android:text="B+"
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/primary_marks"
-            />
+            app:layout_constraintTop_toTopOf="@id/primary_marks" />
 
         <TextView
             android:id="@+id/high_school"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Primary School"
-            android:textColor="@color/maroon"
+            android:fontFamily="@font/poppins_bold"
+            android:text="High School"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/maroon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/primary_marks"
             app:layout_constraintStart_toStartOf="@id/primary_marks"
-            />
+            app:layout_constraintTop_toBottomOf="@id/primary_marks" />
 
         <TextView
             android:id="@+id/high_marks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Primary School"
-            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins"
+            android:text="978/1000 Marks"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toBottomOf="@id/high_school"
-            app:layout_constraintStart_toStartOf="@id/high_school"/>
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/high_school"
+            app:layout_constraintTop_toBottomOf="@id/high_school" />
 
         <TextView
             android:id="@+id/high_grade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Primary School"
             android:layout_marginEnd="12dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="A+"
             android:textAlignment="textEnd"
-            app:layout_constraintTop_toTopOf="@id/high_marks"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/high_marks"
-            />
-
-
+            app:layout_constraintTop_toTopOf="@id/high_marks" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/personal_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personal info"
-        android:textStyle="bold"
         android:layout_margin="8dp"
-        android:textColor="@color/maroon"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Personal info"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/cont_academic"
+        android:textColor="@color/maroon"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/cont_personal_info"
+        app:layout_constraintEnd_toStartOf="@+id/edit_professional_certifications"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cont_personal_info"/>
+        app:layout_constraintTop_toBottomOf="@id/cont_academic" />
+
     <TextView
         android:id="@+id/edit_professional_certifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableEnd="@drawable/ic_add_circle_24"
+        android:drawablePadding="4dp"
+        android:fontFamily="@font/poppins"
         android:text="Edit"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/maroon"
         android:textStyle="bold"
-        android:layout_margin="8dp"
-        android:drawablePadding="2dp"
-        android:drawableEnd="@drawable/ic_add_circle_24"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/personal_info"
         app:layout_constraintBottom_toBottomOf="@id/personal_info"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAlignment="textEnd"
-        />
+        app:layout_constraintTop_toTopOf="@id/personal_info" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cont_personal_info"
         android:layout_width="match_parent"
-        android:background="@drawable/layout_design"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/maroon3"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/professional_certifications"
-        app:layout_constraintTop_toBottomOf="@id/personal_info"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_margin="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/layout_design"
+        android:backgroundTint="@color/maroon3"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personal_info">
 
 
         <TextView
             android:id="@+id/branch_origin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Junior School"
             android:layout_margin="6dp"
+            android:fontFamily="@font/poppins"
+            android:text="Junior School:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Junior School"
             android:layout_margin="6dp"
+            android:fontFamily="@font/poppins"
+            android:text="High School:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/branch_origin"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/branch_origin" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Email: None"
             android:layout_margin="6dp"
+            android:fontFamily="@font/poppins"
+            android:text="Email: None"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phone"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="update details"
             android:layout_marginEnd="8dp"
+            android:text="update details"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:visibility="gone"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toBottomOf="@id/email"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/professional_certifications"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Professional Certifications"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/maroon"
         android:textStyle="bold"
-        android:layout_margin="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/cont_personal_info"
         app:layout_constraintBottom_toTopOf="@id/cont4"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/add_professional_certifications"
-        android:textAlignment="textStart"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cont_personal_info" />
 
     <TextView
         android:id="@+id/add_professional_certifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableEnd="@drawable/ic_add_circle_24"
+        android:drawablePadding="4dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Add"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/maroon"
         android:textStyle="bold"
-        android:layout_margin="8dp"
-        android:drawablePadding="2dp"
-        android:drawableEnd="@drawable/ic_add_circle_24"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/professional_certifications"
         app:layout_constraintBottom_toBottomOf="@id/professional_certifications"
-        app:layout_constraintStart_toEndOf="@id/professional_certifications"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAlignment="textEnd"
-        />
+        app:layout_constraintStart_toEndOf="@id/professional_certifications"
+        app:layout_constraintTop_toTopOf="@id/professional_certifications" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cont4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/maroon3"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/layout_design"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintTop_toBottomOf="@id/professional_certifications"
+        android:backgroundTint="@color/maroon3"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/professional_certifications">
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/warning"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:id="@+id/warning"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/warn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:lottie_rawRes="@raw/warn" />
 
         <TextView
             android:id="@+id/check_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="Get called for interviews!!"
-            android:textAlignment="center"
-            android:textStyle="bold"
+            android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toTopOf="@id/warning"
-            app:layout_constraintStart_toEndOf="@id/warning"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/warning"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/warning"/>
+            app:layout_constraintStart_toEndOf="@id/warning"
+            app:layout_constraintTop_toTopOf="@id/warning" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rec_professional_info"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

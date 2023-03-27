@@ -8,16 +8,17 @@
         android:id="@+id/received_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is your message"
         android:layout_margin="8dp"
-        android:textColor="@color/black"
         android:background="@drawable/messages_design"
         android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins"
         android:padding="8dp"
+        android:text="This is your message"
         android:textAlignment="textStart"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

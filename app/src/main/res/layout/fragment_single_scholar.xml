@@ -15,32 +15,42 @@
 
         <!-- TODO: Update blank fragment layout -->
 
+
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="120dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
             android:id="@+id/learn"
+            android:layout_width="59dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/cont_academic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/academic_details"
+            app:layout_constraintVertical_bias="0.0"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/learn2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cont_academic"
-            app:layout_constraintStart_toStartOf="parent"/>
-
+            app:lottie_rawRes="@raw/learn2" />
 
         <TextView
             android:id="@+id/academic_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Academic Information"
-            android:textStyle="bold"
             android:layout_margin="8dp"
-            android:textColor="@color/maroon"
+            android:layout_marginEnd="128dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="ACADEMIC INFORMATION"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/learn"
             app:layout_constraintBottom_toTopOf="@id/cont_academic"
-            app:layout_constraintStart_toEndOf="@id/learn"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.24"
+            app:layout_constraintStart_toStartOf="@+id/learn"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cont_academic"
             android:background="@drawable/layout_design"
@@ -55,52 +65,56 @@
                 android:id="@+id/primary_school"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Primary School"
                 android:layout_marginStart="12dp"
-                android:textSize="18sp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Primary School"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/pMarks"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="Primary Grade \n 404"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toStartOf="@id/hGrade"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/primary_school"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintEnd_toStartOf="@id/hGrade"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/primary_school" />
 
             <TextView
                 android:id="@+id/hGrade"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="High school grade \n 404"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textAlignment="center"
-                app:layout_constraintTop_toTopOf="@id/pMarks"
-                app:layout_constraintEnd_toStartOf="@id/deviation"
                 app:layout_constraintBottom_toBottomOf="@id/pMarks"
-                app:layout_constraintStart_toEndOf="@id/pMarks"/>
+                app:layout_constraintEnd_toStartOf="@id/deviation"
+                app:layout_constraintStart_toEndOf="@id/pMarks"
+                app:layout_constraintTop_toTopOf="@id/pMarks" />
 
             <TextView
                 android:id="@+id/deviation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="Deviation \n 404"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textAlignment="center"
-                app:layout_constraintTop_toTopOf="@id/hGrade"
-                app:layout_constraintStart_toEndOf="@id/hGrade"
                 app:layout_constraintBottom_toBottomOf="@id/hGrade"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/hGrade"
+                app:layout_constraintTop_toTopOf="@id/hGrade" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,15 +123,15 @@
             android:id="@+id/personal_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personal information"
-            android:textStyle="bold"
             android:layout_marginStart="12dp"
-            android:textColor="@color/maroon"
-            app:layout_constraintTop_toBottomOf="@id/cont_academic"
-            app:layout_constraintBottom_toTopOf="@id/cont_personal_info"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Personal information"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            android:textColor="@color/maroon"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/cont_personal_info"
+            app:layout_constraintStart_toStartOf="@+id/cont_academic"
+            app:layout_constraintTop_toBottomOf="@id/cont_academic" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,40 +150,43 @@
                 android:id="@+id/branch_origin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Junior School"
                 android:layout_margin="6dp"
-                android:textSize="18sp"
+                android:layout_marginStart="16dp"
                 android:alpha="1"
+                android:fontFamily="@font/poppins"
+                android:text="Junior School"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Junior School"
                 android:layout_margin="6dp"
-                android:textSize="17sp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="High School"
                 android:textColor="@color/black"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/branch_origin"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/branch_origin" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Email: None"
                 android:layout_margin="6dp"
-                android:textSize="17sp"
+                android:fontFamily="@font/poppins"
+                android:text="Email: None"
                 android:textColor="@color/black"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phone"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone" />
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="130dp"
                 android:layout_height="100dp"
@@ -197,85 +214,101 @@
 
         <TextView
             android:id="@+id/professional_certifications"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Leadership Responsibilities"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/maroon"
             android:textStyle="bold"
-            android:layout_margin="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintTop_toBottomOf="@id/cont_personal_info"
             app:layout_constraintBottom_toTopOf="@id/leader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toStartOf="parent"
-            android:textAlignment="textStart"
-            />
+            app:layout_constraintTop_toBottomOf="@id/cont_personal_info" />
+
         <TextView
             android:id="@+id/leader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
             android:text="We believe everyone is a leader in a certain area. Update your leadership roles to stand out, get noticed and prosper."
-            app:layout_constraintTop_toBottomOf="@id/professional_certifications"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/cont_personal_info"
+            app:layout_constraintStart_toStartOf="@+id/professional_certifications"
+            app:layout_constraintTop_toBottomOf="@id/professional_certifications" />
 
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/warning"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:id="@+id/warning"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leader"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/warn"
-            app:layout_constraintTop_toBottomOf="@id/leader"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:lottie_rawRes="@raw/warn" />
 
         <TextView
             android:id="@+id/leader1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textSize="17sp"
-            android:text="Wings to fly mentor - Equity Bank"
             android:drawableStart="@drawable/ic_radio_button"
-            app:layout_constraintTop_toTopOf="@id/warning"
-            app:layout_constraintStart_toEndOf="@id/warning"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="Wings to fly mentor - Equity Bank"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/leader2"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/warning"
+            app:layout_constraintTop_toTopOf="@id/warning" />
+
         <TextView
             android:id="@+id/leader2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textAlignment="center"
-            android:text="Rugby School Captain - Alliance. "
             android:drawableStart="@drawable/ic_radio_button"
-            app:layout_constraintTop_toBottomOf="@id/leader1"
-            app:layout_constraintStart_toEndOf="@id/warning"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="Rugby School Captain - Alliance. "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/leader3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/leader3"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/warning"
+            app:layout_constraintTop_toBottomOf="@id/leader1" />
+
         <TextView
             android:id="@+id/leader3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textSize="17sp"
-            android:text="Church choir Master - Changamwe"
             android:drawableStart="@drawable/ic_radio_button"
-            app:layout_constraintTop_toBottomOf="@id/leader2"
-            app:layout_constraintStart_toEndOf="@id/warning"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="Church choir Master - Changamwe"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/warning"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/warning"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/warning"
+            app:layout_constraintTop_toBottomOf="@id/leader2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

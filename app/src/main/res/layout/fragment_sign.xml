@@ -9,13 +9,12 @@
 
     <TextView
         android:id="@+id/form"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="EquiFly"
-        android:fontFamily="@font/bubblegum_sans"
         android:textColor="@color/maroon"
-        android:textSize="50sp"
+        android:textSize="48sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@id/first_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,49 +33,48 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/first_name"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/first_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form"
+        app:startIconDrawable="@drawable/ic_person"
+        app:startIconTint="@color/maroon">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            app:startIconDrawable="@drawable/ic_person"
-            app:startIconTint="@color/maroon"
-            app:layout_constraintTop_toBottomOf="@id/form"
-            app:layout_constraintBottom_toTopOf="@id/scholar_id"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:fontFamily="@font/poppins"
+            android:hint="Enter your scholar/Pf number"
+            android:inputType="text" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:hint="Enter your scholar/Pf number"
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/scholar_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_name"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/maroon">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholar_id"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/maroon"
-            app:layout_constraintTop_toBottomOf="@id/first_name"
-            app:layout_constraintBottom_toTopOf="@id/confirm_password"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:fontFamily="@font/poppins"
+            android:hint="Enter your password"
+            android:inputType="textPassword" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:hint="Enter your password"
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/confirm_password"
@@ -91,45 +89,40 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:hint="Confirm your password"
-                android:inputType="textPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="Confirm your password"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_margin="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/confirm_password"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/confirm_password"
-            />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_margin="12dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@id/confirm_password"
+        app:layout_constraintTop_toBottomOf="@id/confirm_password" />
 
     <TextView
         android:id="@+id/forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
         android:text="Forgot scholarNumber/pf number??"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/submit"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/submit"
         app:layout_constraintStart_toStartOf="@id/submit"
-        />
-
-
-
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/submit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
