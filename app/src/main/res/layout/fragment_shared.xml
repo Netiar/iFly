@@ -13,81 +13,89 @@
         android:id="@+id/cutOff"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/poppins"
         android:text="Scholar Cut Off"
         android:textAlignment="textEnd"
-        android:layout_margin="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="@id/current_grades"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/current_grades"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/current_grades"
-        app:layout_constraintBottom_toBottomOf="@id/current_grades"
-        />
+        app:layout_constraintTop_toTopOf="@id/current_grades" />
+
     <TextView
         android:id="@+id/current_grades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current grades"
-        android:textStyle="bold"
-        android:textColor="@color/maroon"
         android:layout_margin="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Current grades"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/maroon"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/subRecView"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/subRecView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/maroon3"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/layout_design"
-        app:layout_constraintTop_toBottomOf="@id/cutOff"
-        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/maroon3"
+        app:layout_constraintBottom_toTopOf="@id/contMeanGrade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/contMeanGrade"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cutOff" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contMeanGrade"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/layout_design"
         android:backgroundTint="@color/maroon3"
-        android:layout_margin="4dp"
-        app:layout_constraintTop_toBottomOf="@id/subRecView"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="@+id/subRecView"
+        app:layout_constraintStart_toStartOf="@+id/subRecView"
+        app:layout_constraintTop_toBottomOf="@id/subRecView">
 
         <TextView
             android:id="@+id/meanGrade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Mean Grade"
             android:layout_margin="4dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Mean Grade"
             android:textAlignment="textStart"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@id/studentDeviation"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/studentDeviation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/poppins"
             android:text="student Deviation"
             android:textColor="@color/maroon"
-            android:textStyle="bold"
-            android:layout_margin="4dp"
             android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meanGrade"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/meanGrade" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

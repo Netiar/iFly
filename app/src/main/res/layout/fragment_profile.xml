@@ -38,27 +38,28 @@
             android:id="@+id/scholar_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Charles Muvaka"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Charles Muvaka"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintStart_toEndOf="@id/back"
-            app:layout_constraintTop_toTopOf="@id/back"/>
+            app:layout_constraintTop_toTopOf="@id/back" />
 
         <TextView
             android:id="@+id/scholar_status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="Student at St Josephs Seminary Mwingi"
             android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/brown"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintStart_toEndOf="@id/back"
-            app:layout_constraintTop_toBottomOf="@id/scholar_name"
-            />
+            app:layout_constraintTop_toBottomOf="@id/scholar_name" />
 
         <com.skydoves.transformationlayout.TransformationLayout
             android:id="@+id/transformationOverview"
@@ -69,15 +70,17 @@
             app:layout_constraintEnd_toStartOf="@id/transformationLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
+
             <Button
                 android:id="@+id/overview"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:background="@drawable/main"
+                android:fontFamily="@font/poppins"
                 android:text="overview"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                />
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </com.skydoves.transformationlayout.TransformationLayout>
 
 
@@ -96,10 +99,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:background="@drawable/main"
+                android:fontFamily="@font/poppins"
                 android:text="Grades"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                />
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
 
         </com.skydoves.transformationlayout.TransformationLayout>
@@ -109,14 +113,15 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:background="@drawable/main"
+            android:fontFamily="@font/poppins"
             android:text="Summary"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:textSize="15sp"
-            app:layout_constraintTop_toTopOf="@id/transformationOverview"
-            app:layout_constraintStart_toEndOf="@id/transformationLayout"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/transformationLayout"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/transformationLayout"
+            app:layout_constraintTop_toTopOf="@id/transformationOverview" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
