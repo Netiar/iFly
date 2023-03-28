@@ -21,7 +21,7 @@
                     android:id="@+id/learnFragment"/>
                 <item android:title="View scholar grades"
                     android:icon="@drawable/ic_person"
-                    android:id="@+id/gradesFragment"/>
+                    android:id="@+id/scholarGradesFragment"/>
             </group>
         </menu>
     </item>
