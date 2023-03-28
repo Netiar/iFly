@@ -4,7 +4,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class Validator {
     fun validateInputText(input: TextInputLayout): Boolean{
-        return if (input.editText?.text?.isBlank() == true){
+        return if (input.editText?.text?.isEmpty() == true){
             input.apply {
                 isErrorEnabled = true
                 error = "This field cannot be empty"
