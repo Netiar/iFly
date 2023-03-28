@@ -7,5 +7,6 @@ class Constants {
         const val PF_NUMBER = "pfNumber"
         const val CUT_POINT: String = "A-"
         const val CUT_POINT_OFF_POINTS: Int = 11
+        val skillSets = arrayOf("Software Developer", "Relationship Officer", "Medical Nurse", "Risk Access", "Accountant")
     }
 }
