@@ -3,7 +3,9 @@ package com.example.wingstofly.models
 import java.util.*
 import kotlin.collections.ArrayList
 
-data class Job(val title: String, val department: String): java.io.Serializable {
+class Job: java.io.Serializable {
+    var title: String? = null
+    var department: String? = null
     var companyName: String? = null
     var companyImage: Int = 0
     var jobType: String? = null
@@ -13,7 +15,15 @@ data class Job(val title: String, val department: String): java.io.Serializable 
     var requirements = ArrayList<String>()
     var jobAbout = ArrayList<String>()
     var jobBenefits = ArrayList<String>()
-    var postDate: Date? = null
-    var deadline: Date? = null
+    var postDate: String? = null
+    var deadline: String? = null
     var jobUrl: String? = null
+    var skillSet: String? = null
+
+    constructor(){}
+
+    constructor(name: String, dept: String){
+        this.title = name
+        this.department = dept
+    }
 }
