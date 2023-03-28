@@ -9,12 +9,13 @@ import com.example.wingstofly.databinding.ActivityGradesRecViewBinding
 import com.example.wingstofly.models.Scholar
 
 class GradesRecAdapter: RecyclerView.Adapter<GradesRecAdapter.MyHolder>() {
-    inner class MyHolder(private val bind:ActivityGradesRecViewBinding): RecyclerView.ViewHolder(bind.root){
+    inner class MyHolder(private val bind: ActivityGradesRecViewBinding): RecyclerView.ViewHolder(bind.root){
         fun setData(scholar: Scholar){
+            val form = scholar.form
             bind.position.text = (asyncListDiffer.currentList.indexOf(scholar) + 1).toString()
             bind.scholarName.text = scholar.name
-            bind.scholarGrade.text = scholar.meanGrade
-            bind.scholarPoints.text = scholar.meanScore.toString()
+//            bind.scholarGrade.text = scholar.meanScore[form.toString()].toString()
+//            bind.scholarPoints.text = scholar.meanAGP[form.toString()].toString()
         }
     }
 
