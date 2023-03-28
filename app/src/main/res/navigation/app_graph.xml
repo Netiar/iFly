@@ -26,11 +26,6 @@
         android:name="com.example.wingstofly.fragments.FragmentEvents"
         android:label="FragmentEvents" />
     <fragment
-        android:id="@+id/gradesFragment"
-        android:name="com.example.wingstofly.fragments.GradesFragment"
-        android:label="GradesFragment" >
-    </fragment>
-    <fragment
         android:id="@+id/summaryFragment"
         android:name="com.example.wingstofly.fragments.SummaryFragment"
         android:label="SummaryFragment" />
@@ -39,4 +34,8 @@
         android:name="com.example.wingstofly.fragments.EditInfoFragment"
         android:label="fragment_edit_info"
         tools:layout="@layout/fragment_edit_info" />
+    <fragment
+        android:id="@+id/scholarGradesFragment"
+        android:name="com.example.wingstofly.fragments.ScholarGradesFragment"
+        android:label="ScholarGradesFragment" />
 </navigation>
