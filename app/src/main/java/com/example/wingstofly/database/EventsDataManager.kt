@@ -20,6 +20,7 @@ class EventsDataManager {
             venue = "Online Event"
             date = Date()
             eventOwner = "Equity Bank"
+            eventUrl = "https://equitygroupfoundation.com/wings-to-fly/"
         }
         allEvents.add(event)
 
@@ -34,6 +35,7 @@ class EventsDataManager {
             venue = "Online Event"
             date = Date()
             eventOwner = "Equity Bank"
+            eventUrl = "https://equity.hackerearth.com/"
         }
         allEvents.add(event1)
 
@@ -47,6 +49,7 @@ class EventsDataManager {
             venue = "Online Event"
             date = Date()
             eventOwner = "MasterCard Foundation"
+            eventUrl = "https://equity.hackerearth.com/"
 
         }
         allEvents.add(event2)
@@ -60,6 +63,7 @@ class EventsDataManager {
             venue = "Online Event"
             date = Date()
             eventOwner = "The Government of Kenya"
+            eventUrl = "https://equity.hackerearth.com/"
 
         }
         allEvents.add(event3)
@@ -73,6 +77,8 @@ class EventsDataManager {
             venue = "Lang'ata Carnivore"
             date = Date()
             eventOwner = "Equity Bank"
+            eventUrl = "https://equity.hackerearth.com/"
+
         }
         allEvents.add(event4)
 
@@ -83,6 +89,7 @@ class EventsDataManager {
             venue = "City Stadium"
             date = Date()
             eventOwner = "The Government of Kenya"
+            eventUrl = "https://equity.hackerearth.com/"
 
         }
         allEvents.add(event5)

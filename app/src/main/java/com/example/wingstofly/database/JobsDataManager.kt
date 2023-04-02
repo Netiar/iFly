@@ -2,7 +2,7 @@ package com.example.wingstofly.database
 
 import com.example.wingstofly.R
 import com.example.wingstofly.models.Job
-import java.util.*
+import com.example.wingstofly.utils.Constants
 import kotlin.collections.ArrayList
 
 class JobsDataManager {
@@ -22,8 +22,9 @@ class JobsDataManager {
             jobLevel = "Entry Level"
             jobUrl = "https://boards.greenhouse.io/canonicaljobs/jobs/4817718?gh_src=86e005431us"
             description = "Are you passionate about the Linux kernel?  Or maybe you’ve mastered a different low-level software development environment and are ready for a new challenge in Linux?  Are you looking to work on a great team, where you can apply and grow your kernel development skills?  This is an exciting time at Canonical, where due to a period of unprecedented growth we are seeking a number of  software engineers to join our Kernel Team to play an integral part in the delivery of the heart of the most popular Linux distribution in the world.The Canonical Linux Kernel Team is responsible for developing and maintaining all supported Ubuntu Linux kernels, which run on a variety of platforms and architectures from small embedded devices to standard desktop/server systems to large scale cloud environments.  The Kernel Team has openings for software engineers in a number of aspects that include but are not limited to:"
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
+            skillSet = Constants.skillSets[0]
 
             jobAbout.add("Ubuntu Linux distribution")
             jobAbout.add("Optimized Ubuntu solutions for key Silicon and Cloud partners")
@@ -49,6 +50,8 @@ class JobsDataManager {
             jobType = "Full Time"
             jobPlace = "Nairobi Kenya"
             jobLevel = "Entry Level"
+            skillSet = Constants.skillSets[1]
+
 
             jobAbout.add("You will be part of an agile team that develops e-commerce, smart logistics, and payment solutions.")
             jobAbout.add("Your work will integrate a service-oriented architecture using state-of-the-art technologies and software development practices; You will own your services and be responsible for end-to-end")
@@ -56,8 +59,8 @@ class JobsDataManager {
             jobAbout.add("You will change the Internet landscape in Africa and the World one line of code at a time.")
             jobUrl = "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=3447808034"
             description = "Jumia is the leading pan-Africa e-commerce platform. Founded in 2012, Jumia's mission is to improve the quality of everyday life in Africa by leveraging technology to deliver innovative, convenient and affordable online services to consumers, while helping businesses grow as they use our platform to reach and serve consumers."
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
             requirements.add("Knowledgeable of SQL and relational databases")
             requirements.add("Knowledgeable of software design and architecture patterns")
             requirements.add("Acquainted with building testable code, unit tests and/or integration tests")
@@ -75,8 +78,10 @@ class JobsDataManager {
             jobLevel = "Entry Level"
             jobUrl = "https://equitybank.taleo.net/careersection/ext_new/jobdetail.ftl?job=220000F6&tz=GMT%2B03%3A00&tzname=Africa%2FNairobi"
             description = "Equity Bank is one of the region’s leading banks whose purpose is to transform the lives and livelihoods of the people of Africa socially and economically by availing them modern and inclusive financial services that maximize their opportunities. With a strong footprint in Kenya, Uganda, Tanzania, Rwanda, South Sudan and DRC Congo, Equity Bank is now home to over 12 million customers - the largest customer base in Africa. Currently the Bank is seeking additional talent to serve in the role outlined below within Risk Department"
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
+            skillSet = Constants.skillSets[2]
+
 
             jobAbout.add("Key Duties and Responsibilities for the new Staff")
             jobAbout.add("Conduct risk assessments and develop key risk indicators for monitoring and reporting")
@@ -98,8 +103,10 @@ class JobsDataManager {
             jobLevel = "Manager"
             jobUrl = "https://equitybank.taleo.net/careersection/ext_new/jobdetail.ftl?job=23000013&tz=GMT%2B03%3A00&tzname=Africa%2FNairobi"
             description = " Equity Bank is one of the region’s leading banks whose purpose is to transform the lives and livelihoods of the people of Africa socially and economically by availing them modern and inclusive financial services that maximize their opportunities. With a strong footprint in Kenya, Uganda, Tanzania, Rwanda, South Sudan and DRC Congo, Equity Bank is now home to over 12 million customers - the largest customer base in Africa. Currently the Bank is seeking additional talent to serve in the role outlined below."
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
+            skillSet = Constants.skillSets[3]
+
 
             jobAbout.add("Preparation and submission of periodic financial reports in accordance with IFRS, statutory and regulatory requirements (CBK & KDIC)")
             jobAbout.add("Consolidation of Group Financial statements Monthly, Quarterly and Annually")
@@ -130,8 +137,10 @@ class JobsDataManager {
             description = "Arhs is a fully independent group of companies specialized in managing complex IT projects and systems for large organisations, focusing on state-of-the-art software development, business intelligence and infrastructure services.\n" +
                     "We are composed of nine entities (Arhs Developments, Arhs Developments Belgium, Arhs Consulting, Arhs Spikeseed, Arhs Cube, Arhs Digital, Arhs Technologies, Arhs Developments Hellas and Arhs Developments Italia) that are unified by the Arhs Group, with more than 1000 consultants.\n" +
                     "This corporate structure enables us to respond quickly to market changes and customer requests, and to communicate and make decisions without layers of bureaucracy."
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
+            skillSet = Constants.skillSets[1]
+
 
             jobAbout.add("Build and maintain efficient and reliable Java code")
             jobAbout.add("Support continuous improvement by investigating alternatives and technologies")
@@ -163,8 +172,10 @@ class JobsDataManager {
             jobUrl = "https://www.linkedin.com/jobs/search/?currentJobId=3454058631&keywords=marketing&refresh=true"
             description = "Arhs is a fully independent group of companies specialized in managing complex IT projects and systems for large organisations, focusing on state-of-the-art software development, business intelligence and infrastructure services."
 
-            postDate = Date()
-            deadline = Date()
+            postDate = "01/02/2022"
+            deadline = "01/02/2022"
+            skillSet = Constants.skillSets[0]
+
 
             jobAbout.add("Initiating sales with potential customers over the phone.")
             jobAbout.add("Asking questions to engage customers and keep the conversation going.")
