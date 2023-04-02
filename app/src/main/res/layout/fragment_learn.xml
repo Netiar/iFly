@@ -7,6 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.LearnFragment">
 
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:backgroundTint="@color/maroon3"
+        android:background="@drawable/layout_design"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Charles, learn to prosper."
+        android:textStyle="bold"
+        android:textColor="@color/maroon"
+        android:layout_margin="8dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/progress"
@@ -19,42 +39,49 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView2"
+        android:layout_margin="8dp"
+        android:background="@color/maroon3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/maroon3"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="@id/header"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
     <TextView
         android:id="@+id/material_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Quiz Topics"
+        android:layout_margin="8dp"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:text="Quiz Topics"
+        android:textColor="@color/brown"
         app:layout_constraintBottom_toTopOf="@+id/recView1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recView2"
 
-        app:layout_constraintTop_toBottomOf="@id/recView2" />
+        />
+    <View
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/maroon3"
+        android:background="@drawable/layout_design"
+        app:layout_constraintTop_toBottomOf="@id/material_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/material_button" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/content"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

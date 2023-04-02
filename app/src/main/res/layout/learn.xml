@@ -7,69 +7,76 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/topCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/layout_design"
-        android:backgroundTint="@color/maroon3"
-        android:padding="8dp">
+        app:cardCornerRadius="4dp"
+        android:elevation="8dp"
+        android:layout_margin="6dp"
+        android:backgroundTint="@color/maroon2">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:visibility="gone"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:id="@+id/learn"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/learn2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/level"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="category"
-            android:textColor="@color/maroon"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/level"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/image"
-            app:layout_constraintTop_toTopOf="@+id/image" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/quiz"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/level"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/level"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/poppins"
-            android:text="Level"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/image"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/image"
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:visibility="gone"
+                android:layout_width="180dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:id="@+id/learn"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/learn2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/level"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/name"
+                android:text="category"
+                android:textColor="@color/maroon"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/level"
+                app:layout_constraintRight_toLeftOf="@id/image"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image"
+                android:scaleType="centerCrop"
+                android:layout_width="180dp"
+                android:layout_height="120dp"
+                android:src="@drawable/quiz"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/level"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
+                android:id="@+id/level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Level"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/image"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image"
+                app:layout_constraintTop_toBottomOf="@id/name" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </com.skydoves.transformationlayout.TransformationLayout>
