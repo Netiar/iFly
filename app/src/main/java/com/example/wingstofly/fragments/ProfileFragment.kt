@@ -15,7 +15,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
     private lateinit var param1: Scholar
     private lateinit var bind: FragmentProfileBinding
     private lateinit var fragmentScholarOverview: SingleScholarFragment
-    private lateinit var fragmentshared: SharedFragment
+    private lateinit var fragmentshared: ScholarFormFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +31,37 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
         bind = FragmentProfileBinding.inflate(layoutInflater)
         val scholar1 = param1
 
-        scholar_name.text = param1.name
-        scholar_status.text = "${param1.status!!.capitalize()}, ${param1.secondarySchool}"
-
         fragmentScholarOverview = SingleScholarFragment.newInstance(scholar1)
 
-        transformationLayout.transitionName = "myTransitionName"
-        val bundle = transformationLayout.getBundle("TransformationParams")
-        bundle.putSerializable("scholar", scholar1)
-        fragmentshared = SharedFragment.newInstance(scholar1)
-        fragmentshared.arguments = bundle
+        fragmentshared = ScholarFormFragment.newInstance(scholar1, "notGrades")
+
+
+        scholar_name.text = param1.name
+        if (scholar1.pfNumber!!.subSequence(0,2) == "pf"){
+            scholar_status.text = "Form ${param1.form}, ${param1.secondarySchool}"
+            summary.isEnabled = false
+
+        }else{
+            summary.text = "employment"
+
+            summary.setOnClickListener{
+                val fragment = GradesFragment.newInstance(7, param1.pfNumber!!)
+                replaceFragment(fragment)
+            }
+
+            if(scholar1.status == "Employed"){
+                if(scholar1.workPlaces.isNotEmpty()){
+                    scholar_status.text = "${param1.workPlaces[0].title} at ${param1.workPlaces[0].department}"
+                }else{
+                    scholar_status.text = "${scholar1.status} at Not Updated"
+
+                }
+            }else if(scholar1.status == "Student"){
+                scholar_status.text = "${param1.status}, ${param1.varsity}"
+            }else{
+                scholar_status.text = "${param1.status}"
+            }
+        }
 
         replaceFragment(fragmentScholarOverview)
 
@@ -49,12 +70,11 @@ class ProfileFragment: Fragment(R.layout.fragment_profile), View.OnClickListener
 
         grades.setOnClickListener{
             val manager = childFragmentManager
-            val transaction = manager.beginTransaction().addTransformation(transformationLayout)
+            val transaction = manager.beginTransaction()
             transaction.replace(bind.frameLayout.id, fragmentshared)
             transaction.commit()
 
         }
-        summary.setOnClickListener(this::onClick)
     }
 
     private fun replaceFragment(fragment: Fragment) {
