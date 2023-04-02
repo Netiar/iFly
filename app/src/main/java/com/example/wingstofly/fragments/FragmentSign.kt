@@ -94,7 +94,7 @@ class FragmentSign: Fragment(), View.OnClickListener {
                         val scholar = scholars[i]
                         scholar.password = scholarPassword
                         prefEditor.putString(Constants.PF_NUMBER, scholar.pfNumber).apply()
-                        mAuth.child("user").child(scholar.name!!).setValue(scholar)
+                        mAuth.child("scholars").child(scholar.name!!).setValue(scholar)
 
                         val testNumber = scholar.pfNumber!!.subSequence(0,2)
                         val bundle = Bundle().apply {
