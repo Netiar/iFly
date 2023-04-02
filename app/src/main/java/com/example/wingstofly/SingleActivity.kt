@@ -43,18 +43,12 @@ class SingleActivity : TransformationAppCompatActivity() {
             val scholar = intent.getSerializableExtra("scholar") as Scholar
             val fragment = MessagesFragment.newInstance(scholar)
             replaceFragment(fragment)
-        }else if (layout == 5){
-            val event = intent.getSerializableExtra("event") as Event
-            val fragment = NewsFragment.newInstance(event)
-            replaceFragment(fragment)
-
         }else if (layout == 7){
             val event = intent.getSerializableExtra("school") as Upskill
             val fragment = UpskillFragment.newInstance(event)
             replaceFragment(fragment)
 
-        }else if (layout == 8){
-
+        }else{
             val category = intent.getIntExtra("category", 16)
             val categoryName = intent.getStringExtra("catName")
             val triviaCategory = TriviaCategory(category, categoryName!!)
@@ -66,11 +60,6 @@ class SingleActivity : TransformationAppCompatActivity() {
             val fragment = QuestionsFragment.newInstance(triviaCategory)
             replaceFragment(fragment)
 
-        }
-        else{
-            val job = intent.getSerializableExtra("job") as Job
-            val fragment = SingleJobFragment.newInstance(job)
-            replaceFragment(fragment)
         }
 
     }
