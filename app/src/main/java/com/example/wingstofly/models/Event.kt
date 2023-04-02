@@ -9,6 +9,7 @@ class Event: java.io.Serializable{
     var venue:String? = null
     var date:Date? = null
     var eventOwner: String? = null
+    var eventUrl: String? = null
 
     constructor(){}
     constructor(title:String){
