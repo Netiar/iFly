@@ -45,7 +45,7 @@ class HighSchoolFragment : Fragment(), View.OnClickListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         // finally change the color
-        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon2);
+        window.statusBarColor = ContextCompat.getColor(requireActivity(),R.color.maroon3);
 
 
         //getting  the animation transition
