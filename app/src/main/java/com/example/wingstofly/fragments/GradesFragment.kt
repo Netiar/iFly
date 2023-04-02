@@ -97,7 +97,7 @@ class GradesFragment : Fragment(R.layout.fragment_grades) {
                 (bind as ChatBinding).warning.isVisible = true
             }
             (bind as ChatBinding).act.text =
-                "Learning never stops. These are institutions that ${names[names.size - 1]} attended after high school studies."
+                "Learning never stops. These are institutions that ${names[names.size - 1]} attended after high school studies. Swipe for more"
 
             //forming a string literal of the student university
             if (scholar.tertiaryInstitutions.size != 0){
