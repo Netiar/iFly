@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -82,7 +83,6 @@ class ChatFragment : Fragment(), View.OnClickListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children){
                     if(dataSnapshot.key!!.substring(0,7) == pfNumber ){
-//                        Toast.makeText(requireContext(), dataSnapshot.key!!.substring(0,7), Toast.LENGTH_LONG).show()
 
                         mAuth.child("chats").child(dataSnapshot.key!!).child("messages").addValueEventListener(object: ValueEventListener{
                             override fun onDataChange(snapshot: DataSnapshot) {
@@ -173,12 +173,18 @@ class ChatFragment : Fragment(), View.OnClickListener {
 
         //bottom sheet behavior
         //1. Get the behavior from the coordinator layout
-        val behavior = BottomSheetBehavior.from(view.parent as View)
+        val parent = view.parent as View
+        val behavior = BottomSheetBehavior.from(parent)
         behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
         //2. Set the measurement metrics on the coordinator layout
         val layout = view.findViewById<ViewGroup>(R.id.coordinate)
         layout.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
+
+        val params: CoordinatorLayout.LayoutParams = (parent).layoutParams as CoordinatorLayout.LayoutParams
+        params.setMargins(20, 20, 20, 20)
+
+        parent.layoutParams = params
     }
 
 
