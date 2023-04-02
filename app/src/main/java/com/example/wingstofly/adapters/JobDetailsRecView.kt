@@ -8,9 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.databinding.ActivityJobDetailsRecViewBinding
 
 class JobDetailsRecView(val list: ArrayList<String>): RecyclerView.Adapter<JobDetailsRecView.MyHolder>() {
+    var placeUsed: String? = null
     inner class MyHolder(private val bind:ActivityJobDetailsRecViewBinding): RecyclerView.ViewHolder(bind.root){
             fun setData(item: String){
-                bind.description.text = "${list.indexOf(item) + 1} - $item"
+                if (placeUsed.isNullOrBlank()){
+                    bind.description.text = "${list.indexOf(item) + 1} - $item"
+                }else{
+                    bind.description.apply {
+                        textSize = 12f
+                        text = "${list.indexOf(item) + 1} - $item"
+                    }
+                }
             }
     }
 
