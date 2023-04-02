@@ -2,10 +2,12 @@ package com.example.wingstofly.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.models.Event
+import com.google.android.material.card.MaterialCardView
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.activity_event_recview.view.newsDescription
@@ -23,12 +26,12 @@ class NewsRecAdapter(var cont: Context): RecyclerView.Adapter<NewsRecAdapter.MyH
 
     inner class MyHolder(val view: View): RecyclerView.ViewHolder(view){
         val layout: TransformationLayout = view.findViewById(R.id.transformationLayout)
-
+        val card: MaterialCardView = view.findViewById(R.id.topCard)
         fun setClickListener(event: Event){
+            card.setCardBackgroundColor(ContextCompat.getColor(cont, R.color.maroon2))
             view.setOnClickListener{
-                val intent = Intent(cont, SingleActivity::class.java)
-                intent.putExtra("layout", 5)
-                intent.putExtra("event", event )
+                val uri = Uri.parse(event.eventUrl)
+                val intent = Intent(Intent.ACTION_VIEW, uri)
                 TransformationCompat.startActivity(layout, intent)
             }
         }
