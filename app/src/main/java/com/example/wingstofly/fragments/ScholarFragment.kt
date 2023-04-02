@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.ScholarsRecAdapter
+import com.example.wingstofly.database.Subjects
 import com.example.wingstofly.databinding.ChatBinding
 import com.example.wingstofly.databinding.FragmentScholarBinding
 import com.example.wingstofly.databinding.ScholarSuggestionBinding
@@ -47,6 +48,19 @@ class ScholarFragment : Fragment() {
         val adapter = ScholarsRecAdapter(requireContext())
         val scholarsList = (activity as MainActivity).scholars
 
+        //setting the scholars subjects
+        val subjects = Subjects().allSubjects
+        for(subject in subjects){
+            when(subject.category){
+                "Common" ->  subject.score = 83
+                "Humanities" ->subject.score = 76
+                "Sciences" ->subject.score = 66
+                else -> subject.score = 73
+            }
+            for (scholar in scholarsList){
+                scholar.addSubject(subject)
+            }
+        }
 
         adapter.listDiffer.submitList(scholarsList)
 
