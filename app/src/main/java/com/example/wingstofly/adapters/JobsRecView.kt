@@ -2,6 +2,7 @@ package com.example.wingstofly.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -34,18 +35,9 @@ class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecVie
                 bind.topCard.setCardBackgroundColor(ContextCompat.getColor(context, R.color.maroon2))
 
                 bind.root.setOnClickListener{
-                    val bundle = Bundle()
-                    bundle.apply {
-                        val scholar = DataScholarManager().scholars[0]
-                        putSerializable("job", job)
-                        putSerializable("scholar", scholar)
-                        putInt("layoutNumber", 1)
-                    }
-                    val intent = Intent(context, SingleActivity::class.java)
-                    intent.putExtra("layout", 1)
-                    intent.putExtra("job", job)
+                    val uri = Uri.parse(job.jobUrl)
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
                     TransformationCompat.startActivity(bind.transformationLayout, intent)
-//                bind.root.findFragment<JobsFragment>().findNavController().navigate(R.id.action_jobsFragment2_to_singleActivity2, bundle)
                 }
             }
 
@@ -69,7 +61,7 @@ class JobsRecView(private val context: Context): RecyclerView.Adapter<JobsRecVie
         }
 
         override fun areContentsTheSame(oldItem: Job, newItem: Job): Boolean {
-            return oldItem == newItem
+            return oldItem.equals(newItem)
         }
 
     }
