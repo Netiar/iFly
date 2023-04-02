@@ -116,7 +116,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private fun getScholars(): ArrayList<Scholar> {
         val list = ArrayList<Scholar>()
 
-        mAuth.child("user").addValueEventListener(object :ValueEventListener{
+        mAuth.child("scholars").addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (data in snapshot.children){
                     list.add(data.getValue(Scholar::class.java)!!)
@@ -216,23 +216,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 requireContext(), R.anim.zoom_out
             ))
     }
-
-
-    private fun getCurrentScholar(pfNumber: String): Scholar {
-        var scholar:Scholar? = null
-        for (i in 0 until scholars.size){
-            val currentPfNumber = scholars[i].pfNumber
-            if (currentPfNumber.contentEquals(pfNumber, true)){
-                scholar = scholars[i]
-                prefEditor.putString(Constants.PF_NUMBER, pfNumber).apply()
-            }else{
-                scholar_id.error = "Enter the correct number"
-
-            }
-        }
-        return scholar!!
-    }
-
     override fun onResume() {
         super.onResume()
         //hiding the status bar
