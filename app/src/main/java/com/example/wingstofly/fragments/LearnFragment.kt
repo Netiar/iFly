@@ -1,6 +1,7 @@
 package com.example.wingstofly.fragments
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.example.wingstofly.R
 import com.example.wingstofly.adapters.QuestRecAdapter
 import com.example.wingstofly.adapters.UpskillRecHolder
 import com.example.wingstofly.databinding.FragmentLearnBinding
+import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.utils.Resource
 import com.example.wingstofly.viewmodel.QuizViewModel
 
@@ -29,8 +31,19 @@ class LearnFragment : Fragment() {
         bind = FragmentLearnBinding.inflate(layoutInflater)
 
         //starting Animations
+        val scholars = (activity as MainActivity).scholars
         startAnimations()
+        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val scholarNumber = pref.getString(Constants.PF_NUMBER, null)
         val schools = (activity as MainActivity).schools
+
+        for (scholar in scholars){
+            if (scholar.pfNumber == scholarNumber){
+                val names = scholar.name!!.split(" ")
+                bind.upcoming.text = "${names[names.size - 1]}, learn to prosper."
+            }
+        }
+
         val schoolsRecHolder = UpskillRecHolder(requireContext())
         schoolsRecHolder.asyncList.submitList(schools)
 
