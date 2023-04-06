@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.SingleActivity
-import com.example.wingstofly.databinding.ChatBinding
 import com.example.wingstofly.databinding.ScholarBinding
 import com.example.wingstofly.models.Message
 import com.example.wingstofly.models.Scholar
