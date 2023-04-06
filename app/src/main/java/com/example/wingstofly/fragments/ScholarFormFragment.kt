@@ -31,31 +31,50 @@ class ScholarFormFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val scholarNumber = scholar.pfNumber
-        if(fragmentsName == "grades"){
+        if (fragmentsName == "grades") {
             bind = FragmentScholarFormBinding.inflate(inflater, container, false)
             val fragmentList = ArrayList<Fragment>()
-            for (i in 1 until 5 ){
+            for (i in 1 until 5) {
                 val fragment = GradesFragment.newInstance(i, scholarNumber!!)
                 fragmentList.add(fragment)
             }
-            val pagerAdapter = ViewPagerAdapter(fragmentList, requireActivity().supportFragmentManager, lifecycle)
+            val pagerAdapter =
+                ViewPagerAdapter(fragmentList, requireActivity().supportFragmentManager, lifecycle)
             (bind as FragmentScholarFormBinding).viewPager.adapter = pagerAdapter
 
-        }else{
-            if (scholarNumber!!.subSequence(0, 2) == "pf" || scholar.scholarPfTest == "pfsn"){
+        } else {
+            if (scholarNumber!!.subSequence(0, 2) == "pf" || scholar.scholarPfTest == "pfsn") {
                 bind = FragmentScholarFormBinding.inflate(inflater, container, false)
                 val fragmentList = ArrayList<Fragment>()
 
-                for (i in 0 until scholar.form){
+                for (i in 0 until scholar.form) {
                     val fragment = SharedFragment.newInstance(scholar, i)
                     fragmentList.add(fragment)
                 }
 
-                val pagerAdapter = ViewPagerAdapter(fragmentList, requireActivity().supportFragmentManager, lifecycle)
+                val pagerAdapter = ViewPagerAdapter(
+                    fragmentList,
+                    requireActivity().supportFragmentManager,
+                    lifecycle
+                )
                 (bind as FragmentScholarFormBinding).viewPager.adapter = pagerAdapter
 
-            }else {
-                            }
+            } else {
+                bind = FragmentScholarFormBinding.inflate(inflater, container, false)
+                val fragmentList = ArrayList<Fragment>()
+
+                for (i in 0 until scholar.form) {
+                    val fragment = SharedFragment.newInstance(scholar, i)
+                    fragmentList.add(fragment)
+                }
+
+                val pagerAdapter = ViewPagerAdapter(
+                    fragmentList,
+                    requireActivity().supportFragmentManager,
+                    lifecycle
+                )
+                (bind as FragmentScholarFormBinding).viewPager.adapter = pagerAdapter
+            }
 
         }
         return bind.root
