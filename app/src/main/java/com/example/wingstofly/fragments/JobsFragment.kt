@@ -10,20 +10,20 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.adapters.JobsRecView
-import com.example.wingstofly.databinding.ActivityJobsBinding
+import com.example.wingstofly.databinding.FragmentJobsBinding
 import com.example.wingstofly.models.Job
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 
 class JobsFragment: Fragment() {
-    private lateinit var bind: ActivityJobsBinding
+    private lateinit var bind: FragmentJobsBinding
     private lateinit var jobsAdapter: JobsRecView
     private lateinit var preferences: SharedPreferences
 
     private  var jobs = ArrayList<Job>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        bind = ActivityJobsBinding.inflate(inflater)
+        bind = FragmentJobsBinding.inflate(inflater)
         preferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
         jobs = (activity as MainActivity).jobs
@@ -35,6 +35,7 @@ class JobsFragment: Fragment() {
         for (scholar in scholars){
             if (scholar.pfNumber == scholarNumber){
                 currentScholar = scholar
+                bind.jobs.text = "Don't be broke ${currentScholar.name!!.split(" ")[currentScholar.name!!.split(" ").size -1]},"
             }
         }
 
@@ -43,9 +44,10 @@ class JobsFragment: Fragment() {
             val list = ArrayList<Job>()
             for (job in jobs){
                 if (job.skillSet == skillSet){
-                    bind.activity.text = "You, a ${job.skillSet} is required to be a ${job.title}"
+                    bind.activity.text = "You, a ${job.skillSet} is required to be a ${job.title} in our team."
                     bind.activityName.text = job.companyName
                     bind.activityPart.text = job.jobLevel
+                    bind.details.text = "${job.companyName!!} is there for you."
                 }
             }
 

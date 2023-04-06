@@ -3,7 +3,6 @@ package com.example.wingstofly.adapters
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -12,8 +11,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.R
-import com.example.wingstofly.SingleActivity
-import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityJobRecviewBinding
 import com.example.wingstofly.models.Job
 import com.skydoves.transformationlayout.TransformationCompat
