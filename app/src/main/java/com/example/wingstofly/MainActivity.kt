@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         questViewModel = ViewModelProvider(this, provider)[QuizViewModel::class.java]
 
 
-
         //getting the scholars from the database
         mAuth.child("scholars").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

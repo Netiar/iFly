@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentProfileBinding
 import com.example.wingstofly.models.Scholar
-import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.fragment_profile.*
 

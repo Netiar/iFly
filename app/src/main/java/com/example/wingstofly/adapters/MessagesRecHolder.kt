@@ -8,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.wingstofly.R
 import com.example.wingstofly.models.Message
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
-import java.util.prefs.Preferences
 
 class MessagesRecHolder(val context: Context, val scholar: Scholar, val messageList: ArrayList<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
