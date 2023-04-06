@@ -1,8 +1,5 @@
 package com.example.wingstofly.models
 
-import java.util.*
-import kotlin.properties.Delegates
-
 class School: java.io.Serializable {
     var name:String?  = null
     var course:String? = null

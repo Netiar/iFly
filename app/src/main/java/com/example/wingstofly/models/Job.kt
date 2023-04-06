@@ -1,8 +1,5 @@
 package com.example.wingstofly.models
 
-import java.util.*
-import kotlin.collections.ArrayList
-
 class Job: java.io.Serializable {
     var title: String? = null
     var department: String? = null

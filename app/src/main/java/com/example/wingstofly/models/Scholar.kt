@@ -1,9 +1,7 @@
 package com.example.wingstofly.models
 
+import com.example.wingstofly.database.Subjects
 import com.example.wingstofly.utils.Constants
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class Scholar : java.io.Serializable {
     var scholarPfTest: String? = null
@@ -19,9 +17,9 @@ class Scholar : java.io.Serializable {
     var primaryMarks: Int = 0
     var secondarySchool: String? = null
     var varsity: String? = null
-    var meanGrade = HashMap<String, String>()
-    var meanScore = HashMap<String, Int>()
-    var meanAGP = HashMap<String, Int>()
+    var meanGrade = ArrayList<String>()
+    var meanScore = ArrayList<Int>()
+    var meanAGP = ArrayList<Int>()
     var coursesName: String? = null
     var varsityGrade: String? = null
     var origin: String? = null
@@ -38,6 +36,8 @@ class Scholar : java.io.Serializable {
     constructor(name: String, status: String) {
         this.name = name
         this.status = status
+
+
     }
 
     private fun assignGrades(marks: Int): String {
@@ -75,10 +75,9 @@ class Scholar : java.io.Serializable {
             return "D+"
         } else if (marks in 30..34) {
             return "D"
-        } else if (marks in 25..29) {
-            return "C+"
+        }else{
+            return "E"
         }
-        return "E"
     }
 
     val list = ArrayList<Subject>()
@@ -101,7 +100,7 @@ class Scholar : java.io.Serializable {
         return 0
     }
 
-    fun calculateMeanScore() {
+    private fun calculateMeanScore() {
         var formScores = HashMap<Int, Int>()
 
         for (i in 0 until formGrades.size) {
@@ -114,12 +113,11 @@ class Scholar : java.io.Serializable {
 
         for (i in 0 until form) {
             val mean = formScores[i]!! / formGrades[i.toString()]!!.size
-            meanScore[i.toString()] = mean
-            meanGrade[i.toString()] = assignGrades(mean)
-            meanAGP[i.toString()] = assignAGP(meanGrade[i.toString()]!!)!!
+            meanScore.add(mean)
+            meanGrade.add(assignGrades(mean))
+            meanAGP.add(assignAGP(meanGrade[i]!!)!!)
         }
     }
-
 
     fun calculateDeviation(agp: Int): Int {
         var deviation = 0
