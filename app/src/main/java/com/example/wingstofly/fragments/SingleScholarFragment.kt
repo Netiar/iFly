@@ -35,27 +35,30 @@ class SingleScholarFragment : Fragment() {
             bind.primarySchool.text = "${param1!!.name!!.split(" ")[0]} is currently a student at ${param1!!.secondarySchool} after successfully completing her junior studies in ${param1!!.primarySchool}."
             bind.pMarks.text = "primary grade \n ${param1!!.primaryMeanGrade}"
             bind.hGrade.text = "high school grade \n ${param1!!.primaryMeanGrade}"
-//            bind.deviation.text =
-  //              "current deviation \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1).toString()]!!)}"
+            bind.deviation.text =
+                "current deviation \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)}"
         }else{
             bind.primarySchool.text = "${param1!!.name!!.split(" ")[0]} is a former student at ${param1!!.secondarySchool} after successfully completing her junior studies in ${param1!!.primarySchool}."
             bind.pMarks.text = "primary grade \n ${param1!!.primaryMeanGrade}"
             bind.hGrade.text = "high school grade \n ${param1!!.primaryMeanGrade}"
            bind.deviation.text =
-            "Deviated By \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1).toString()]!!)}"
+            "Deviated By \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)}"
 
         }
         //binding the leadership roles
         if(param1!!.leadershipRoles.size >= 3){
+            bind.leader.text = "Me ${param1!!.name!!.split(" ")[param1!!.name!!.split(" ").size - 1]} wants to be more than this. Don't forget about us when things get good. A message from the fans."
             bind.leader1.text = "${param1!!.leadershipRoles[0].title} - ${param1!!.leadershipRoles[0].eventOwner}"
             bind.leader2.text = "${param1!!.leadershipRoles[1].title} - ${param1!!.leadershipRoles[0].eventOwner}"
             bind.leader3.text = "${param1!!.leadershipRoles[2].title} - ${param1!!.leadershipRoles[0].eventOwner}"
         }else if (param1!!.leadershipRoles.size == 2){
+            bind.leader.text = "Meet me, ${param1!!.name!!.split(" ")[param1!!.name!!.split(" ").size - 1]} I believe as leader in the below areas I not only grew but also met the best people."
             bind.leader1.text = "${param1!!.leadershipRoles[0].title} - ${param1!!.leadershipRoles[0].eventOwner}"
             bind.leader2.text = "${param1!!.leadershipRoles[1].title} - ${param1!!.leadershipRoles[0].eventOwner}"
             bind.leader3.text = "Not updated"
 
         }else if(param1!!.leadershipRoles.size == 1){
+            bind.leader.text = "${param1!!.name!!.split(" ")[param1!!.name!!.split(" ").size - 1]} we believe you are not as limited as you think. Don't be shy to tell us who you are! Sometimes if you don't tell us we won't know."
             bind.leader1.text = "${param1!!.leadershipRoles[0].title} - ${param1!!.leadershipRoles[0].eventOwner}"
             bind.leader2.text = "Not updated"
             bind.leader3.text = "Not updated"
@@ -63,6 +66,7 @@ class SingleScholarFragment : Fragment() {
             bind.leader1.text = "Not updated"
             bind.leader2.text = "Not updated"
             bind.leader3.text = "Not updated"
+            bind.leader.text = "${param1!!.name!!.split(" ")[param1!!.name!!.split(" ").size - 1]} we want to know who you are. Through your skills, you will prosper, learn and meet the awesomest people. A message from the fans."
         }
 
         bind.branchOrigin.text = "${param1!!.name!!.split(" ")[0]} is a member of ${param1!!.origin} wings to fly community. Here is how you can reach her/him."
