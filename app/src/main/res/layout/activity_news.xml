@@ -22,7 +22,7 @@
                 android:text="Charles Muvaka"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/details"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,10 @@
                     android:layout_height="wrap_content"
                     android:text="Personal Information"
                     android:textColor="@color/maroon"
-                    android:textSize="20sp"
+                    android:drawableStart="@drawable/ic_person"
+                    android:textSize="25sp"
+                    android:drawableTint="@color/maroon"
+                    android:drawablePadding="4dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +56,8 @@
                     android:layout_height="wrap_content"
                     android:text="muvakacharles@gmail.com"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
+                    android:layout_marginStart="24dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/personalInfo" />
@@ -64,7 +68,8 @@
                     android:layout_height="wrap_content"
                     android:text="P.O Box 1438 - 00100"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
+                    android:layout_marginStart="24dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/email" />
@@ -75,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:text="0768761610"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
+                    android:layout_marginStart="24dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/phone" />
@@ -84,10 +90,11 @@
                     android:id="@+id/place"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nairobi"
+                    android:text="Nairobi, Kenya"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="15sp"
+                    android:layout_marginStart="24dp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/box" />
 
@@ -107,7 +114,10 @@
                     android:layout_height="wrap_content"
                     android:text="Education Details"
                     android:textColor="@color/maroon"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
+                    android:drawablePadding="4dp"
+                    android:drawableTint="@color/maroon"
+                    android:drawableStart="@drawable/ic_school"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -115,6 +125,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/educationRec"
                     android:layout_width="0dp"
+                    android:layout_marginStart="24dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +148,10 @@
                     android:layout_height="wrap_content"
                     android:text="Employment Details"
                     android:textColor="@color/maroon"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
+                    android:drawableTint="@color/maroon"
+                    android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/ic_work"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -145,6 +159,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/employmentRec"
                     android:layout_width="0dp"
+                    android:layout_marginStart="24dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +181,9 @@
                     android:layout_height="wrap_content"
                     android:text="Leadership Details"
                     android:textColor="@color/maroon"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
+                    android:drawableStart="@drawable/ic_book"
+                    android:drawablePadding="4dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -174,6 +191,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/leadershipRec"
                     android:layout_width="0dp"
+                    android:layout_marginStart="24dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +213,9 @@
                     android:layout_height="wrap_content"
                     android:text="Referees"
                     android:textColor="@color/maroon"
-                    android:textSize="20sp"
+                    android:drawableStart="@drawable/ic_group"
+                    android:drawablePadding="4dp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -203,6 +223,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/refereesRec"
                     android:layout_width="0dp"
+                    android:layout_marginStart="24dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

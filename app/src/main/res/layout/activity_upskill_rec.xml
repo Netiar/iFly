@@ -10,12 +10,14 @@
         android:id="@+id/topCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="8dp"
         android:backgroundTint="@color/maroon2"
         android:elevation="8dp"
         app:cardCornerRadius="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_margin="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -49,8 +51,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation_view"
-                android:layout_width="150dp"
-                android:layout_height="120dp"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
                 app:layout_constraintBottom_toBottomOf="@+id/activity_part"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

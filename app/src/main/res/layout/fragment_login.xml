@@ -101,42 +101,61 @@
         android:padding="8dp"
         android:textColor="@color/white"
         android:background="@drawable/marks"
-        android:layout_margin="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/scholar_id"
+        app:layout_constraintBottom_toTopOf="@id/forgotText"
+        app:layout_constraintTop_toBottomOf="@id/forgot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/forgot"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
+        android:layout_margin="12dp"
         android:text="Forgot password??"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/forgot1"
-        app:layout_constraintRight_toLeftOf="@id/forgot1"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/submit"
-        app:layout_constraintTop_toTopOf="@id/forgot1" />
+        app:layout_constraintTop_toBottomOf="@id/scholar_id" />
+
+    <TextView
+        android:id="@+id/forgotText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account!!"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/submit"
+        app:layout_constraintEnd_toStartOf="@id/forgot1"
+        app:layout_constraintTop_toBottomOf="@id/submit"
+        />
 
     <TextView
         android:id="@+id/forgot1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:text="Register"
-        android:background="@drawable/marks"
-        android:textColor="@color/white"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/poppins_bold"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:padding="10dp"
-        app:layout_constraintLeft_toRightOf="@id/forgot"
-        app:layout_constraintBottom_toBottomOf="@id/forgot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/submit" />
+        android:layout_marginStart="4dp"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toTopOf="@id/forgotText"
+        app:layout_constraintRight_toRightOf="@id/submit"
+        app:layout_constraintLeft_toRightOf="@id/forgotText"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
