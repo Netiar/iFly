@@ -53,6 +53,9 @@ class FragmentEvents : Fragment() {
                         }
                     }
                 }
+                val eventsTitle = highSchoolEvent!!.title!!.split(" ")
+                bind.up.text = "${highSchoolEvent!!.eventOwner} ${eventsTitle[eventsTitle.size - 1]} will interest you, have a see."
+
             }
         }
 
@@ -73,7 +76,7 @@ class FragmentEvents : Fragment() {
     }
 
     private fun startAnimations() {
-        bind.upcoming.startAnimation(
+        bind.container.startAnimation(
             AnimationUtils.loadAnimation(
                 requireContext(), R.anim.zoom_in
             )
