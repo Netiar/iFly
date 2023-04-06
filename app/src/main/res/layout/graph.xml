@@ -8,15 +8,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/topCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/maroon3"
         app:cardCornerRadius="4dp"
         android:layout_margin="8dp"
-        android:padding="4dp"
+        android:padding="8dp"
         android:elevation="6dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/cont"
+            android:layout_margin="4dp"
             android:background="@drawable/layout_design"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
