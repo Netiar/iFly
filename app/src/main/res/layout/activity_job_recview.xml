@@ -7,76 +7,82 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:transformation_duration="550">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/layout_design"
-        android:backgroundTint="@color/maroon2"
-        android:padding="8dp">
+        app:cardCornerRadius="4dp"
+        android:layout_margin="4dp"
+        android:id="@+id/topCard"
+        android:elevation="8dp"
+        >
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/advert"
-            app:layout_constraintBottom_toBottomOf="@id/newsId"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/newsId"
-            app:layout_constraintTop_toTopOf="@id/newsId"
-            app:shapeAppearanceOverlay="@style/circle" />
-
-        <TextView
-            android:id="@+id/newsId"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Event Title"
-            android:textAlignment="textStart"
-            android:textColor="@color/maroon"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            >
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="16dp"
+                app:shapeAppearanceOverlay="@style/circle"
+                android:src="@drawable/advert"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/newsId"
+                app:layout_constraintStart_toEndOf="@id/newsId"
+                app:layout_constraintBottom_toBottomOf="@id/newsId"/>
 
-        <TextView
-            android:id="@+id/newsDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="Event Description"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/newsId"
-            app:layout_constraintTop_toBottomOf="@id/newsId" />
+            <TextView
+                android:id="@+id/newsId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Event Title"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textSize="20sp"
+                android:textColor="@color/maroon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image"
+                />
 
-        <TextView
-            android:id="@+id/news"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:fontFamily="@font/poppins"
-            android:text="Click to read more"
-            android:textAlignment="textEnd"
-            android:textColor="@color/maroon"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/newsDescription" />
+            <TextView
+                android:id="@+id/newsDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Event Description"
+                android:textAlignment="textStart"
+                android:textSize="19sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/newsId"
+                app:layout_constraintTop_toBottomOf="@id/newsId"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/news"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Click to read more"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                android:layout_margin="4dp"
+                android:textSize="20sp"
+                android:textColor="@color/maroon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </com.skydoves.transformationlayout.TransformationLayout>
