@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.example.wingstofly.adapters.SubjectsRecAdapter
 import com.example.wingstofly.databinding.FragmentSharedBinding
 import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
-import kotlin.properties.Delegates
 
 
 class SharedFragment : Fragment() {
@@ -41,23 +39,31 @@ class SharedFragment : Fragment() {
         (bind as FragmentSharedBinding).cutOff.text = "Scholar cut off: ${Constants.CUT_POINT}"
 
         (bind as FragmentSharedBinding).meanGrade.text =
-            "Form ${number + 1} mean grade: ${scholar.meanGrade[number.toString()]}"
+            "Form ${number + 1} mean grade: ${scholar.meanGrade[number]}"
         if (scholar.pfNumber!!.subSequence(0, 2) == "pf") {
-            if (Constants.CUT_POINT_OFF_POINTS < scholar.meanAGP[number.toString()]!!) {
+            if (Constants.CUT_POINT_OFF_POINTS < scholar.meanAGP[number]!!) {
                 (bind as FragmentSharedBinding).studentDeviation.text =
                     "Congrats you are on the right track"
-            } else if (Constants.CUT_POINT_OFF_POINTS == scholar.meanAGP[number.toString()]) {
+            } else if (Constants.CUT_POINT_OFF_POINTS == scholar.meanAGP[number]) {
                 (bind as FragmentSharedBinding).studentDeviation.text =
                     "Hey, You are treading on a dangerous zone!!"
             } else {
                 var deviation =
-                    scholar.calculateDeviation(scholar.meanAGP[number.toString()]!!) * scholar.formGrades[number.toString()]!!.size
+                    scholar.calculateDeviation(scholar.meanAGP[number]) * scholar.formGrades[number.toString()]!!.size
                 (bind as FragmentSharedBinding).studentDeviation.text =
                     "$deviation marks required in each subject to beat the cut off."
             }
         } else {
-            (bind as FragmentSharedBinding).studentDeviation.text =
-                "Congrats you are on the right track"
+            (bind as FragmentSharedBinding).studentDeviation.text = if(number == 1){
+                "${scholar.name!!.split(" ")[scholar.name!!.split(" ").size -1]} thought it was a race. It was a marathon."
+            }else if(number == 2){
+                "Another thing he is good at, you tell me."
+            }else if(number == 3){
+                "We believe he has learnt on maintaining while improving."
+            }else{
+                "One thing ${scholar.name!!.split(" ")[scholar.name!!.split(" ").size -1]} is good at. A pacy start."
+
+            }
         }
         val adp = SubjectsRecAdapter()
         adp.asyncList.submitList(scholar.formGrades[number.toString()])
