@@ -4,7 +4,6 @@ import com.example.wingstofly.api.RetrofitClient
 
 
 class QuizRepository {
-//    private val dataManager = DataMa?nager()
 
     suspend fun getTopics() = RetrofitClient.getApiClient.getCategories()
 
