@@ -1,50 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.skydoves.transformationlayout.TransformationLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/transformationLayout"
-    android:layout_width="match_parent"
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:backgroundTint="@color/brown"
+    android:id="@+id/coordinate"
     android:layout_height="wrap_content"
-    app:transformation_duration="550">
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinate"
-        android:background="@drawable/layout_design"
-        android:backgroundTint="@color/maroon2"
-        android:padding="8dp"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:backgroundTint="@color/brown1"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:cardCornerRadius="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            >
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
 
             <TextView
                 android:id="@+id/locat"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_bold"
+                android:layout_width="wrap_content"
                 android:text="All Scholars"
                 android:textColor="@color/maroon"
                 android:textSize="20sp"
+                android:layout_marginTop="8dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/recView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recView"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/locat" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</com.skydoves.transformationlayout.TransformationLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
