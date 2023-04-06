@@ -1,22 +1,19 @@
 package com.example.wingstofly
 
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivitySingleBinding
 import com.example.wingstofly.fragments.*
-import com.example.wingstofly.models.*
+import com.example.wingstofly.models.Scholar
+import com.example.wingstofly.models.TriviaCategory
+import com.example.wingstofly.models.Upskill
 import com.example.wingstofly.repository.QuizRepository
-import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.viewmodel.QuizProviderFactory
 import com.example.wingstofly.viewmodel.QuizViewModel
 import com.skydoves.transformationlayout.TransformationAppCompatActivity
-import java.util.function.Predicate
 
 class SingleActivity : TransformationAppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding

@@ -1,11 +1,9 @@
 package com.example.wingstofly.database
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.databinding.GraphBinding
-import com.example.wingstofly.databinding.LearnBinding
 import com.example.wingstofly.models.School
 
 class SchoolAdapter(private val list: ArrayList<School>): RecyclerView.Adapter<SchoolAdapter.MyHolder>() {

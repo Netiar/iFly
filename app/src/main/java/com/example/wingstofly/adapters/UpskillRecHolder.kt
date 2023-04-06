@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityUpskillRecBinding
 import com.example.wingstofly.models.Upskill

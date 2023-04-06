@@ -3,7 +3,6 @@ package com.example.wingstofly.api
 import com.example.wingstofly.utils.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class RetrofitClient() {
     companion object{

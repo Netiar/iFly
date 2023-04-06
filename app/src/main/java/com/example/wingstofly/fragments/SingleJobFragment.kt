@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wingstofly.MainActivity
-import com.example.wingstofly.R
 import com.example.wingstofly.adapters.JobDetailsRecView
 import com.example.wingstofly.databinding.FragmentSingleJobBinding
 import com.example.wingstofly.models.Job

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentUpskillBinding
 import com.example.wingstofly.models.Upskill
 
