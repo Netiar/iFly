@@ -33,30 +33,61 @@ class NewsFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
+        //scholar name and origin
+        val names = scholar!!.name!!.split(" ")
+        val branch = scholar!!.origin!!.split(" ")
+
+        //adapters
+        val educationAdapter = ResumeAdapter(requireContext())
+        val refAdapter = ResumeAdapter(requireContext())
+
+
+
+        //getting scholars junior and high school info
+        val school = School(scholar!!.primarySchool!!).apply {
+            course = "Junior studies Certification"
+            startYear = "08/01/2003"
+            endYear = "08/11/2010"
+        }
+        val school1 = School(scholar!!.secondarySchool!!).apply {
+            course = "High School Certification"
+            startYear = "08/02/2011"
+            endYear = "08/11/2014"
+        }
+
+        //Generating dummy referees
+        val referee = School("John Doe").apply {
+            course = "Branch Growth and Development Manager"
+            startYear = "0768761610"
+            endYear = "muvakacharles@gmail.com"
+        }
+        val referee1 = School("Charles Muvaka").apply {
+            course = "Regional Manager Payments"
+            startYear = "0768761610"
+            endYear = "muvaka@gmail.com"
+        }
+        val referee2 = School("Mary Atieno").apply {
+            course = "General Manager"
+            startYear = "0768761610"
+            endYear = "charles@gmail.com"
+        }
+        val refList = arrayListOf(referee, referee1, referee2)
+        refAdapter.list = refList
+
         if (appearance == "Portrait") {
             mainBind = ActivityNewsRecviewBinding.inflate(inflater)
             val bind = mainBind
 
             //binding name and contact details
-            val names = scholar!!.name!!.split(" ")
-            val branch = scholar!!.origin!!.split(" ")
+
             (bind as ActivityNewsRecviewBinding).name.text =
                 "${names!![0]} ${names[names.size - 1]}"
             bind.box.text = scholar!!.primaryNumber
             bind.place.text = "${branch[0]}, Kenya"
 
             //binding education details
-            val school = School(scholar!!.primarySchool!!).apply {
-                course = "Junior studies Certification"
-                startYear = "08/01/2003"
-                endYear = "08/11/2010"
-            }
-            val school1 = School(scholar!!.secondarySchool!!).apply {
-                course = "High School Certification"
-                startYear = "08/02/2011"
-                endYear = "08/11/2014"
-            }
-            val educationAdapter = ResumeAdapter(requireContext())
+
+            educationAdapter.placeUsed = "Resume"
             educationAdapter.list = scholar!!.tertiaryInstitutions
             educationAdapter.list!!.add(school1)
             educationAdapter.list!!.add(school)
@@ -68,6 +99,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
             //binding employment details
             val employmentAdapter = ResumeAdapter(requireContext())
+            employmentAdapter.placeUsed = "Resume"
             employmentAdapter.list1 = scholar!!.workPlaces
             bind.employmentRec.apply {
                 adapter = employmentAdapter
@@ -98,27 +130,8 @@ class NewsFragment : Fragment(), View.OnClickListener {
                 layoutManager = LinearLayoutManager(requireContext())
             }
 
-            //Generating dummy referees
-            val referee = School("John Doe").apply {
-                course = "Branch Growth and Development Manager"
-                startYear = "0768761610"
-                endYear = "muvakacharles@gmail.com"
-            }
-            val referee1 = School("Charles Muvaka").apply {
-                course = "Regional Manager Payments"
-                startYear = "0768761610"
-                endYear = "muvaka@gmail.com"
-            }
-            val referee2 = School("Mary Atieno").apply {
-                course = "General Manager"
-                startYear = "0768761610"
-                endYear = "charles@gmail.com"
-            }
-            val refList = arrayListOf(referee, referee1, referee2)
-            val refAdapter = ResumeAdapter(requireContext())
-            refAdapter.list = refList
-            refAdapter.placeUsed = "Resume"
-
+            //portrait referees binding
+            refAdapter.placeUsed = "referees"
             bind.refereesRec.apply {
                 adapter = refAdapter
                 layoutManager = LinearLayoutManager(requireContext())
@@ -128,26 +141,15 @@ class NewsFragment : Fragment(), View.OnClickListener {
             mainBind = ActivityNewsBinding.inflate(layoutInflater)
 
             //binding name and contact details
-            val names = scholar!!.name!!.split(" ")
-            val branch = scholar!!.origin!!.split(" ")
-            (mainBind as ActivityNewsBinding).name.text = "${names!![0]} ${names[names.size - 1]}"
+
+            (mainBind as ActivityNewsBinding).name.text = "${names[0]} ${names[names.size - 1]}"
             (mainBind as ActivityNewsBinding).box.apply {
                 text = "Phone: ${scholar!!.primaryNumber}"
             }
             (mainBind as ActivityNewsBinding).place.text = "${branch[0]}, Kenya"
 
             //binding education details
-            val school = School(scholar!!.primarySchool!!).apply {
-                course = "Junior studies Certification"
-                startYear = "08/01/2003"
-                endYear = "08/11/2010"
-            }
-            val school1 = School(scholar!!.secondarySchool!!).apply {
-                course = "High School Certification"
-                startYear = "08/02/2011"
-                endYear = "08/11/2014"
-            }
-            val educationAdapter = ResumeAdapter(requireContext())
+
             educationAdapter.placeUsed = "Landscape"
             educationAdapter.list = scholar!!.tertiaryInstitutions
             educationAdapter.list!!.add(school1)
@@ -160,6 +162,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
             //binding employment details
             val employmentAdapter = ResumeAdapter(requireContext())
+            employmentAdapter.placeUsed = "Landscape"
             employmentAdapter.list1 = scholar!!.workPlaces
             (mainBind as ActivityNewsBinding).employmentRec.apply {
                 adapter = employmentAdapter
@@ -184,32 +187,14 @@ class NewsFragment : Fragment(), View.OnClickListener {
                 list.add(roleName2)
             }
             val leaderAdapter = JobDetailsRecView(list)
-            leaderAdapter.placeUsed = "Resume"
+            leaderAdapter.placeUsed = "Landscape"
             (mainBind as ActivityNewsBinding).leadershipRec.apply {
                 adapter = leaderAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
 
-            //Generating dummy referees
-            val referee = School("John Doe").apply {
-                course = "Branch Growth and Development Manager"
-                startYear = "0768761610"
-                endYear = "muvakacharles@gmail.com"
-            }
-            val referee1 = School("Charles Muvaka").apply {
-                course = "Regional Manager Payments"
-                startYear = "0768761610"
-                endYear = "muvaka@gmail.com"
-            }
-            val referee2 = School("Mary Atieno").apply {
-                course = "General Manager"
-                startYear = "0768761610"
-                endYear = "charles@gmail.com"
-            }
-            val refList = arrayListOf(referee, referee1, referee2)
-            val refAdapter = ResumeAdapter(requireContext())
+            //landscape referees binding
             refAdapter.list = refList
-            refAdapter.placeUsed = "Resume"
 
             (mainBind as ActivityNewsBinding).refereesRec.apply {
                 adapter = refAdapter
