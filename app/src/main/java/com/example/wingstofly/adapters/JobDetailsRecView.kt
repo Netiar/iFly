@@ -2,8 +2,6 @@ package com.example.wingstofly.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wingstofly.databinding.ActivityJobDetailsRecViewBinding
 
@@ -13,9 +11,14 @@ class JobDetailsRecView(val list: ArrayList<String>): RecyclerView.Adapter<JobDe
             fun setData(item: String){
                 if (placeUsed.isNullOrBlank()){
                     bind.description.text = "${list.indexOf(item) + 1} - $item"
-                }else{
+                }else if (placeUsed == "Resume"){
                     bind.description.apply {
                         textSize = 12f
+                        text = "${list.indexOf(item) + 1} - $item"
+                    }
+                }else{
+                    bind.description.apply {
+                        textSize = 18f
                         text = "${list.indexOf(item) + 1} - $item"
                     }
                 }

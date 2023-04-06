@@ -13,13 +13,11 @@ import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.adapters.GradesRecAdapter
-import com.example.wingstofly.adapters.JobDetailsRecView
 import com.example.wingstofly.adapters.JobsRecView
 import com.example.wingstofly.database.SchoolAdapter
 import com.example.wingstofly.databinding.ChatBinding
 import com.example.wingstofly.databinding.FragmentGradesBinding
 import com.example.wingstofly.models.Scholar
-import com.example.wingstofly.models.School
 
 
 class GradesFragment : Fragment(R.layout.fragment_grades) {

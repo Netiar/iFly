@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentSignBinding
-import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
