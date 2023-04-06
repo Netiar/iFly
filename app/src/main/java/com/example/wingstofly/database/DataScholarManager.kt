@@ -1,13 +1,11 @@
 package com.example.wingstofly.database
 
 import com.example.wingstofly.models.*
-import java.text.DateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class DataScholarManager {
     val scholars = ArrayList<Scholar>()
-    private  val subjects = Subjects().allSubjects
+    private val subjects = Subjects().allSubjects
     private val school = School("The Technical university of Kenya").apply {
         schoolType = "university"
         startYear = "02/09/2015"
@@ -27,7 +25,7 @@ class DataScholarManager {
         getScholars()
     }
 
-    private fun getScholars(){
+    private fun getScholars() {
         val scholar = Scholar("Charles Muvaka", "Employed")
         scholar.apply {
             origin = "Kericho Branch"
@@ -94,7 +92,7 @@ class DataScholarManager {
             secondarySchool = "Starehe Boys Centre"
         }
         scholars.add(scholar2)
-        val scholar3= Scholar("Fahmy Nassir", "Unemployed")
+        val scholar3 = Scholar("Fahmy Nassir", "Unemployed")
         scholar3.apply {
             form = 4
             origin = "Digo-Road Branch"
@@ -116,7 +114,7 @@ class DataScholarManager {
         scholar5.apply {
             pfNumber = "pf81897"
             form = 3
-            origin ="Kericho Branch"
+            origin = "Kericho Branch"
             primarySchool = "Umoja primary school"
             secondarySchool = "St Josephs Seminary Mwingi"
             varsity = "The Technical University of Kenya"
@@ -170,7 +168,7 @@ class DataScholarManager {
         scholars.add(scholar10)
         val scholar11 = Scholar("Riggy Gachagua", "Student")
         scholar11.apply {
-            origin  = "Changamwe Branch"
+            origin = "Changamwe Branch"
             pfNumber = "pf81891"
             form = 2
             primarySchool = "Chaani primary school"
@@ -263,7 +261,7 @@ class DataScholarManager {
             otherNumber = "0114830685"
         }
         scholars.add(scholar18)
-        val scholar19= Scholar("Salim AbdulNassir", "Unemployed")
+        val scholar19 = Scholar("Salim AbdulNassir", "Unemployed")
         scholar19.apply {
             origin = "Digo-Road Branch"
             pfNumber = "pf71893"
@@ -385,6 +383,8 @@ class DataScholarManager {
             form = 1
         }
         scholars.add(scholar26)
+
+
 
     }
 }

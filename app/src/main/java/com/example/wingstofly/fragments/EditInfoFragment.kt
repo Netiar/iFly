@@ -19,6 +19,7 @@ import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.JobDetailsRecView
 import com.example.wingstofly.adapters.JobsRecView
+import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.database.SchoolAdapter
 import com.example.wingstofly.databinding.FragmentEditInfoBinding
 import com.example.wingstofly.models.*
@@ -37,7 +38,7 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
     private lateinit var bind: FragmentEditInfoBinding
     private lateinit var pref: SharedPreferences
     private lateinit var bottomSheet: BottomSheetDialog
-    lateinit var scholar: Scholar
+    var scholar1: Scholar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +68,8 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
         for (databaseScholar in scholars) {
             val currentPfNumber = databaseScholar.pfNumber
             if (currentPfNumber.contentEquals(pfNumber, true)) {
-                scholar = databaseScholar
+                scholar1 = databaseScholar
+                val scholar = scholar1!!
 
                 //binding the scholar phone details
                 bind.primarySchool.text = "Phone: ${scholar.primaryNumber}"
@@ -97,7 +99,7 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                     }
 
                 } else {
-                    for (school in scholar.tertiaryInstitutions){
+                    for (school in scholar.tertiaryInstitutions) {
                         listSchools.add(school)
                     }
                     val schoolAdapter = SchoolAdapter(listSchools)
@@ -123,20 +125,47 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                     }
                 }
 
-                if (scholar.leadershipRoles.isEmpty()) {
-                    val string1 = "Update to help build your resume"
-                    val string2 = "Update to help build your resume"
-                    val string3 = "Update to help build your resume"
+                //dummy data on empty leader ship roles
+                val string1 = "Update to help build your resume"
+                val string2 = "Update to help build your resume"
+                val string3 = "Update to help build your resume"
 
-                    val leaders = JobDetailsRecView(arrayListOf(string1, string2, string3))
+                val leaders = ArrayList<String>()
+
+                if (scholar.leadershipRoles.isEmpty()) {
+                    leaders.add(string1)
+                    leaders.add(string2)
+                    leaders.add(string3)
                     bind.leadersRec.apply {
-                        adapter = leaders
+                        adapter = JobDetailsRecView(leaders)
+                        layoutManager = LinearLayoutManager(requireContext())
+                    }
+                } else if (scholar.leadershipRoles.size == 1) {
+                    val string = "${scholar.leadershipRoles[0].title} - ${scholar.leadershipRoles[0].eventOwner}"
+                    leaders.add(string)
+                    leaders.add(string1)
+                    leaders.add(string2)
+
+
+                    bind.leadersRec.apply {
+                        adapter = JobDetailsRecView(leaders)
+                        layoutManager = LinearLayoutManager(requireContext())
+                    }
+                } else if (scholar.leadershipRoles.size == 2) {
+                    for (i in 0 until 2) {
+                        val string = "${scholar.leadershipRoles[i].title} - ${scholar.leadershipRoles[i].eventOwner}"
+                        leaders.add(string)
+                    }
+                    leaders.add(string1)
+
+                    bind.leadersRec.apply {
+                        adapter = JobDetailsRecView(leaders)
                         layoutManager = LinearLayoutManager(requireContext())
                     }
                 } else {
                     val list = ArrayList<String>()
-                    for (leader in scholar.leadershipRoles) {
-                        val string = "${leader.title} - ${leader.eventOwner}"
+                    for (i in scholar.leadershipRoles.size - 1    downTo  scholar.leadershipRoles.size - 3) {
+                        val string = "${scholar.leadershipRoles[i].title} - ${scholar.leadershipRoles[i].eventOwner}"
                         list.add(string)
                     }
                     val leaders = JobDetailsRecView(list)
@@ -188,6 +217,8 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
     }
 
     private fun createAddBottomSheet(inflater: LayoutInflater) {
+        val scholar = scholar1!!
+
         val view = inflater.inflate(R.layout.add_prof_bottom, null, false)
         val scores = arrayOf(
             "First class Honours",
@@ -266,6 +297,7 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
             val userPhone = phone.editText!!.text.toString().trim()
             val userOtherPhone = otherPhone.editText!!.text.toString().trim()
             val userEmail = email.editText!!.text.toString().trim()
+            val scholar = scholar1!!
 
             scholar.primaryNumber = userPhone
             scholar.otherNumber = userOtherPhone
@@ -319,13 +351,15 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(requireContext(), "Please select a skill set", Toast.LENGTH_LONG)
                         .show()
                 }
+                val scholar = scholar1!!
+
                 scholar.skillSet = skillSet
                 bind.skills.isVisible = false
                 mAuth.child("scholars").child(scholar.name!!).setValue(scholar)
                 bind.transform.finishTransform()
                 bind.recView.alpha = 1.0f
             }
-            bind.card.setOnClickListener{
+            bind.card.setOnClickListener {
                 bind.transform.finishTransform()
                 bind.skills.isVisible = false
                 bind.recView.alpha = 1.0f
@@ -347,7 +381,7 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                     )
                 ) {
                     return@setOnClickListener
-                }else{
+                } else {
                     val name = bind.roleName.editText!!.text.trim().toString()
                     val place = bind.roleId.editText!!.text.trim().toString()
                     val start = bind.startId.editText!!.text.trim().toString()
@@ -357,6 +391,8 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                         postDate = start
                         deadline = end
                     }
+                    val scholar = scholar1!!
+
                     scholar.workPlaces.add(newJob)
                     bind.empRoles.isVisible = false
                     bind.transform1.finishTransform()
@@ -366,30 +402,39 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
 
 
             }
-            bind.card.setOnClickListener{
+            bind.card.setOnClickListener {
                 bind.transform1.finishTransform()
                 bind.empRoles.isVisible = false
                 bind.recView.alpha = 1.0f
 
             }
         }
-        if(p0 == bind.addLeadership){
+        if (p0 == bind.addLeadership) {
             bind.leaderRoles.isVisible = true
             bind.recView.alpha = .2f
 
             bind.transform2.startTransform()
 
-            bind.submit.setOnClickListener{
-                if(Validator().validateInputText(bind.firstName) || Validator().validateInputText(bind.scholarId)){
+            bind.submit.setOnClickListener {
+                if (!Validator().validateInputText(bind.firstName) || !Validator().validateInputText(
+                        bind.scholarId
+                    )
+                ) {
                     return@setOnClickListener
-                }else{
+                } else {
                     val leaderRoleName = bind.firstName.editText!!.text.trim().toString()
                     val leaderRolePlace = bind.scholarId.editText!!.text.trim().toString()
 
                     val event = Event(leaderRoleName).apply {
                         eventOwner = leaderRolePlace
                     }
+                    val scholar = scholar1!!
+
                     scholar.leadershipRoles.add(event)
+                    mAuth.child("scholars").child(scholar.name!!).setValue(scholar)
+                    Toast.makeText(requireContext(), "Successfully updated", Toast.LENGTH_SHORT)
+                        .show()
+
                     bind.transform2.finishTransform()
                     bind.leaderRoles.isVisible = false
                     bind.recView.alpha = 1.0f
@@ -397,7 +442,7 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
                 }
 
             }
-            bind.card.setOnClickListener{
+            bind.card.setOnClickListener {
                 bind.transform2.finishTransform()
                 bind.leaderRoles.isVisible = false
                 bind.recView.alpha = 1.0f
@@ -405,31 +450,34 @@ class EditInfoFragment : Fragment(), View.OnClickListener {
             }
 
         }
-        if(p0 == bind.resume){
+        val scholar = scholar1!!
+
+        if (p0 == bind.resume) {
             val appearance = "Portrait"
             val fragment = NewsFragment.newInstance(scholar, appearance)
             replaceFragment(fragment)
             bind.transform3.startTransform()
         }
-        if(p0 == bind.quitPage){
+        if (p0 == bind.quitPage) {
             bind.transform3.finishTransform()
         }
-        if(p0 == bind.viewAnother){
+        if (p0 == bind.viewAnother) {
             val currentText = bind.viewAnother.text
-            if (currentText == "Portrait"){
-                val fragment = NewsFragment.newInstance(scholar,"Portrait")
-                replaceFragment(fragment)
-                bind.viewAnother.text = "Landscape"
-            }else{
-                val fragment = NewsFragment.newInstance(scholar,"Landscape")
+            val fragment = NewsFragment.newInstance(scholar, "Landscape")
+            replaceFragment(fragment)
+            bind.viewAnother.text = "Landscape"
+
+            if (currentText == "Landscape") {
+                val fragment = NewsFragment.newInstance(scholar, "Portrait")
                 replaceFragment(fragment)
                 bind.viewAnother.text = "Portrait"
+
             }
         }
 
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val manager = childFragmentManager
         val transaction = manager.beginTransaction()
         transaction.replace(bind.frameLayout.id, fragment).commit()
