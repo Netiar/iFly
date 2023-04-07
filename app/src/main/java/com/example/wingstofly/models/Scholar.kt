@@ -29,7 +29,7 @@ class Scholar : java.io.Serializable {
     var skillSet: String? = null
     var leadershipRoles = ArrayList<Event>()
     var workPlaces = ArrayList<Job>()
-    var formGrades = HashMap<String, ArrayList<Subject>>()
+    var formGrades = ArrayList<ArrayList<Subject>>()
     var form: Int = 4
 
     constructor() {}
@@ -86,7 +86,7 @@ class Scholar : java.io.Serializable {
         subject.agp = assignAGP(subject.grade!!)!!
         list.add(subject)
         for (i in 0 until form) {
-            formGrades[i.toString()] = list
+            formGrades.add(list)
         }
         calculateMeanScore()
     }
@@ -105,14 +105,14 @@ class Scholar : java.io.Serializable {
 
         for (i in 0 until formGrades.size) {
             var totalMarks = 0
-            for (j in formGrades[i.toString()]!!.indices) {
-                totalMarks += formGrades[i.toString()]!![j].score
+            for (j in formGrades[i]!!.indices) {
+                totalMarks += formGrades[i]!![j].score
             }
             formScores[i] = totalMarks
         }
 
         for (i in 0 until form) {
-            val mean = formScores[i]!! / formGrades[i.toString()]!!.size
+            val mean = formScores[i]!! / formGrades[i]!!.size
             meanScore.add(mean)
             meanGrade.add(assignGrades(mean))
             meanAGP.add(assignAGP(meanGrade[i]!!)!!)
