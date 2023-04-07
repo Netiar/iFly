@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/maroon2"
-    tools:context=".fragments.FragmentSign"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-        android:id="@+id/form"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="EquiFly"
-        android:fontFamily="@font/bubblegum_sans"
-        android:textColor="@color/maroon"
-        android:textSize="50sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/slogan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/image"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:transitionName="image_sign"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/slogan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="find joy in the journey"
-        android:textStyle="bold"
-        android:layout_margin="8dp"
-        android:textSize="20sp"
-        android:textColor="@color/brown"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/form"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/first_name"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/maroon2"
+        tools:context=".fragments.FragmentSign"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="EquiFly"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="@color/maroon"
+            android:textSize="50sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@id/slogan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:transitionName="image_sign"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="find joy in the journey"
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toBottomOf="@id/form"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/first_name"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/first_name"
@@ -132,35 +136,35 @@
             app:layout_constraintTop_toBottomOf="@id/confirm_password"
             />
 
-    <TextView
-        android:id="@+id/forgot1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="Forgot scholarNumber,"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:fontFamily="@font/poppins_bold"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/submit"
-        app:layout_constraintStart_toStartOf="@id/submit"
-        app:layout_constraintEnd_toStartOf="@id/forgot"
-        />
-    <TextView
-        android:id="@+id/forgot"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Click Me!!"
-        android:textColor="@color/maroon"
-        android:fontFamily="@font/poppins_bold"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginStart="4dp"
-        android:textAlignment="textStart"
-        app:layout_constraintTop_toTopOf="@id/forgot1"
-        app:layout_constraintRight_toRightOf="@id/submit"
-        app:layout_constraintLeft_toRightOf="@id/forgot1"
-        />
+        <TextView
+            android:id="@+id/forgot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:text="Forgot scholarNumber,"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/submit"
+            app:layout_constraintStart_toStartOf="@id/submit"
+            app:layout_constraintEnd_toStartOf="@id/forgot"
+            />
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Click Me!!"
+            android:textColor="@color/maroon"
+            android:fontFamily="@font/poppins_bold"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="4dp"
+            android:textAlignment="textStart"
+            app:layout_constraintTop_toTopOf="@id/forgot1"
+            app:layout_constraintRight_toRightOf="@id/submit"
+            app:layout_constraintLeft_toRightOf="@id/forgot1"
+            />
 
 
 
@@ -169,4 +173,5 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

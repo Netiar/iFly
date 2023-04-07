@@ -1,133 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/maroon2"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ForgotPfFragment">
-
-    <TextView
-        android:id="@+id/slogan"
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="find joy in the journey"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/brown"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@id/form"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/first_name"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        android:background="@color/maroon2"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.ForgotPfFragment">
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="find joy in the journey"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintTop_toBottomOf="@id/form"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/first_name"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
 
-    <TextView
-    android:id="@+id/form"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="25dp"
-    android:text="EquiFly"
-    android:fontFamily="@font/bubblegum_sans"
-    android:textColor="@color/maroon"
-    android:textSize="50sp"
-    android:textStyle="italic"
-    app:layout_constraintBottom_toTopOf="@id/slogan"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/image" />
+        <TextView
+            android:id="@+id/form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="EquiFly"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="@color/maroon"
+            android:textSize="50sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@id/slogan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
 
-<com.google.android.material.imageview.ShapeableImageView
-    android:id="@+id/image"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:src="@drawable/logo"
-    android:layout_marginTop="12dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/first_name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:startIconDrawable="@drawable/ic_person"
-    app:startIconTint="@color/maroon"
-    app:layout_constraintTop_toBottomOf="@id/slogan"
-    app:layout_constraintBottom_toTopOf="@id/scholar_phone"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:startIconDrawable="@drawable/ic_person"
+            app:startIconTint="@color/maroon"
+            app:layout_constraintTop_toBottomOf="@id/slogan"
+            app:layout_constraintBottom_toTopOf="@id/scholar_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:hint="Enter your full name"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="Enter your full name"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-</com.google.android.material.textfield.TextInputLayout>
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/scholar_phone"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:startIconDrawable="@drawable/ic_phone"
-    app:startIconTint="@color/maroon"
-    app:layout_constraintTop_toBottomOf="@id/first_name"
-    app:layout_constraintBottom_toTopOf="@id/scholar_id"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/scholar_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:startIconTint="@color/maroon"
+            app:layout_constraintTop_toBottomOf="@id/first_name"
+            app:layout_constraintBottom_toTopOf="@id/scholar_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:hint="Enter your phone number"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="Enter your phone number"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-</com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 
-<Spinner
-    android:id="@+id/scholar_id"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:passwordToggleTint="@color/maroon"
-    app:layout_constraintTop_toBottomOf="@id/scholar_phone"
-    app:layout_constraintBottom_toTopOf="@id/confirm_password"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+        <Spinner
+            android:id="@+id/scholar_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:passwordToggleTint="@color/maroon"
+            app:layout_constraintTop_toBottomOf="@id/scholar_phone"
+            app:layout_constraintBottom_toTopOf="@id/confirm_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-<Spinner
-    android:id="@+id/confirm_password"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:passwordToggleTint="@color/maroon"
-    app:layout_constraintTop_toBottomOf="@id/scholar_id"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+        <Spinner
+            android:id="@+id/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:passwordToggleTint="@color/maroon"
+            app:layout_constraintTop_toBottomOf="@id/scholar_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-<TextView
-    android:id="@+id/submit"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Get your scholar number"
-    android:background="@drawable/marks"
-    android:fontFamily="@font/poppins_bold"
-    android:padding="8dp"
-    android:textAlignment="center"
-    android:layout_margin="12dp"
-    android:textColor="@color/white"
-    android:textSize="18sp"
-    app:layout_constraintStart_toStartOf="@id/confirm_password"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintEnd_toEndOf="@id/confirm_password"
-    app:layout_constraintTop_toBottomOf="@id/confirm_password"
-    />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Get your scholar number"
+            android:background="@drawable/marks"
+            android:fontFamily="@font/poppins_bold"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:layout_margin="12dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/confirm_password"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/confirm_password"
+            app:layout_constraintTop_toBottomOf="@id/confirm_password"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
