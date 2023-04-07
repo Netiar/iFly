@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import com.example.wingstofly.databinding.FragmentSingleScholarBinding
 import com.example.wingstofly.models.Scholar
+import kotlinx.android.synthetic.main.fragment_shared.*
 
 private const val SCHOLAR = "param1"
 
@@ -34,15 +35,29 @@ class SingleScholarFragment : Fragment() {
         if(param1!!.pfNumber!!.subSequence(0,2) == "pf") {
             bind.primarySchool.text = "${param1!!.name!!.split(" ")[0]} is currently a student at ${param1!!.secondarySchool} after successfully completing her junior studies in ${param1!!.primarySchool}."
             bind.pMarks.text = "primary grade \n ${param1!!.primaryMeanGrade}"
-            bind.hGrade.text = "high school grade \n ${param1!!.primaryMeanGrade}"
+            bind.hGrade.text = "high school grade \n ${param1!!.meanGrade[param1!!.meanGrade.size -1]}"
+            var dev = param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)
+
+            if (dev < 0){
+                dev = (dev * -1)
+                bind.deviation.text =
+                    "Above Deviation \nBy: +$dev"
+            }
             bind.deviation.text =
-                "current deviation \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)}"
+                "Deviated By \npoints: $dev"
         }else{
             bind.primarySchool.text = "${param1!!.name!!.split(" ")[0]} is a former student at ${param1!!.secondarySchool} after successfully completing her junior studies in ${param1!!.primarySchool}."
             bind.pMarks.text = "primary grade \n ${param1!!.primaryMeanGrade}"
-            bind.hGrade.text = "high school grade \n ${param1!!.primaryMeanGrade}"
-           bind.deviation.text =
-            "Deviated By \npoints: ${param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)}"
+            bind.hGrade.text = "high school grade \n ${param1!!.meanGrade[param1!!.meanGrade.size -1]}"
+           var dev = param1!!.calculateDeviation(param1!!.meanAGP[(param1!!.meanAGP.size - 1)]!!)
+
+            if (dev < 0){
+                dev = (dev * -1)
+                bind.deviation.text =
+                    "Above Deviation \nBy: +$dev"
+            }
+            bind.deviation.text =
+                "Deviated By \npoints: $dev"
 
         }
         //binding the leadership roles
