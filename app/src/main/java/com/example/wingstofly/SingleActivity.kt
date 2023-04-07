@@ -1,6 +1,8 @@
 package com.example.wingstofly
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -14,23 +16,41 @@ import com.example.wingstofly.models.Upskill
 import com.example.wingstofly.repository.QuizRepository
 import com.example.wingstofly.viewmodel.QuizProviderFactory
 import com.example.wingstofly.viewmodel.QuizViewModel
+import com.google.firebase.database.*
 import com.skydoves.transformationlayout.TransformationAppCompatActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class SingleActivity : TransformationAppCompatActivity() {
     private lateinit var bind:ActivitySingleBinding
+    private lateinit var mAuth: DatabaseReference
     lateinit var questViewModel: QuizViewModel
-    lateinit var scholars: ArrayList<Scholar>
+    var scholars = ArrayList<Scholar>()
     private lateinit var contentManager: NetworkConnectivityObserver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(bind.root)
+        mAuth = FirebaseDatabase.getInstance().reference
         contentManager = NetworkConnectivityObserver(applicationContext)
         contentManager.observe().onEach {
             if (it == ConnectivityInterface.States.Connected){
+
+                //getting the scholars from the database
+                mAuth.child("scholars").addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (data in snapshot.children) {
+                            scholars.add(data.getValue(Scholar::class.java)!!)
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+
+                })
+
                 val intent = intent
                 val layout = intent.getIntExtra("layout", 0)
 
