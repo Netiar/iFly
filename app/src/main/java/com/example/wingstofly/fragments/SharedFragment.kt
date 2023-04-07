@@ -49,7 +49,7 @@ class SharedFragment : Fragment() {
                     "Hey, You are treading on a dangerous zone!!"
             } else {
                 var deviation =
-                    scholar.calculateDeviation(scholar.meanAGP[number]) * scholar.formGrades[number.toString()]!!.size
+                    scholar.calculateDeviation(scholar.meanAGP[number]) * scholar.formGrades[number]!!.size
                 (bind as FragmentSharedBinding).studentDeviation.text =
                     "$deviation marks required in each subject to beat the cut off."
             }
@@ -66,7 +66,7 @@ class SharedFragment : Fragment() {
             }
         }
         val adp = SubjectsRecAdapter()
-        adp.asyncList.submitList(scholar.formGrades[number.toString()])
+        adp.asyncList.submitList(scholar.formGrades[number])
 
         (bind as FragmentSharedBinding).subRecView.apply {
             adapter = adp
