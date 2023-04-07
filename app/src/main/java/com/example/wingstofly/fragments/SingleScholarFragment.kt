@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import com.example.wingstofly.databinding.FragmentSingleScholarBinding
 import com.example.wingstofly.models.Scholar
-import kotlinx.android.synthetic.main.fragment_shared.*
 
 private const val SCHOLAR = "param1"
 

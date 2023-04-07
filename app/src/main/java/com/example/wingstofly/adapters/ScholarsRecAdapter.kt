@@ -15,8 +15,6 @@ import com.example.wingstofly.SingleActivity
 import com.example.wingstofly.databinding.*
 import com.example.wingstofly.models.Scholar
 import com.skydoves.transformationlayout.TransformationCompat
-import kotlinx.android.synthetic.main.fragment_chat.view.*
-import kotlinx.android.synthetic.main.fragment_scholar.view.top_rec_view
 
 class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRecAdapter.MyHolder>() {
     inner class MyHolder(private val bind: ViewBinding, val parent: ViewGroup): RecyclerView.ViewHolder(bind.root) {
@@ -25,7 +23,15 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
 
         fun setData(scholar:Scholar){
           if (v.root.id == bind.root.id){
-              (bind as ScholarBinding).scholarStatus.text = scholar.secondarySchool
+              if(scholar.status == "Student"){
+                  (bind as ScholarBinding).scholarStatus.text = scholar.secondarySchool
+              }else{
+                  if (scholar.workPlaces.size == 0){
+                      (bind as ScholarBinding).scholarStatus.text = "${scholar.status}, at Not Mentioned"
+                  }else{
+                      (bind as ScholarBinding).scholarStatus.text = "${scholar.workPlaces[0].title} at ${scholar.workPlaces[0].department} "
+                  }
+              }
               bind.scholarName.text = scholar.name
               bind.status.text = scholar.status
 
@@ -67,7 +73,7 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
               bind.scholarName.startAnimation(AnimationUtils.loadAnimation(
                   context, R.anim.zoom_in
               ))
-              if (parent.id == FragmentChatBinding.inflate(LayoutInflater.from(context), parent, false).root.top_view.id){
+              if (parent.id == FragmentChatBinding.inflate(LayoutInflater.from(context), parent, false).topView.id){
                   bind.root.setOnClickListener{
                       val intent = Intent(context, SingleActivity::class.java)
                       intent.putExtra("layout", 3)
@@ -76,7 +82,7 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
                   }
 
               }
-              if (parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(context), parent, false).root.top_rec_view.id){
+              if (parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(context), parent, false).topRecView.id){
                   bind.root.setOnClickListener{
                       val intent = Intent(context, SingleActivity::class.java)
                       intent.putExtra("layout", 2)
@@ -106,9 +112,9 @@ class ScholarsRecAdapter(var context: Context): RecyclerView.Adapter<ScholarsRec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view: ViewBinding = if (parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.id){
             ScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        }else if(parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.top_rec_view.id){
+        }else if(parent.id == FragmentScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false).topRecView.id){
             ScholarSuggestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        }else if(parent.id == FragmentChatBinding.inflate(LayoutInflater.from(parent.context), parent, false).root.top_view.id){
+        }else if(parent.id == FragmentChatBinding.inflate(LayoutInflater.from(parent.context), parent, false).topView.id){
             ScholarSuggestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         }else{
             ScholarBinding.inflate(LayoutInflater.from(parent.context), parent, false)

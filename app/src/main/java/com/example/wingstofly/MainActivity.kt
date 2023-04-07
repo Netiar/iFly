@@ -1,8 +1,6 @@
 package com.example.wingstofly
 
-import android.content.Context
 import android.content.SharedPreferences
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -32,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     var jobs = ArrayList<Job>()
     var events = ArrayList<Event>()
     var schools = ArrayList<Upskill>()
+    var subjects = ArrayList<Subject>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,6 +104,19 @@ class MainActivity : AppCompatActivity() {
                    override fun onDataChange(snapshot: DataSnapshot) {
                        for (school in snapshot.children) {
                            schools.add(school.getValue(Upskill::class.java)!!)
+                       }
+                   }
+
+                   override fun onCancelled(error: DatabaseError) {
+                       Toast.makeText(this@MainActivity, error.message, Toast.LENGTH_LONG).show()
+                   }
+
+               })
+               //getting subjects from the database
+               mAuth.child("subjects").addValueEventListener(object : ValueEventListener {
+                   override fun onDataChange(snapshot: DataSnapshot) {
+                       for (school in snapshot.children) {
+                           subjects.add(school.getValue(Subject::class.java)!!)
                        }
                    }
 

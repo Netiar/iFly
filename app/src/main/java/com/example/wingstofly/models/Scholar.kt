@@ -1,6 +1,5 @@
 package com.example.wingstofly.models
 
-import com.example.wingstofly.database.Subjects
 import com.example.wingstofly.utils.Constants
 
 class Scholar : java.io.Serializable {

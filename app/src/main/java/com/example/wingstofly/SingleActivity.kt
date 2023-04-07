@@ -1,14 +1,10 @@
 package com.example.wingstofly
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.wingstofly.api.ConnectivityInterface
-import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivitySingleBinding
 import com.example.wingstofly.fragments.*
 import com.example.wingstofly.models.NetworkConnectivityObserver

@@ -21,7 +21,6 @@ import com.example.wingstofly.models.Scholar
 import com.example.wingstofly.utils.Constants
 import com.example.wingstofly.utils.Validator
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_sign.*
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
@@ -130,7 +129,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if (p0 == bind.submit){
-            if (!Validator().validateInputText(scholar_id)){
+            if (!Validator().validateInputText(bind.scholarId)){
                 return
             }
             pfNumber = bind.firstName.editText!!.text.trim().toString()

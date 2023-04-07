@@ -1,4 +1,4 @@
-package com.example.wingstofly.database
+package com.example.wingstofly.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

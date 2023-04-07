@@ -19,8 +19,7 @@ import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.adapters.JobDetailsRecView
 import com.example.wingstofly.adapters.JobsRecView
-import com.example.wingstofly.database.DataScholarManager
-import com.example.wingstofly.database.SchoolAdapter
+import com.example.wingstofly.adapters.SchoolAdapter
 import com.example.wingstofly.databinding.FragmentEditInfoBinding
 import com.example.wingstofly.models.*
 import com.example.wingstofly.utils.Constants

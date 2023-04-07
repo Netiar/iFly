@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wingstofly.database.DataScholarManager
 import com.example.wingstofly.databinding.ActivityUpskillRecBinding
 import com.example.wingstofly.models.Upskill
 import com.skydoves.transformationlayout.TransformationCompat
@@ -23,13 +22,7 @@ class UpskillRecHolder(private val context: Context): RecyclerView.Adapter<Upski
             bind.activityPart.text = upskill.type
 
             bind.root.setOnClickListener{
-                val bundle = Bundle()
-                bundle.apply {
-                    val scholar = DataScholarManager().scholars[0]
-                    putSerializable("school", upskill)
-                    putSerializable("scholar", scholar)
-                    putInt("layoutNumber", 1)
-                }
+
                 val uri = Uri.parse(upskill.uri)
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 TransformationCompat.startActivity(bind.transformationLayout, intent)
