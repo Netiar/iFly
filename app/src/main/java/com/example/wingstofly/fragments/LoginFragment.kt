@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.wingstofly.MainActivity
 import com.example.wingstofly.R
 import com.example.wingstofly.databinding.FragmentLoginBinding
 import com.example.wingstofly.models.Scholar
@@ -64,7 +65,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         startAnimations()
 
-        scholars = getScholars()
+        scholars = (activity as MainActivity).scholars
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         prefEditor = pref.edit()
         bind.submit.setOnClickListener(this::onClick)
